@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище FireplaceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ImageTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Inage" />
+          </Key>
+          <Property Name="PersonalNumber_Inage" Type="int" Nullable="false" />
+          <Property Name="BinaryCode_Image" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PasspordDataUserTable">
+          <Key>
+            <PropertyRef Name="PassportNumber_PasspordDataUser" />
+            <PropertyRef Name="PassportSeries_PasspordDataUser" />
+          </Key>
+          <Property Name="PassportNumber_PasspordDataUser" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="PassportSeries_PasspordDataUser" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Surname_PasspordDataUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name_PasspordDataUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middlename_PasspordDataUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassportHasBeenIssued_PasspordDataUser" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateIssue_PasspordDataUser" Type="date" Nullable="false" />
+          <Property Name="UnitCode_PasspordDataUser" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="pnPaul_PasspordDataUser" Type="int" Nullable="false" />
+          <Property Name="DateBirth_PasspordDataUser" Type="date" Nullable="false" />
+          <Property Name="PlaceBirth_PasspordDataUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaulTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Paul" />
+          </Key>
+          <Property Name="PersonalNumber_Paul" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title_Paul" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleUserTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Role" />
+          </Key>
+          <Property Name="PersonalNumber_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_User" />
+          </Key>
+          <Property Name="PersonalNumber_User" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="pnPassportNumber_User" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="pnPassportSeries_User" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DateRegistration_User" Type="date" Nullable="false" />
+          <Property Name="Email_User" Type="nvarchar" MaxLength="222" Nullable="false" />
+          <Property Name="Password_User" Type="nvarchar" MaxLength="130" Nullable="false" />
+          <Property Name="pnImage_User" Type="int" />
+          <Property Name="pnRole_User" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PasspordDataUserTable_PaulTable">
+          <End Role="PaulTable" Type="Self.PaulTable" Multiplicity="1" />
+          <End Role="PasspordDataUserTable" Type="Self.PasspordDataUserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaulTable">
+              <PropertyRef Name="PersonalNumber_Paul" />
+            </Principal>
+            <Dependent Role="PasspordDataUserTable">
+              <PropertyRef Name="pnPaul_PasspordDataUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTable_ImageTable">
+          <End Role="ImageTable" Type="Self.ImageTable" Multiplicity="0..1" />
+          <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageTable">
+              <PropertyRef Name="PersonalNumber_Inage" />
+            </Principal>
+            <Dependent Role="UserTable">
+              <PropertyRef Name="pnImage_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTable_PasspordDataUserTable1">
+          <End Role="PasspordDataUserTable" Type="Self.PasspordDataUserTable" Multiplicity="1" />
+          <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PasspordDataUserTable">
+              <PropertyRef Name="PassportNumber_PasspordDataUser" />
+              <PropertyRef Name="PassportSeries_PasspordDataUser" />
+            </Principal>
+            <Dependent Role="UserTable">
+              <PropertyRef Name="pnPassportNumber_User" />
+              <PropertyRef Name="pnPassportSeries_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTable_RoleUserTable">
+          <End Role="RoleUserTable" Type="Self.RoleUserTable" Multiplicity="1" />
+          <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleUserTable">
+              <PropertyRef Name="PersonalNumber_Role" />
+            </Principal>
+            <Dependent Role="UserTable">
+              <PropertyRef Name="pnRole_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище FireplaceModelContainer">
+          <EntitySet Name="ImageTable" EntityType="Self.ImageTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasspordDataUserTable" EntityType="Self.PasspordDataUserTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaulTable" EntityType="Self.PaulTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleUserTable" EntityType="Self.RoleUserTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PasspordDataUserTable_PaulTable" Association="Self.FK_PasspordDataUserTable_PaulTable">
+            <End Role="PaulTable" EntitySet="PaulTable" />
+            <End Role="PasspordDataUserTable" EntitySet="PasspordDataUserTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTable_ImageTable" Association="Self.FK_UserTable_ImageTable">
+            <End Role="ImageTable" EntitySet="ImageTable" />
+            <End Role="UserTable" EntitySet="UserTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTable_PasspordDataUserTable1" Association="Self.FK_UserTable_PasspordDataUserTable1">
+            <End Role="PasspordDataUserTable" EntitySet="PasspordDataUserTable" />
+            <End Role="UserTable" EntitySet="UserTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTable_RoleUserTable" Association="Self.FK_UserTable_RoleUserTable">
+            <End Role="RoleUserTable" EntitySet="RoleUserTable" />
+            <End Role="UserTable" EntitySet="UserTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FireplaceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FireplaceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ImageTable" EntityType="FireplaceModel.ImageTable" />
+          <EntitySet Name="PasspordDataUserTable" EntityType="FireplaceModel.PasspordDataUserTable" />
+          <EntitySet Name="PaulTable" EntityType="FireplaceModel.PaulTable" />
+          <EntitySet Name="RoleUserTable" EntityType="FireplaceModel.RoleUserTable" />
+          <EntitySet Name="sysdiagrams" EntityType="FireplaceModel.sysdiagrams" />
+          <EntitySet Name="UserTable" EntityType="FireplaceModel.UserTable" />
+          <AssociationSet Name="FK_UserTable_ImageTable" Association="FireplaceModel.FK_UserTable_ImageTable">
+            <End Role="ImageTable" EntitySet="ImageTable" />
+            <End Role="UserTable" EntitySet="UserTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PasspordDataUserTable_PaulTable" Association="FireplaceModel.FK_PasspordDataUserTable_PaulTable">
+            <End Role="PaulTable" EntitySet="PaulTable" />
+            <End Role="PasspordDataUserTable" EntitySet="PasspordDataUserTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTable_PasspordDataUserTable1" Association="FireplaceModel.FK_UserTable_PasspordDataUserTable1">
+            <End Role="PasspordDataUserTable" EntitySet="PasspordDataUserTable" />
+            <End Role="UserTable" EntitySet="UserTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTable_RoleUserTable" Association="FireplaceModel.FK_UserTable_RoleUserTable">
+            <End Role="RoleUserTable" EntitySet="RoleUserTable" />
+            <End Role="UserTable" EntitySet="UserTable" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ImageTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Inage" />
+          </Key>
+          <Property Name="PersonalNumber_Inage" Type="Int32" Nullable="false" />
+          <Property Name="BinaryCode_Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="UserTable" Relationship="FireplaceModel.FK_UserTable_ImageTable" FromRole="ImageTable" ToRole="UserTable" />
+        </EntityType>
+        <EntityType Name="PasspordDataUserTable">
+          <Key>
+            <PropertyRef Name="PassportNumber_PasspordDataUser" />
+            <PropertyRef Name="PassportSeries_PasspordDataUser" />
+          </Key>
+          <Property Name="PassportNumber_PasspordDataUser" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PassportSeries_PasspordDataUser" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Surname_PasspordDataUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_PasspordDataUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Middlename_PasspordDataUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassportHasBeenIssued_PasspordDataUser" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateIssue_PasspordDataUser" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UnitCode_PasspordDataUser" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="pnPaul_PasspordDataUser" Type="Int32" Nullable="false" />
+          <Property Name="DateBirth_PasspordDataUser" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PlaceBirth_PasspordDataUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PaulTable" Relationship="FireplaceModel.FK_PasspordDataUserTable_PaulTable" FromRole="PasspordDataUserTable" ToRole="PaulTable" />
+          <NavigationProperty Name="UserTable" Relationship="FireplaceModel.FK_UserTable_PasspordDataUserTable1" FromRole="PasspordDataUserTable" ToRole="UserTable" />
+        </EntityType>
+        <EntityType Name="PaulTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Paul" />
+          </Key>
+          <Property Name="PersonalNumber_Paul" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title_Paul" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PasspordDataUserTable" Relationship="FireplaceModel.FK_PasspordDataUserTable_PaulTable" FromRole="PaulTable" ToRole="PasspordDataUserTable" />
+        </EntityType>
+        <EntityType Name="RoleUserTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Role" />
+          </Key>
+          <Property Name="PersonalNumber_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserTable" Relationship="FireplaceModel.FK_UserTable_RoleUserTable" FromRole="RoleUserTable" ToRole="UserTable" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_User" />
+          </Key>
+          <Property Name="PersonalNumber_User" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="pnPassportNumber_User" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="pnPassportSeries_User" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="DateRegistration_User" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Email_User" Type="String" Nullable="false" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="Password_User" Type="String" Nullable="false" MaxLength="130" FixedLength="false" Unicode="true" />
+          <Property Name="pnImage_User" Type="Int32" />
+          <Property Name="pnRole_User" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ImageTable" Relationship="FireplaceModel.FK_UserTable_ImageTable" FromRole="UserTable" ToRole="ImageTable" />
+          <NavigationProperty Name="PasspordDataUserTable" Relationship="FireplaceModel.FK_UserTable_PasspordDataUserTable1" FromRole="UserTable" ToRole="PasspordDataUserTable" />
+          <NavigationProperty Name="RoleUserTable" Relationship="FireplaceModel.FK_UserTable_RoleUserTable" FromRole="UserTable" ToRole="RoleUserTable" />
+        </EntityType>
+        <Association Name="FK_UserTable_ImageTable">
+          <End Type="FireplaceModel.ImageTable" Role="ImageTable" Multiplicity="0..1" />
+          <End Type="FireplaceModel.UserTable" Role="UserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageTable">
+              <PropertyRef Name="PersonalNumber_Inage" />
+            </Principal>
+            <Dependent Role="UserTable">
+              <PropertyRef Name="pnImage_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PasspordDataUserTable_PaulTable">
+          <End Type="FireplaceModel.PaulTable" Role="PaulTable" Multiplicity="1" />
+          <End Type="FireplaceModel.PasspordDataUserTable" Role="PasspordDataUserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaulTable">
+              <PropertyRef Name="PersonalNumber_Paul" />
+            </Principal>
+            <Dependent Role="PasspordDataUserTable">
+              <PropertyRef Name="pnPaul_PasspordDataUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTable_PasspordDataUserTable1">
+          <End Type="FireplaceModel.PasspordDataUserTable" Role="PasspordDataUserTable" Multiplicity="1" />
+          <End Type="FireplaceModel.UserTable" Role="UserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PasspordDataUserTable">
+              <PropertyRef Name="PassportNumber_PasspordDataUser" />
+              <PropertyRef Name="PassportSeries_PasspordDataUser" />
+            </Principal>
+            <Dependent Role="UserTable">
+              <PropertyRef Name="pnPassportNumber_User" />
+              <PropertyRef Name="pnPassportSeries_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTable_RoleUserTable">
+          <End Type="FireplaceModel.RoleUserTable" Role="RoleUserTable" Multiplicity="1" />
+          <End Type="FireplaceModel.UserTable" Role="UserTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleUserTable">
+              <PropertyRef Name="PersonalNumber_Role" />
+            </Principal>
+            <Dependent Role="UserTable">
+              <PropertyRef Name="pnRole_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище FireplaceModelContainer" CdmEntityContainer="FireplaceEntities">
+          <EntitySetMapping Name="ImageTable">
+            <EntityTypeMapping TypeName="FireplaceModel.ImageTable">
+              <MappingFragment StoreEntitySet="ImageTable">
+                <ScalarProperty Name="BinaryCode_Image" ColumnName="BinaryCode_Image" />
+                <ScalarProperty Name="PersonalNumber_Inage" ColumnName="PersonalNumber_Inage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasspordDataUserTable">
+            <EntityTypeMapping TypeName="FireplaceModel.PasspordDataUserTable">
+              <MappingFragment StoreEntitySet="PasspordDataUserTable">
+                <ScalarProperty Name="PlaceBirth_PasspordDataUser" ColumnName="PlaceBirth_PasspordDataUser" />
+                <ScalarProperty Name="DateBirth_PasspordDataUser" ColumnName="DateBirth_PasspordDataUser" />
+                <ScalarProperty Name="pnPaul_PasspordDataUser" ColumnName="pnPaul_PasspordDataUser" />
+                <ScalarProperty Name="UnitCode_PasspordDataUser" ColumnName="UnitCode_PasspordDataUser" />
+                <ScalarProperty Name="DateIssue_PasspordDataUser" ColumnName="DateIssue_PasspordDataUser" />
+                <ScalarProperty Name="PassportHasBeenIssued_PasspordDataUser" ColumnName="PassportHasBeenIssued_PasspordDataUser" />
+                <ScalarProperty Name="Middlename_PasspordDataUser" ColumnName="Middlename_PasspordDataUser" />
+                <ScalarProperty Name="Name_PasspordDataUser" ColumnName="Name_PasspordDataUser" />
+                <ScalarProperty Name="Surname_PasspordDataUser" ColumnName="Surname_PasspordDataUser" />
+                <ScalarProperty Name="PassportSeries_PasspordDataUser" ColumnName="PassportSeries_PasspordDataUser" />
+                <ScalarProperty Name="PassportNumber_PasspordDataUser" ColumnName="PassportNumber_PasspordDataUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaulTable">
+            <EntityTypeMapping TypeName="FireplaceModel.PaulTable">
+              <MappingFragment StoreEntitySet="PaulTable">
+                <ScalarProperty Name="Title_Paul" ColumnName="Title_Paul" />
+                <ScalarProperty Name="PersonalNumber_Paul" ColumnName="PersonalNumber_Paul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleUserTable">
+            <EntityTypeMapping TypeName="FireplaceModel.RoleUserTable">
+              <MappingFragment StoreEntitySet="RoleUserTable">
+                <ScalarProperty Name="Name_Role" ColumnName="Name_Role" />
+                <ScalarProperty Name="PersonalNumber_Role" ColumnName="PersonalNumber_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FireplaceModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTable">
+            <EntityTypeMapping TypeName="FireplaceModel.UserTable">
+              <MappingFragment StoreEntitySet="UserTable">
+                <ScalarProperty Name="pnRole_User" ColumnName="pnRole_User" />
+                <ScalarProperty Name="pnImage_User" ColumnName="pnImage_User" />
+                <ScalarProperty Name="Password_User" ColumnName="Password_User" />
+                <ScalarProperty Name="Email_User" ColumnName="Email_User" />
+                <ScalarProperty Name="DateRegistration_User" ColumnName="DateRegistration_User" />
+                <ScalarProperty Name="pnPassportSeries_User" ColumnName="pnPassportSeries_User" />
+                <ScalarProperty Name="pnPassportNumber_User" ColumnName="pnPassportNumber_User" />
+                <ScalarProperty Name="PersonalNumber_User" ColumnName="PersonalNumber_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

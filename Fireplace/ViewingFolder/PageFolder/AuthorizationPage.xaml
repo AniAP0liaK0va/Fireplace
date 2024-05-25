@@ -1,0 +1,98 @@
+﻿<Page 
+    x:Class="Fireplace.ViewingFolder.PageFolder.AuthorizationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    Style="{StaticResource AuthorizationRegistrationPageStyle}"
+    Title="Авторизация">
+    <Grid>
+        <StackPanel
+            Margin="0 0 0 0"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <StackPanel 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0 10 0 0"
+                Orientation="Vertical">
+                <TextBlock
+                    Margin="0"
+                    FontSize="40"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontFamily="Consolas"
+                    Foreground="#F5F5F5"
+                    Text="КАМИН"/>
+                <Image
+                    Margin="0"
+                    Height="50"
+                    Width="50"
+                    Source="\AppDataFolder\ContentFolder\ImageFolder\MainImage.png"/>
+                <TextBlock
+                    Margin="0"
+                    FontSize="30"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontFamily="Consolas"
+                    Foreground="#F5F5F5"
+                    Text="Авторизация"/>
+            </StackPanel>
+            <StackPanel 
+                Margin="0 10 0 10"
+                Orientation="Vertical">
+                <TextBlock
+                    Style="{StaticResource OverTextBoxTextBlockStyle}"
+                    Text="Логин"/>
+                <TextBox 
+                    x:Name="LoginUserTextBox"
+                    Width="400"/>
+            </StackPanel>
+            <StackPanel 
+                Margin="0 10 0 10"
+                Orientation="Vertical">
+                <TextBlock
+                    Style="{StaticResource OverTextBoxTextBlockStyle}"
+                    Text="Пароль"/>
+                <Grid>
+                    <PasswordBox 
+                        KeyDown="PasswordUserPasswordBox_KeyDown"
+                        x:Name="PasswordUserPasswordBox"
+                        Padding="15 0 50 0"
+                        Width="400"/>
+                    <TextBox 
+                        Visibility="Collapsed"
+                        x:Name="PasswordTextBox"
+                        Width="400"/>
+                    <Button
+                        ToolTip="Посмотреть пароль"
+                        x:Name="WatchPasswordButton"
+                        HorizontalAlignment="Right"
+                        Margin="0 0 5 0"
+                        Style="{DynamicResource IconButtonStyle}"
+                        PreviewMouseUp ="WatchPasswordButton_PreviewMouseUp"
+                        PreviewMouseDown ="WatchPasswordButton_PreviewMouseDown">
+                        <TextBlock
+                            FontFamily="\AppDataFolder\ContentFolder\FontFolder\#Segoe MDL2 Assets"
+                            Text="&#xE890;"/>
+                    </Button>
+                </Grid>
+                <Button
+                    x:Name="PasswordResetButton"
+                    Click="PasswordResetButton_Click"
+                    FontSize="15"
+                    ToolTip="Нажмите, чтоб востановить пароль"
+                    Margin="0 0 0 0"
+                    Content="Забыли пароль?"
+                    Style="{DynamicResource TransparentTextButtonStyle}"/>
+            </StackPanel>
+            <Button
+                Click="Event_EnterUser"
+                ToolTip="Нажмите, чтоб авторизоваться в АИС"
+                Margin="0 10 0 0"
+                Content="Войти"
+                Style="{DynamicResource TransparentTextButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>

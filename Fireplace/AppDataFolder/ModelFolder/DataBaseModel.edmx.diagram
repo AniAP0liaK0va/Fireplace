@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2878221a9c584ad2bb4f7fdf8f3c25b1" Name="Diagram1">
+        <EntityTypeShape EntityType="FireplaceModel.ImageTable" Width="3.875" PointX="12.625" PointY="5.375" />
+        <EntityTypeShape EntityType="FireplaceModel.PasspordDataUserTable" Width="3.875" PointX="1.25" PointY="0.625" />
+        <EntityTypeShape EntityType="FireplaceModel.PaulTable" Width="3.875" PointX="0.5" PointY="5.5" />
+        <EntityTypeShape EntityType="FireplaceModel.RoleUserTable" Width="3.875" PointX="6.75" PointY="6" />
+        <EntityTypeShape EntityType="FireplaceModel.sysdiagrams" Width="3.875" PointX="13.75" PointY="0.5" />
+        <EntityTypeShape EntityType="FireplaceModel.UserTable" Width="3.875" PointX="7.75" PointY="0.75" />
+        <AssociationConnector Association="FireplaceModel.FK_UserTable_ImageTable" />
+        <AssociationConnector Association="FireplaceModel.FK_PasspordDataUserTable_PaulTable" />
+        <AssociationConnector Association="FireplaceModel.FK_UserTable_PasspordDataUserTable1" />
+        <AssociationConnector Association="FireplaceModel.FK_UserTable_RoleUserTable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
