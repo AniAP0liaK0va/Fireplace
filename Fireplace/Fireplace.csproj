@@ -116,6 +116,9 @@
     <Compile Include="ViewingFolder\PageFolder\ManagementPageFolder\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\NewPasswordPage.xaml.cs">
+      <DependentUpon>NewPasswordPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\PasswordResetPage.xaml.cs">
       <DependentUpon>PasswordResetPage.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppDataFolder\StyleFolder\ScrollViewerDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppDataFolder\StyleFolder\TextBlockDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\ManagementPageFolder\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\NewPasswordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

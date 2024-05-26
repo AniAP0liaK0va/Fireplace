@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\TextBoxDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\ToolTipDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\PasswordBoxDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDataFolder\StyleFolder\ScrollViewerDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

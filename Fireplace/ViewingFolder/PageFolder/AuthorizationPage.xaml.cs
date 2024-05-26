@@ -101,7 +101,8 @@ namespace Fireplace.ViewingFolder.PageFolder
         {
             FrameNavigationClass.mainFarme_FNC.Navigate(new PasswordResetPage());
         }
-
+        #endregion
+        #region _KeyDown
         private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) // Если пользователь, находясь в PasswordBox нажал на Enter
         {
             try
