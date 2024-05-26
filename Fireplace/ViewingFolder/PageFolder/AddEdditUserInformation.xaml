@@ -18,22 +18,69 @@
                     Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Margin="0 0 0 10">
+                    Margin="0 0 0 5">
                     <Image 
                         Margin="0 0 0 5"
                         Height="240"
                         Width="240"
                         Stretch="UniformToFill"
                         Opacity="1"
-                        x:Name="UserImage" 
+                        x:Name="UserPhotoImage" 
                         Source="{Binding ImageTable.BinaryCode_Image}"/>
-                    <Button
-                        Click="OpenNewImageButton_Click"
-                        x:Name="OpenNewImageButton"
-                        Style="{DynamicResource MenuButton}"
-                        Width="220"
-                        Content="Открыть"
-                        Margin="0 5 0 0"/>
+                    <StackPanel
+                        Margin="0 5 0 0"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                        <Button
+                            Click="OpenNewImageButton_Click"
+                            x:Name="OpenNewImageButton"
+                            Style="{DynamicResource MenuButton}"
+                            Width="220"
+                            Content="Открыть"
+                            Margin="0 0 5 0"/>
+                        <Button
+                            Click="DeliteImageButton_Click"
+                            x:Name="DeliteImageButton"
+                            Style="{DynamicResource MenuButton}"
+                            Width="220"
+                            Content="Удалить фото"
+                            Margin="5 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel
+                     Orientation="Vertical"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="0 5 0 5">
+                    <TextBlock 
+                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                         Margin="10 0 2 0"
+                         Text="Серия паспорта:"/>
+                    <TextBox
+                         MaxLength="4"
+                         PreviewTextInput="NumberValidationTextBox"
+                         x:Name="SeriesPasspordUserTextBox"
+                         Width="660"
+                         Margin="0 2 0 0"
+                         Text="{Binding PasspordDataUserTable.PassportSeries_PasspordDataUser}"/>
+                </StackPanel>
+                <StackPanel
+                     Orientation="Vertical"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="0 5 0 5">
+                    <TextBlock 
+                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                         Margin="10 0 2 0"
+                         Text="Номер паспорта:"/>
+                    <TextBox
+                         PreviewTextInput="NumberValidationTextBox"
+                         MaxLength="6"
+                         x:Name="NumberPasspordUserTextBox"
+                         Width="660"
+                         Margin="0 2 0 0"
+                         Text="{Binding PasspordDataUserTable.PassportNumber_PasspordDataUser}"/>
                 </StackPanel>
                 <StackPanel
                     Orientation="Vertical"
@@ -45,6 +92,8 @@
                         Margin="10 0 2 0"
                         Text="Фамилия:"/>
                     <TextBox
+                        MaxLength="50"
+                        x:Name="SurnameUserTextBox"
                         Width="660"
                         Margin="0 2 0 0"
                         Text="{Binding PasspordDataUserTable.Surname_PasspordDataUser}"/>
@@ -59,6 +108,8 @@
                         Margin="10 0 2 0"
                         Text="Имя:"/>
                     <TextBox
+                        MaxLength="50"
+                        x:Name="NameUserTextBox"
                         Width="660"
                         Margin="0 2 0 0"
                         Text="{Binding PasspordDataUserTable.Name_PasspordDataUser}"/>
@@ -73,6 +124,8 @@
                         Margin="10 0 2 0"
                         Text="Отчество:"/>
                     <TextBox
+                        MaxLength="50"
+                        x:Name="MiddlenameUserTextBox"
                         Width="660"
                         Margin="0 2 0 0"
                         Text="{Binding PasspordDataUserTable.Middlename_PasspordDataUser}"/>
@@ -87,6 +140,8 @@
                         Margin="10 0 2 0"
                         Text="Паспорт выдан:"/>
                     <TextBox
+                        MaxLength="100"
+                        x:Name="PassportHasBeenIssuedTextBox"
                         Width="660"
                         Margin="0 2 0 0"
                         Text="{Binding PasspordDataUserTable.PassportHasBeenIssued_PasspordDataUser}"/>
@@ -101,7 +156,10 @@
                         Margin="10 0 2 0"
                         Text="Дата выдачи паспорта:"/>
                     <TextBox
+                        MaxLength="10"
+                        x:Name="DateIssueTextBox"
                         Width="660"
+                        PreviewTextInput="DateValidationTextBox"
                         Margin="0 2 0 0"
                         Text="{Binding PasspordDataUserTable.DateIssue_PasspordDataUser, StringFormat='{}{0:dd⁙MM⁙yyyy}'}"/>
                 </StackPanel>
@@ -115,6 +173,9 @@
                         Margin="10 0 2 0"
                         Text="Код подразделения:"/>
                     <TextBox
+                        MaxLength="7"
+                        x:Name="UnitCodeTextBox"
+                        PreviewTextInput = "DivisionCodeValidationTextBox"
                         Width="660"
                         Margin="0 2 0 0"
                         Text="{Binding PasspordDataUserTable.UnitCode_PasspordDataUser}"/>
@@ -129,6 +190,9 @@
                         Margin="10 0 2 0"
                         Text="Пол по паспорту:"/>
                     <ComboBox
+                        DisplayMemberPath="Name_Role"
+                        SelectedValuePath="PersonalNumber_Role"
+                        x:Name="PaulComboBox"
                         Height="50"
                         Width="660"
                         Margin="0 2 0 0"
@@ -144,7 +208,10 @@
                         Margin="10 0 2 0"
                         Text="Дата рождения:"/>
                     <TextBox
+                        MaxLength="10"
+                        x:Name="DateBirthTextBox"
                         Width="660"
+                        PreviewTextInput="DateValidationTextBox"
                         Margin="0 2 0 0"
                         Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd⁙MM⁙yyyy}'}"/>
                 </StackPanel>
@@ -158,6 +225,8 @@
                          Margin="10 0 2 0"
                          Text="Место рождения:"/>
                     <TextBox
+                        MaxLength="50"
+                         x:Name="PlaceBirthTextBox"
                          Width="660"
                          Margin="0 2 0 0"
                          Text="{Binding PasspordDataUserTable.PlaceBirth_PasspordDataUser}"/>
@@ -172,6 +241,8 @@
                          Margin="10 0 2 0"
                          Text="Email пользователя:"/>
                     <TextBox
+                         MaxLength="222"
+                         x:Name="EmailTextBox"
                          Width="660"
                          Margin="0 2 0 0"
                          Text="{Binding Email_User}"/>
@@ -186,6 +257,7 @@
                         Margin="10 0 2 0"
                         Text="Придумайте пароль:"/>
                     <TextBox
+                        x:Name="PasswordTextBox"
                         Width="660"
                         Margin="0 2 0 0"/>
                 </StackPanel>
@@ -199,6 +271,7 @@
                         Margin="10 0 2 0"
                         Text="Пользовательский доступ:"/>
                     <ComboBox
+                        x:Name="RoleComboBox"
                         Height="50"
                         Width="660"
                         Margin="0 2 0 0"
