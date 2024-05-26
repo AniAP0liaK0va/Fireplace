@@ -96,23 +96,30 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
                     <Button
+                        Width="210"
                         x:Name="AddUserButton"
+                        Click="AddUserButton_Click"
                         Style="{DynamicResource MenuButton}"
-                        Content="Добавить"
                         Margin="0 0 10 0"
-                        ToolTip="Добавить нового пользователя"/>
+                        ToolTip="Добавить нового пользователя">
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            TextAlignment="Center"
+                            Text="Добавить нового пользователя"
+                            TextWrapping="Wrap"/>
+                    </Button>
                     <Button
-                        x:Name="InformationUserButton"
-                        Style="{DynamicResource MenuButton}"
-                        Content="Информация"
-                        Margin="10 0 10 0"
-                        ToolTip="Посмотреть информацию о пользователе"/>
-                    <Button
+                        Width="210"
                         x:Name="DeliteUserButton"
                         Style="{DynamicResource MenuButton}"
-                        Content="Удалить"
                         Margin="10 0 0 0"
-                        ToolTip="Удалить пользователя"/>
+                        ToolTip="Удалить выбранного пользователя">
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            TextAlignment="Center"
+                            Text="Удалить выбранного пользователя"
+                            TextWrapping="Wrap"/>
+                    </Button>
                 </StackPanel>
                 <StackPanel
                     Margin="10 0 10 0"

@@ -13,7 +13,7 @@
                 Orientation="Vertical"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Margin="20 10">
+                Margin="20 10 20 120">
                 <StackPanel
                     Orientation="Vertical"
                     VerticalAlignment="Center"
@@ -28,6 +28,7 @@
                         x:Name="UserImage" 
                         Source="{Binding ImageTable.BinaryCode_Image}"/>
                     <Button
+                        Click="OpenNewImageButton_Click"
                         x:Name="OpenNewImageButton"
                         Style="{DynamicResource MenuButton}"
                         Width="220"
@@ -38,7 +39,7 @@
                     Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="0 0 0 10">
+                    Margin="0 5 0 5">
                     <TextBlock 
                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
                         Margin="10 0 2 0"
@@ -52,7 +53,7 @@
                     Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="0 0 0 10">
+                    Margin="0 5 0 5">
                     <TextBlock 
                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
                         Margin="10 0 2 0"
@@ -66,7 +67,7 @@
                     Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="0 0 0 10">
+                    Margin="0 5 0 5">
                     <TextBlock 
                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
                         Margin="10 0 2 0"
@@ -80,7 +81,7 @@
                     Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Margin="0 0 0 10">
+                    Margin="0 5 0 5">
                     <TextBlock 
                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
                         Margin="10 0 2 0"
@@ -88,8 +89,128 @@
                     <TextBox
                         Width="660"
                         Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.Middlename_PasspordDataUser}"/>
+                        Text="{Binding PasspordDataUserTable.PassportHasBeenIssued_PasspordDataUser}"/>
                 </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 5 0 5">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Дата выдачи паспорта:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.DateIssue_PasspordDataUser, StringFormat='{}{0:dd⁙MM⁙yyyy}'}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 5 0 5">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Код подразделения:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.UnitCode_PasspordDataUser}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 5 0 5">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Пол по паспорту:"/>
+                    <ComboBox
+                        Height="50"
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.pnPaul_PasspordDataUser}"/>
+                </StackPanel>
+                <StackPanel
+                     Orientation="Vertical"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="0 5 0 5">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Дата рождения:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd⁙MM⁙yyyy}'}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 5 0 5">
+                    <TextBlock 
+                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                         Margin="10 0 2 0"
+                         Text="Место рождения:"/>
+                    <TextBox
+                         Width="660"
+                         Margin="0 2 0 0"
+                         Text="{Binding PasspordDataUserTable.PlaceBirth_PasspordDataUser}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 5 0 5">
+                    <TextBlock 
+                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                         Margin="10 0 2 0"
+                         Text="Email пользователя:"/>
+                    <TextBox
+                         Width="660"
+                         Margin="0 2 0 0"
+                         Text="{Binding Email_User}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 5 0 5">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Придумайте пароль:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 5 0 20">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Пользовательский доступ:"/>
+                    <ComboBox
+                        Height="50"
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.pnPaul_PasspordDataUser}"/>
+                </StackPanel>
+                <Button
+                    Margin="0 20 0 0"
+                    Style="{DynamicResource MenuButton}"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Width="220"
+                    x:Name="AddEditUserDataButton"
+                    Click="AddEditUserDataButton_Click"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

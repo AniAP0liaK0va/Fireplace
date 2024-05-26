@@ -41,6 +41,10 @@ namespace Fireplace.ViewingFolder.PageFolder
         }
         #endregion
         #region _Click
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new AddEdditUserInformationPage(null));
+        }
         private void ClearSearchButton_Click(object sender = null, RoutedEventArgs e = null)
         {
             SearchUserTextBox.Clear();
