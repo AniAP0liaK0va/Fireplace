@@ -1,7 +1,9 @@
 ﻿using Fireplace.AppDataFolder.ClassFolder;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using static Fireplace.AppDataFolder.ClassFolder.EmailClass;
 
 namespace Fireplace.ViewingFolder.PageFolder
 {
@@ -17,20 +19,26 @@ namespace Fireplace.ViewingFolder.PageFolder
             FrameNavigationClass.mainFarme_FNC.Navigate(new AuthorizationPage());
         }
         #endregion
-
-        private void EnterEmailCodButton_Click(object sender, RoutedEventArgs e)
+        #region Event_
+        private void Event_SendingCode(object sender, RoutedEventArgs e)
         {
-            try
+            string emailUser = EmailUserTextBox.Text;
+            string personalNumberUser = PersonalNumberUserTextBox.Text;
+
+            if (AppConnectClass.connectDataBase_ACC.UserTable.FirstOrDefault(dataUser =>
+                            dataUser.Email_User == emailUser && dataUser.PersonalNumber_User == personalNumberUser) != null)
             {
-                // Создание экземпляра и вызов метода отправки email
-                EmailClass.EnterEmail_EC emailSender = new EmailClass.EnterEmail_EC();
-                emailSender.SendEmail();
-                MessageBox.Show("Email sent successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                EnterRandomeCodeEmail_EC enterRandomeCodeEmailUser = new EnterRandomeCodeEmail_EC();
+                enterRandomeCodeEmailUser.SendPasswordResetEmail(emailUser);
+
+                MessageBoxClass.GoodMessageBox_MBC(textMessage: enterRandomeCodeEmailUser.ressetCode_ERCE);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Failed to send email. Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxClass.FailureMessageBox_MBC(textMessage: "Извините, но данного пользователя не найдено! Попробуйте обратиться к администратору");
             }
         }
+
+        #endregion
     }
 }

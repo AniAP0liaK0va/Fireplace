@@ -26,6 +26,7 @@ namespace Fireplace.ViewingFolder.WindowFolder
 
         private void ControlPanelGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if
+
+        }
     }
 }

@@ -76,6 +76,7 @@
     <Compile Include="AppDataFolder\ClassFolder\FrameNavigationClass.cs" />
     <Compile Include="AppDataFolder\ClassFolder\HashClass.cs" />
     <Compile Include="AppDataFolder\ClassFolder\MessageBoxClass.cs" />
+    <Compile Include="AppDataFolder\ClassFolder\RandomeCodeClass.cs" />
     <Compile Include="AppDataFolder\ModelFolder\DataBaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
