@@ -37,9 +37,9 @@ namespace Fireplace.ViewingFolder.PageFolder
             if (messageNullBox == null)
             {
                 string receivePasswordUserHash = HashClass.GetHash(NewPasswordUserTextBox.Text);
-                var newPasswordUser = new UserTable();
+                var newPasswordUser = AppConnectClass.connectDataBase_ACC.UserTable.FirstOrDefault(
+                    dataUser => dataUser.PersonalNumber_User == AppConnectClass.userWithChangeablePassword_ACC);
                 
-                newPasswordUser.PersonalNumber_User = AppConnectClass.userWithChangeablePassword_ACC;
                 newPasswordUser.Password_User = receivePasswordUserHash;
                 AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(newPasswordUser);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
