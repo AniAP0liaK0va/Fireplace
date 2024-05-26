@@ -20,21 +20,29 @@
             Margin="10 0 10 0"
             Grid.Row="0">
             <TextBox
+                KeyDown="SearchUserTextBox_KeyDown"
                 ToolTip="Поиск"
                 Margin="0 0 5 0"
                 Width="550"
                 x:Name="SearchUserTextBox"/>
             <Button
+                Click="SearchUserButton_Click"
                 ToolTip="Найти"
                 x:Name="SearchUserButton"
                 Style="{DynamicResource SearchButtonStyle}"
                 Margin="5 0 30 0"/>
             <ComboBox
+                SelectionChanged ="PaulUserComboBox_SelectionChanged"
+                DisplayMemberPath="Title_Paul"
+                SelectedValuePath="PersonalNumber_Paul"
                 ToolTip="Фильтр по полу"
                 Width="220"
                 Margin="30 0 30 0"
                 x:Name="PaulUserComboBox"/>
             <ComboBox
+                SelectionChanged="RoleUserComboBox_SelectionChanged"
+                DisplayMemberPath="Name_Role"
+                SelectedValuePath="PersonalNumber_Role"
                 ToolTip="Фильтр по должности"
                 Width="220"
                 Margin="30 0 30 0"
@@ -44,7 +52,7 @@
                 x:Name="ClearSearchButton"
                 Content="Очистить всё"
                 Click="ClearSearchButton_Click"
-                Style="{DynamicResource MeniButton}"
+                Style="{DynamicResource MenuButton}"
                 Margin="30 0 0 0"/>
         </StackPanel>
         <Grid Grid.Row="1">
@@ -53,6 +61,7 @@
                 <ColumnDefinition Width="450"/>
             </Grid.ColumnDefinitions>
             <ListView
+                SelectionChanged="ListUserListView_SelectionChanged"
                 Background="Transparent"
                 x:Name="ListUserListView"
                 Margin="0"
@@ -72,6 +81,86 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Frame
+                    x:Name="MiniInformationUserFrame"
+                    Grid.Row="1"/>
+                <StackPanel
+                    Grid.Row="0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                    <Button
+                        x:Name="AddUserButton"
+                        Style="{DynamicResource MenuButton}"
+                        Content="Добавить"
+                        Margin="0 0 10 0"
+                        ToolTip="Добавить нового пользователя"/>
+                    <Button
+                        x:Name="InformationUserButton"
+                        Style="{DynamicResource MenuButton}"
+                        Content="Информация"
+                        Margin="10 0 10 0"
+                        ToolTip="Посмотреть информацию о пользователе"/>
+                    <Button
+                        x:Name="DeliteUserButton"
+                        Style="{DynamicResource MenuButton}"
+                        Content="Удалить"
+                        Margin="10 0 0 0"
+                        ToolTip="Удалить пользователя"/>
+                </StackPanel>
+                <StackPanel
+                    Margin="10 0 10 0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Grid.Row="2">
+                    <StackPanel
+                        Margin="0 0 10 0"
+                        Orientation="Horizontal"
+                        Grid.Row="2">
+                        <TextBlock 
+                            Text="ВСЕГО:"
+                            Margin="0 0 5 0"
+                            Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                        <TextBlock 
+                            x:Name="TotalUserTextBlock"
+                            Margin="5 0 0 0"
+                            Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                    </StackPanel>
+                    <StackPanel
+                        Margin="10 0 10 0"
+                        Orientation="Horizontal"
+                        Grid.Row="2">
+                        <TextBlock 
+                            Text="ГОСТИ:"
+                            Margin="0 0 5 0"
+                            Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                        <TextBlock 
+                            x:Name="TotalGuestsTextBlock"
+                            Margin="5 0 0 0"
+                            Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                    </StackPanel>
+                    <StackPanel
+                        Margin="10 0 0 0"
+                        Orientation="Horizontal"
+                        Grid.Row="2">
+                        <TextBlock 
+                            Text="АДМИНИСТРАТОРЫ:"
+                            Margin="0 0 5 0"
+                            Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                        <TextBlock 
+                            x:Name="TotalAdministratorTextBlock"
+                            Margin="5 0 0 0"
+                            Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

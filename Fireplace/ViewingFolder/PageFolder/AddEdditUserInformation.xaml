@@ -1,0 +1,96 @@
+﻿<Page 
+    x:Class="Fireplace.ViewingFolder.PageFolder.AddEdditUserInformationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    Style="{StaticResource BodyPageStyle}"
+    Title="Добавление нового пользователя / редактирование информации">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel 
+                Orientation="Vertical"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="20 10">
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="0 0 0 10">
+                    <Image 
+                        Margin="0 0 0 5"
+                        Height="240"
+                        Width="240"
+                        Stretch="UniformToFill"
+                        Opacity="1"
+                        x:Name="UserImage" 
+                        Source="{Binding ImageTable.BinaryCode_Image}"/>
+                    <Button
+                        x:Name="OpenNewImageButton"
+                        Style="{DynamicResource MenuButton}"
+                        Width="220"
+                        Content="Открыть"
+                        Margin="0 5 0 0"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 0 0 10">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Фамилия:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.Surname_PasspordDataUser}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 0 0 10">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Имя:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.Name_PasspordDataUser}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 0 0 10">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Отчество:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.Middlename_PasspordDataUser}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0 0 0 10">
+                    <TextBlock 
+                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                        Margin="10 0 2 0"
+                        Text="Паспорт выдан:"/>
+                    <TextBox
+                        Width="660"
+                        Margin="0 2 0 0"
+                        Text="{Binding PasspordDataUserTable.Middlename_PasspordDataUser}"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

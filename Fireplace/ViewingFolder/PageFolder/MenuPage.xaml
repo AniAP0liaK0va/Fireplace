@@ -12,19 +12,21 @@
         HorizontalAlignment="Center">
         <Button
             Margin="5 0 5 0"
-            Style="{DynamicResource MeniButton}"
+            Style="{DynamicResource MenuButton}"
             Content="Отели"/>
         <Button
             Margin="5 0 5 0"
-            Style="{DynamicResource MeniButton}"
+            Style="{DynamicResource MenuButton}"
             Content="Номера"/>
         <Button
+            x:Name="UserButton"
+            Click="UserButton_Click"
             Margin="5 0 5 0"
-            Style="{DynamicResource MeniButton}"
+            Style="{DynamicResource MenuButton}"
             Content="Пользователи"/>
         <Button
             Margin="5 0 5 0"
-            Style="{DynamicResource MeniButton}"
+            Style="{DynamicResource MenuButton}"
             Content="Универсал"/>
     </StackPanel>
 </Page>

@@ -38,7 +38,7 @@ namespace Fireplace.ViewingFolder.PageFolder
                     var logInUser = AppConnectClass.connectDataBase_ACC.UserTable.FirstOrDefault(dataUser =>
                             dataUser.Email_User == receiveLogin && dataUser.Password_User == receivePasswordUserHash);
 
-                    
+
                     if (logInUser != null)
                     {
                         switch (logInUser.pnRole_User)
@@ -51,6 +51,7 @@ namespace Fireplace.ViewingFolder.PageFolder
                                 mainWindow.Show();
 
                                 AuthorizationRegistrationWindow authorizationRegistrationWindow = Window.GetWindow(this) as AuthorizationRegistrationWindow; // Получаем родительское 
+                                FrameNavigationClass.bodyFrame_FNC.Navigate(new ProfilPage(null));
                                 authorizationRegistrationWindow.Close();
                                 break;
                             default:
@@ -111,16 +112,7 @@ namespace Fireplace.ViewingFolder.PageFolder
         #region _KeyDown
         private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) // Если пользователь, находясь в PasswordBox нажал на Enter
         {
-            try
-            {
-                if (e.Key == Key.Enter) { Event_EnterUser(); }
-            }
-            catch (Exception exPasswordUserPasswordBox_KeyDown)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                    textMessage: $"Событие PasswordUserPasswordBox_KeyDown в AuthorizationWindow:\n\n " +
-                    $"{exPasswordUserPasswordBox_KeyDown.Message}");
-            }
+            if (e.Key == Key.Enter) { Event_EnterUser(); }
         }
         #endregion
     }

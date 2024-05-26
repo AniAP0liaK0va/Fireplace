@@ -113,6 +113,9 @@
     <Compile Include="AppDataFolder\UserControlFolder\UserUserControl.xaml.cs">
       <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\AddEdditUserInformation.xaml.cs">
+      <DependentUpon>AddEdditUserInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
@@ -122,11 +125,17 @@
     <Compile Include="ViewingFolder\PageFolder\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\MiniInformationUser.xaml.cs">
+      <DependentUpon>MiniInformationUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\NewPasswordPage.xaml.cs">
       <DependentUpon>NewPasswordPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\PasswordResetPage.xaml.cs">
       <DependentUpon>PasswordResetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\PageFolder\ProfilPage.xaml.cs">
+      <DependentUpon>ProfilPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\WindowFolder\AuthorizationRegistrationWindow.xaml.cs">
       <DependentUpon>AuthorizationRegistrationWindow.xaml</DependentUpon>
@@ -224,6 +233,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewingFolder\PageFolder\AddEdditUserInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewingFolder\PageFolder\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -236,11 +249,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewingFolder\PageFolder\MiniInformationUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewingFolder\PageFolder\NewPasswordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\PasswordResetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\ProfilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
