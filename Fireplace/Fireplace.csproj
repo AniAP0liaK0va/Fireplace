@@ -113,7 +113,7 @@
     <Compile Include="ViewingFolder\PageFolder\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewingFolder\PageFolder\ManagementPageFolder\MenuPage.xaml.cs">
+    <Compile Include="ViewingFolder\PageFolder\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\NewPasswordPage.xaml.cs">
@@ -166,6 +166,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AppDataFolder\StyleFolder\BorderDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppDataFolder\StyleFolder\ButtonDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,7 +210,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewingFolder\PageFolder\ManagementPageFolder\MenuPage.xaml">
+    <Page Include="ViewingFolder\PageFolder\MenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

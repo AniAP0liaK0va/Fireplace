@@ -26,6 +26,46 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right">
                 <Button
+                    ToolTip="{Binding ElementName=ConclusionSNMTextBlock, Path=Text}"
+                    Width="Auto"
+                    Style="{DynamicResource RollupTopShelfButtonStyle}"
+                    x:Name="MainProfilButton">
+                    <StackPanel
+                        Margin="10 0 10 0"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                        <Grid>
+                            <Border 
+                                BorderThickness="17.5"
+                                Height="35"
+                                Width="35"
+                                CornerRadius="17.5"
+                                VerticalAlignment="Top"
+                                x:Name="MaskMorderBorder" 
+                                Style="{StaticResource MaskBorder}"/>
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                                <StackPanel.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
+                                </StackPanel.OpacityMask>
+                                <Image 
+                                    Height="35"
+                                    Width="35"
+                                    Stretch="Fill"
+                                    Opacity="1"
+                                    x:Name="UserImage" 
+                                    Source="{Binding ImageTable.BinaryCode_Image}"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock 
+                            Margin="5 0 0 0"
+                            x:Name="ConclusionSNMTextBlock" 
+                            Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
+                    </StackPanel>
+                </Button>
+                <Button
                     Click="RollUpButton_Click"
                     Style="{DynamicResource RollupTopShelfButtonStyle}"
                     x:Name="RollUpButton"/>
@@ -36,7 +76,25 @@
             </StackPanel>
         </Grid>
         <Frame
-            x:Name="MainFrame"
+            x:Name="BodyFrame"
             Grid.Row="1"/>
+        <Border
+            x:Name="MenuAnimationBorder"
+            MouseEnter="MenuAnimationBorderr_MouseEnter"
+            MouseLeave="MenuAnimationBorder_MouseLeave"
+            Height="10"
+            Width="auto"
+            CornerRadius="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Margin="0 0 0 20"
+            Grid.Row="1"
+            BorderThickness="2"
+            BorderBrush="#2e2d3c"
+            Background="#2e2d3c">
+            <Frame
+                x:Name="MenuFrame"
+                Margin="5"/>
+        </Border>
     </Grid>
 </Window>

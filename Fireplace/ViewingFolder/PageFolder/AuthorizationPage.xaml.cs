@@ -1,5 +1,6 @@
 ﻿using Fireplace.AppDataFolder.ClassFolder;
 using Fireplace.AppDataFolder.ModelFolder;
+using Fireplace.ViewingFolder.WindowFolder;
 using System;
 using System.Linq;
 using System.Windows;
@@ -44,8 +45,13 @@ namespace Fireplace.ViewingFolder.PageFolder
                         {
                             case 1:
                                 // переход в приложение
-                                AppConnectClass.receiveConnectUser_ACC = Convert.ToDouble(logInUser.PersonalNumber_User);
-                                MessageBox.Show("Welcome");
+                                AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_User.ToString();
+
+                                MainWindow mainWindow = new MainWindow();
+                                mainWindow.Show();
+
+                                AuthorizationRegistrationWindow authorizationRegistrationWindow = Window.GetWindow(this) as AuthorizationRegistrationWindow; // Получаем родительское 
+                                authorizationRegistrationWindow.Close();
                                 break;
                             default:
                                 string messageDefault =

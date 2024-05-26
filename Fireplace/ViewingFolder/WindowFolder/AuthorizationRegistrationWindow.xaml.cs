@@ -1,6 +1,5 @@
 ﻿using Fireplace.AppDataFolder.ClassFolder;
 using Fireplace.ViewingFolder.PageFolder;
-using Fireplace.ViewingFolder.PageFolder.ManagementPageFolder;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;

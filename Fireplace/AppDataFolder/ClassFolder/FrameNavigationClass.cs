@@ -6,5 +6,6 @@ namespace Fireplace.AppDataFolder.ClassFolder
     {
         public static Frame mainFarme_FNC;
         public static Frame menuFrame_FNC;
+        public static Frame bodyFrame_FNC;
     }
 }

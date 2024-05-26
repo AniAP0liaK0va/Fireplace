@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Fireplace.ViewingFolder.PageFolder.ManagementPageFolder
+namespace Fireplace.ViewingFolder.PageFolder
 {
     /// <summary>
     /// Логика взаимодействия для MenuPage.xaml

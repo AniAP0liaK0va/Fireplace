@@ -1,21 +1,12 @@
 ﻿using Fireplace.AppDataFolder.ClassFolder;
 using Fireplace.AppDataFolder.ModelFolder;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Fireplace.ViewingFolder.PageFolder
 {
@@ -45,6 +36,7 @@ namespace Fireplace.ViewingFolder.PageFolder
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
 
                 MessageBoxClass.FailureMessageBox_MBC(textMessage:"Пароль успешно изменён, возвращайтесь на страницу авторизации и произведите вход");
+                AppConnectClass.userWithChangeablePassword_ACC = null;
                 FrameNavigationClass.mainFarme_FNC.Navigate(new AuthorizationPage());
             }
             else

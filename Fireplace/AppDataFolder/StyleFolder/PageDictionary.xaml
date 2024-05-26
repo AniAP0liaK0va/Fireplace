@@ -9,4 +9,8 @@
         <Setter Property="Width" Value="960"/>
         <Setter Property="Height" Value="500"/>
     </Style>
+    <Style x:Key="MenuPageStyle" TargetType="Page">
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="Height" Value="60"/>
+    </Style>
 </ResourceDictionary>
