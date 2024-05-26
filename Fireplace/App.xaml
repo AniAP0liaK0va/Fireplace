@@ -16,6 +16,8 @@
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\PasswordBoxDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\ScrollViewerDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\BorderDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDataFolder\StyleFolder\ComboBoxDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDataFolder\StyleFolder\ListViewDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

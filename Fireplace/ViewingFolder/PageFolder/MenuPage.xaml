@@ -12,19 +12,19 @@
         HorizontalAlignment="Center">
         <Button
             Margin="5 0 5 0"
-            Style="{DynamicResource MenuButton}"
+            Style="{DynamicResource MeniButton}"
             Content="Отели"/>
         <Button
             Margin="5 0 5 0"
-            Style="{DynamicResource MenuButton}"
+            Style="{DynamicResource MeniButton}"
             Content="Номера"/>
         <Button
             Margin="5 0 5 0"
-            Style="{DynamicResource MenuButton}"
+            Style="{DynamicResource MeniButton}"
             Content="Пользователи"/>
         <Button
             Margin="5 0 5 0"
-            Style="{DynamicResource MenuButton}"
+            Style="{DynamicResource MeniButton}"
             Content="Универсал"/>
     </StackPanel>
 </Page>

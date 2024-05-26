@@ -51,6 +51,7 @@ namespace Fireplace.ViewingFolder.WindowFolder
             FrameNavigationClass.menuFrame_FNC = MenuFrame;
             FrameNavigationClass.bodyFrame_FNC = BodyFrame;
             FrameNavigationClass.menuFrame_FNC.Navigate(new MenuPage());
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new ListUserPage());
         }
         #endregion
         #region Анимация

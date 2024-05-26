@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
-    Title="{Binding ElementName=MainFrame, Path=Content.Title}"
+    Title="{Binding ElementName=BodyFrame, Path=Content.Title}"
     Style="{StaticResource MainWindowStyle}">
     <Grid Background="#565470" >
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
             MouseDown="ControlPanelGrid_MouseDown">
             <TextBlock
                 Style="{DynamicResource NamePageControlPanelTextBlockStyle}"
-                Text="{Binding ElementName=MainFrame, Path=Content.Title}"/>
+                Text="{Binding ElementName=BodyFrame, Path=Content.Title}"/>
             <StackPanel 
                 Orientation="Horizontal"
                 VerticalAlignment="Center"

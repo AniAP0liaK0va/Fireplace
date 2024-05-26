@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Inage" />
           </Key>
-          <Property Name="PersonalNumber_Inage" Type="int" Nullable="false" />
+          <Property Name="PersonalNumber_Inage" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="BinaryCode_Image" Type="image" Nullable="false" />
         </EntityType>
         <EntityType Name="PasspordDataUserTable">
@@ -63,7 +63,7 @@
           <Property Name="DateRegistration_User" Type="date" Nullable="false" />
           <Property Name="Email_User" Type="nvarchar" MaxLength="222" Nullable="false" />
           <Property Name="Password_User" Type="nvarchar" MaxLength="130" Nullable="false" />
-          <Property Name="pnImage_User" Type="int" />
+          <Property Name="pnImage_User" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="pnRole_User" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_PasspordDataUserTable_PaulTable">
@@ -79,7 +79,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UserTable_ImageTable">
-          <End Role="ImageTable" Type="Self.ImageTable" Multiplicity="0..1" />
+          <End Role="ImageTable" Type="Self.ImageTable" Multiplicity="1" />
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ImageTable">
@@ -172,7 +172,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Inage" />
           </Key>
-          <Property Name="PersonalNumber_Inage" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumber_Inage" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="BinaryCode_Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="UserTable" Relationship="FireplaceModel.FK_UserTable_ImageTable" FromRole="ImageTable" ToRole="UserTable" />
         </EntityType>
@@ -231,14 +231,14 @@
           <Property Name="DateRegistration_User" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Email_User" Type="String" Nullable="false" MaxLength="222" FixedLength="false" Unicode="true" />
           <Property Name="Password_User" Type="String" Nullable="false" MaxLength="130" FixedLength="false" Unicode="true" />
-          <Property Name="pnImage_User" Type="Int32" />
+          <Property Name="pnImage_User" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="pnRole_User" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ImageTable" Relationship="FireplaceModel.FK_UserTable_ImageTable" FromRole="UserTable" ToRole="ImageTable" />
           <NavigationProperty Name="PasspordDataUserTable" Relationship="FireplaceModel.FK_UserTable_PasspordDataUserTable1" FromRole="UserTable" ToRole="PasspordDataUserTable" />
           <NavigationProperty Name="RoleUserTable" Relationship="FireplaceModel.FK_UserTable_RoleUserTable" FromRole="UserTable" ToRole="RoleUserTable" />
         </EntityType>
         <Association Name="FK_UserTable_ImageTable">
-          <End Type="FireplaceModel.ImageTable" Role="ImageTable" Multiplicity="0..1" />
+          <End Type="FireplaceModel.ImageTable" Role="ImageTable" Multiplicity="1" />
           <End Type="FireplaceModel.UserTable" Role="UserTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ImageTable">

@@ -5,9 +5,9 @@
         <Setter Property="Width" Value="960"/>
         <Setter Property="Height" Value="500"/>
     </Style>
-    <Style x:Key="MainPageStyle" TargetType="Page">
-        <Setter Property="Width" Value="960"/>
-        <Setter Property="Height" Value="500"/>
+    <Style x:Key="BodyPageStyle" TargetType="Page">
+        <Setter Property="Width" Value="1600"/>
+        <Setter Property="Height" Value="860"/>
     </Style>
     <Style x:Key="MenuPageStyle" TargetType="Page">
         <Setter Property="Width" Value="auto"/>

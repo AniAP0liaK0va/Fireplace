@@ -20,7 +20,7 @@ namespace Fireplace.AppDataFolder.ModelFolder
         public System.DateTime DateRegistration_User { get; set; }
         public string Email_User { get; set; }
         public string Password_User { get; set; }
-        public Nullable<int> pnImage_User { get; set; }
+        public string pnImage_User { get; set; }
         public int pnRole_User { get; set; }
     
         public virtual ImageTable ImageTable { get; set; }

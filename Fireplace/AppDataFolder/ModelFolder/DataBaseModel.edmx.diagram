@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2878221a9c584ad2bb4f7fdf8f3c25b1" Name="Diagram1">
-        <EntityTypeShape EntityType="FireplaceModel.ImageTable" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="FireplaceModel.ImageTable" Width="1.5" PointX="3" PointY="8.125" />
         <EntityTypeShape EntityType="FireplaceModel.PasspordDataUserTable" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="FireplaceModel.PaulTable" Width="1.5" PointX="0.75" PointY="2" />
-        <EntityTypeShape EntityType="FireplaceModel.RoleUserTable" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="FireplaceModel.RoleUserTable" Width="1.5" PointX="3" PointY="5.75" />
         <EntityTypeShape EntityType="FireplaceModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" />
         <EntityTypeShape EntityType="FireplaceModel.UserTable" Width="1.5" PointX="5.25" PointY="1.25" />
         <AssociationConnector Association="FireplaceModel.FK_UserTable_ImageTable" />

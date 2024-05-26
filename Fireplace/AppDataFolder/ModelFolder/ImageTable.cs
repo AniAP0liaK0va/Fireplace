@@ -20,7 +20,7 @@ namespace Fireplace.AppDataFolder.ModelFolder
             this.UserTable = new HashSet<UserTable>();
         }
     
-        public int PersonalNumber_Inage { get; set; }
+        public string PersonalNumber_Inage { get; set; }
         public byte[] BinaryCode_Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
