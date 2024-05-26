@@ -92,7 +92,7 @@ namespace Fireplace.ViewingFolder.PageFolder
         }
         #endregion
         #region _KeyDown
-        private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) // Если пользователь, находясь в PasswordBox нажал на Enter
+        private void NewPasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) // Если пользователь, находясь в PasswordBox нажал на Enter
         {
             try
             {
