@@ -18,6 +18,8 @@
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\BorderDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\ComboBoxDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDataFolder\StyleFolder\ListViewDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDataFolder\StyleFolder\ProgressBarDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDataFolder\StyleFolder\GroupBoxDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

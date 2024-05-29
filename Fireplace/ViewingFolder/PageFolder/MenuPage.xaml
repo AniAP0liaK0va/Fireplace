@@ -25,6 +25,8 @@
             Style="{DynamicResource MenuButton}"
             Content="Пользователи"/>
         <Button
+            x:Name="UniversalButton"
+            Click="UniversalButton_Click"
             Margin="5 0 5 0"
             Style="{DynamicResource MenuButton}"
             Content="Универсал"/>

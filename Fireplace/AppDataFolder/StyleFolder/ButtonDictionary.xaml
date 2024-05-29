@@ -59,12 +59,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="SearchButtonStyle" TargetType="Button" BasedOn="{StaticResource MenuButton}">
-        <Setter Property="FontFamily" Value="\AppDataFolder\ContentFolder\FontFolder\#Material-Design-Iconic-Font"/>
-        <Setter Property="Content" Value="&#xf1c3;"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Width" Value="50"/>
-    </Style>
+
     <Style x:Key="TransparentTextButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -144,7 +139,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Foreground" Value="#565470"/>
+        <Setter Property="Foreground" Value="#F5F5F5"/>
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="Width" Value="40"/>
@@ -165,7 +160,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="#565470"/>
+                            <Setter Property="Foreground" Value="#F5F5F5"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -181,7 +176,7 @@
                                     <Storyboard>
                                         <ColorAnimation 
                                             Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" 
-                                            To="#565470" 
+                                            To="#F5F5F5" 
                                             Duration="0:0:0.2"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -204,7 +199,7 @@
                                     <Storyboard>
                                         <ColorAnimation 
                                             Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" 
-                                            To="#565470" 
+                                            To="#F5F5F5" 
                                             Duration="0:0:0.2"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -214,6 +209,16 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="IconButtonThoStyle" TargetType="Button" BasedOn="{StaticResource IconButtonStyle}">
+        <Setter Property="FontFamily" Value="\AppDataFolder\ContentFolder\FontFolder\#Material-Design-Iconic-Font"/>
+    </Style>
+
+    <Style x:Key="SearchButtonStyle" TargetType="Button" BasedOn="{StaticResource IconButtonThoStyle}">
+        <Setter Property="Content" Value="&#xf1c3;"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
     </Style>
 
     <Style x:Key="GeneralTopShelfButtonStyle" TargetType="Button">
@@ -226,6 +231,7 @@
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
+    
     <Style x:Key="RollupTopShelfButtonStyle" TargetType="Button" BasedOn="{StaticResource GeneralTopShelfButtonStyle}">
         <Setter Property="Content" Value="—"/>
         <Setter Property="ToolTip" Value="Свернуть"/>
@@ -279,6 +285,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="CloseTopShelfButtonStyle" TargetType="Button" BasedOn="{StaticResource GeneralTopShelfButtonStyle}">
         <Setter Property="Content" Value="✕"/>
         <Setter Property="ToolTip" Value="Закрыть"/>

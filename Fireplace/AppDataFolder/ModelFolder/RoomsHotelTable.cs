@@ -12,27 +12,32 @@ namespace Fireplace.AppDataFolder.ModelFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class UserTable
+    public partial class RoomsHotelTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserTable()
+        public RoomsHotelTable()
         {
             this.HotelTable = new HashSet<HotelTable>();
         }
     
-        public string PersonalNumber_User { get; set; }
-        public string pnPassportNumber_User { get; set; }
-        public string pnPassportSeries_User { get; set; }
-        public System.DateTime DateRegistration_User { get; set; }
-        public string Email_User { get; set; }
-        public string Password_User { get; set; }
-        public string pnImage_User { get; set; }
-        public int pnRole_User { get; set; }
+        public int PersonalNumber_RoomHotel { get; set; }
+        public int NumberRooms_RoomHotel { get; set; }
+        public int pnPresenceBathroom_RoomHotel { get; set; }
+        public int TotalArea_RoomHotel { get; set; }
+        public decimal Cost_RoomHotel { get; set; }
+        public int pnType_RoomHotel { get; set; }
+        public int pnBusy_RoomHotel { get; set; }
+        public int Discount_RoomHotel { get; set; }
+        public int pnClassRoomHottel_RoomHotel { get; set; }
+        public int FloorHottel_RoomsHotel { get; set; }
+        public int NumberRoom_RoomsHottel { get; set; }
     
+        public virtual BusyRoomTable BusyRoomTable { get; set; }
+        public virtual ClassRoomHotelTable ClassRoomHotelTable { get; set; }
+        public virtual DiscountRoomTable DiscountRoomTable { get; set; }
+        public virtual PresenceBathroomRoomTable PresenceBathroomRoomTable { get; set; }
+        public virtual TypeRoomTable TypeRoomTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelTable> HotelTable { get; set; }
-        public virtual ImageTable ImageTable { get; set; }
-        public virtual PasspordDataUserTable PasspordDataUserTable { get; set; }
-        public virtual RoleUserTable RoleUserTable { get; set; }
     }
 }

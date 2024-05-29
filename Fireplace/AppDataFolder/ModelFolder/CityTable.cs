@@ -12,27 +12,18 @@ namespace Fireplace.AppDataFolder.ModelFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class UserTable
+    public partial class CityTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserTable()
+        public CityTable()
         {
             this.HotelTable = new HashSet<HotelTable>();
         }
     
-        public string PersonalNumber_User { get; set; }
-        public string pnPassportNumber_User { get; set; }
-        public string pnPassportSeries_User { get; set; }
-        public System.DateTime DateRegistration_User { get; set; }
-        public string Email_User { get; set; }
-        public string Password_User { get; set; }
-        public string pnImage_User { get; set; }
-        public int pnRole_User { get; set; }
+        public int PersonalNumber_City { get; set; }
+        public string Name_City { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelTable> HotelTable { get; set; }
-        public virtual ImageTable ImageTable { get; set; }
-        public virtual PasspordDataUserTable PasspordDataUserTable { get; set; }
-        public virtual RoleUserTable RoleUserTable { get; set; }
     }
 }

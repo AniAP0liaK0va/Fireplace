@@ -12,27 +12,25 @@ namespace Fireplace.AppDataFolder.ModelFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class UserTable
+    public partial class HotelTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserTable()
+        public HotelTable()
         {
-            this.HotelTable = new HashSet<HotelTable>();
+            this.RoomsHotelTable = new HashSet<RoomsHotelTable>();
         }
     
-        public string PersonalNumber_User { get; set; }
-        public string pnPassportNumber_User { get; set; }
-        public string pnPassportSeries_User { get; set; }
-        public System.DateTime DateRegistration_User { get; set; }
-        public string Email_User { get; set; }
-        public string Password_User { get; set; }
-        public string pnImage_User { get; set; }
-        public int pnRole_User { get; set; }
+        public int PersonalNumber_Hotel { get; set; }
+        public string Name_Hotel { get; set; }
+        public string pnUserAdd_Hotel { get; set; }
+        public int pnCityLocal_Hotel { get; set; }
+        public string StreetLocal_Hotel { get; set; }
+        public int HomeLocal_Hotel { get; set; }
+        public int NumberFloors_Hotel { get; set; }
     
+        public virtual CityTable CityTable { get; set; }
+        public virtual UserTable UserTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotelTable> HotelTable { get; set; }
-        public virtual ImageTable ImageTable { get; set; }
-        public virtual PasspordDataUserTable PasspordDataUserTable { get; set; }
-        public virtual RoleUserTable RoleUserTable { get; set; }
+        public virtual ICollection<RoomsHotelTable> RoomsHotelTable { get; set; }
     }
 }

@@ -25,11 +25,19 @@ namespace Fireplace.AppDataFolder.ModelFolder
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BusyRoomTable> BusyRoomTable { get; set; }
+        public virtual DbSet<CityTable> CityTable { get; set; }
+        public virtual DbSet<ClassRoomHotelTable> ClassRoomHotelTable { get; set; }
+        public virtual DbSet<DiscountRoomTable> DiscountRoomTable { get; set; }
+        public virtual DbSet<HotelTable> HotelTable { get; set; }
         public virtual DbSet<ImageTable> ImageTable { get; set; }
         public virtual DbSet<PasspordDataUserTable> PasspordDataUserTable { get; set; }
         public virtual DbSet<PaulTable> PaulTable { get; set; }
+        public virtual DbSet<PresenceBathroomRoomTable> PresenceBathroomRoomTable { get; set; }
         public virtual DbSet<RoleUserTable> RoleUserTable { get; set; }
+        public virtual DbSet<RoomsHotelTable> RoomsHotelTable { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TypeRoomTable> TypeRoomTable { get; set; }
         public virtual DbSet<UserTable> UserTable { get; set; }
     }
 }

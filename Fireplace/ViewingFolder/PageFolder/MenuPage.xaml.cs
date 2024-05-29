@@ -15,5 +15,10 @@ namespace Fireplace.ViewingFolder.PageFolder
         {
             FrameNavigationClass.bodyFrame_FNC.Navigate(new ListUserPage());
         }
+
+        private void UniversalButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new UniversalPage());
+        }
     }
 }

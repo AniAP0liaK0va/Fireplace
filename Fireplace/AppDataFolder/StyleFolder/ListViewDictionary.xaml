@@ -49,13 +49,13 @@
                         BorderBrush="Transparent">
                         <Grid>
                             <Border
-                                BorderBrush="#462AD8"
+                                BorderBrush="#3158ce"
                                 Visibility="Collapsed"
                                 Style="{DynamicResource NeonBorder}"
                                 x:Name="NeonBorder">
                                 <Border.Effect>
                                     <DropShadowEffect 
-                                        Color="#462AD8" 
+                                        Color="#3158ce" 
                                         ShadowDepth="0" 
                                         Direction="0"   
                                         BlurRadius="25"/>
@@ -66,8 +66,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#2a2a2a"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="#2a2a2a"/>
+                            <Setter TargetName="border" Property="Background" Value="#8ba1e3"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#8ba1e3"/>
                             <Setter TargetName="border" Property="BorderThickness" Value="1"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
@@ -102,13 +102,13 @@
                         BorderBrush="Transparent">
                         <Grid>
                             <Border
-                                BorderBrush="#462AD8"
+                                BorderBrush="#3158ce"
                                 Visibility="Collapsed"
                                 Style="{DynamicResource NeonBorder}"
                                 x:Name="NeonBorder">
                                 <Border.Effect>
                                     <DropShadowEffect 
-                                        Color="#462AD8" 
+                                        Color="#3158ce" 
                                         ShadowDepth="0" 
                                         Direction="0" 
                                         BlurRadius="25"/>
@@ -119,8 +119,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#2a2a2a"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="#2a2a2a"/>
+                            <Setter TargetName="border" Property="Background" Value="#8ba1e3"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#8ba1e3"/>
                             <Setter TargetName="border" Property="BorderThickness" Value="1"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
@@ -159,7 +159,7 @@
                             x:Name="NeonBorder">
                             <Border.Effect>
                                 <DropShadowEffect 
-                                    Color="#462AD8" 
+                                    Color="#3158ce" 
                                     ShadowDepth="0" 
                                     Direction="0" 
                                     BlurRadius="25"/>
@@ -169,11 +169,11 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#2a2a2a"/>
+                            <Setter Property="Background" Value="#8ba1e3"/>
                             <Setter Property="Foreground" Value="#a4a4a4"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="NeonBorder" Property="Background" Value="#462AD8"/>
+                            <Setter TargetName="NeonBorder" Property="Background" Value="#3158ce"/>
                             <Setter TargetName="NeonBorder" Property="Visibility" Value="Visible"/>
                             <Setter Property="Foreground" Value="#f5f5f5"/>
                         </Trigger>

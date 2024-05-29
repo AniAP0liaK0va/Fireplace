@@ -77,6 +77,15 @@
     <Compile Include="AppDataFolder\ClassFolder\HashClass.cs" />
     <Compile Include="AppDataFolder\ClassFolder\MessageBoxClass.cs" />
     <Compile Include="AppDataFolder\ClassFolder\RandomeCodeClass.cs" />
+    <Compile Include="AppDataFolder\ModelFolder\BusyRoomTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDataFolder\ModelFolder\CityTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDataFolder\ModelFolder\ClassRoomHotelTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDataFolder\ModelFolder\DataBaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,6 +101,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AppDataFolder\ModelFolder\DiscountRoomTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDataFolder\ModelFolder\HotelTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDataFolder\ModelFolder\ImageTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -101,10 +116,19 @@
     <Compile Include="AppDataFolder\ModelFolder\PaulTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDataFolder\ModelFolder\PresenceBathroomRoomTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDataFolder\ModelFolder\RoleUserTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDataFolder\ModelFolder\RoomsHotelTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDataFolder\ModelFolder\sysdiagrams.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDataFolder\ModelFolder\TypeRoomTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDataFolder\ModelFolder\UserTable.cs">
@@ -136,6 +160,9 @@
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\ProfilPage.xaml.cs">
       <DependentUpon>ProfilPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\PageFolder\UniversalPage.xaml.cs">
+      <DependentUpon>UniversalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\WindowFolder\AuthorizationRegistrationWindow.xaml.cs">
       <DependentUpon>AuthorizationRegistrationWindow.xaml</DependentUpon>
@@ -197,6 +224,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppDataFolder\StyleFolder\GroupBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppDataFolder\StyleFolder\ListViewDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AppDataFolder\StyleFolder\PasswordBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppDataFolder\StyleFolder\ProgressBarDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,6 +297,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\ProfilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\UniversalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
