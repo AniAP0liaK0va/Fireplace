@@ -26,6 +26,7 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right">
                 <Button
+                    Click="MainProfilButton_Click"
                     ToolTip="{Binding ElementName=ConclusionSNMTextBlock, Path=Text}"
                     Width="Auto"
                     Style="{DynamicResource RollupTopShelfButtonStyle}"

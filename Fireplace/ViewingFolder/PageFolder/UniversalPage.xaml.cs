@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Threading;
 
 namespace Fireplace.ViewingFolder.PageFolder
@@ -12,7 +13,6 @@ namespace Fireplace.ViewingFolder.PageFolder
         private int randomeTime;
         private DateTime startTime;
         private DispatcherTimer dispatcherTimer;
-        Random random = new Random();
 
         public UniversalPage()
         {
@@ -27,10 +27,12 @@ namespace Fireplace.ViewingFolder.PageFolder
         #region _Click
         private void CheckUppdateButton_Click(object sender, RoutedEventArgs e)
         {
-            randomeTime = random.Next(10, 31); // Генерация случайного времени от 10 до 30 секунд
+            Random random = new Random();
+            randomeTime = random.Next(4, 16); // Генерация случайного времени
             startTime = DateTime.Now;
 
             dispatcherTimer.Start();
+            CheckUppdateButton.IsEnabled = false;
         }
         #endregion
         #region Event_
@@ -38,22 +40,18 @@ namespace Fireplace.ViewingFolder.PageFolder
         {
             try
             {
-                double elapsedSeconds = (DateTime.Now - startTime).TotalSeconds;
-                double percentage = (5000 / 10000) * 100;
-                string data =
-                            $"Время начала {startTime}\n" +
-                            $"Рандомное время {randomeTime}\n" +
-                            $"elapsedSeconds {elapsedSeconds}\n" +
-                            $"percentage {percentage}";
+                int elapsedSeconds = (int)(DateTime.Now - startTime).TotalSeconds;
+                int percentage = (int)(elapsedSeconds / (float)randomeTime * 100);
+
+                CheckUppdateProgressBar.Value = percentage;
 
                 if (percentage >= 100)
                 {
                     dispatcherTimer.Stop();
+                    CheckUppdateButton.IsEnabled = true;
+                    MessageBoxClass.GoodMessageBox_MBC(textMessage: "У вас стоит последняя версия V123.333");
+                    CheckUppdateProgressBar.Value = 0;
                 }
-
-                hsfdgkfjs.Text = data;
-
-                // CheckUppdateProgressBar.Value = percentage;
             }
             catch (Exception exEvent_Timer_Tick)
             {

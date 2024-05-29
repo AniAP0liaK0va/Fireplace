@@ -27,7 +27,13 @@ namespace Fireplace.ViewingFolder.WindowFolder
                 $"{informationOutputUser.PasspordDataUserTable.Name_PasspordDataUser[0]}. " +
                 $"{informationOutputUser.PasspordDataUserTable.Middlename_PasspordDataUser[0]}.";
         }
-
+        #region _Click
+        private void MainProfilButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new ProfilPage(AppConnectClass.connectDataBase_ACC.UserTable.FirstOrDefault(dataUser => 
+            dataUser.PersonalNumber_User == AppConnectClass.userWithChangeablePassword_ACC)));
+        }
+        #endregion
         #region Управление окном
         private void RollUpButton_Click(object sender, RoutedEventArgs e)
         {

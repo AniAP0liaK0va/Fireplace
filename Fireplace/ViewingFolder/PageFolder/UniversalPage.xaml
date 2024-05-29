@@ -34,13 +34,10 @@
                             Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
                         <ProgressBar
                             Value="0"
-                            Height="40"
-                            Minimum="0"
-                            Maximum="100"
                             x:Name="CheckUppdateProgressBar"
                             Margin="0 5 0 5"/>
                         <Button
-                            Click="Event_Timer_Tick"
+                            Click="CheckUppdateButton_Click"
                             ToolTip="Нажмите, чтоб проверить наличае обновлений"
                             Style="{DynamicResource MenuButton}"
                             Content="Проверить наличае обновления"
