@@ -27,7 +27,7 @@ namespace Fireplace.AppDataFolder.ModelFolder
         public decimal Cost_RoomHotel { get; set; }
         public int pnType_RoomHotel { get; set; }
         public int pnBusy_RoomHotel { get; set; }
-        public int Discount_RoomHotel { get; set; }
+        public int pnDiscount_RoomHotel { get; set; }
         public int pnClassRoomHottel_RoomHotel { get; set; }
         public int FloorHottel_RoomsHotel { get; set; }
         public int NumberRoom_RoomsHottel { get; set; }

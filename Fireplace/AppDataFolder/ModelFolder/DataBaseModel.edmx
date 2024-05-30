@@ -109,7 +109,7 @@
           <Property Name="Cost_RoomHotel" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="pnType_RoomHotel" Type="int" Nullable="false" />
           <Property Name="pnBusy_RoomHotel" Type="int" Nullable="false" />
-          <Property Name="Discount_RoomHotel" Type="int" Nullable="false" />
+          <Property Name="pnDiscount_RoomHotel" Type="int" Nullable="false" />
           <Property Name="pnClassRoomHottel_RoomHotel" Type="int" Nullable="false" />
           <Property Name="FloorHottel_RoomsHotel" Type="int" Nullable="false" />
           <Property Name="NumberRoom_RoomsHottel" Type="int" Nullable="false" />
@@ -236,7 +236,7 @@
               <PropertyRef Name="PersonalNumber_Discount" />
             </Principal>
             <Dependent Role="RoomsHotelTable">
-              <PropertyRef Name="Discount_RoomHotel" />
+              <PropertyRef Name="pnDiscount_RoomHotel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -550,7 +550,7 @@
           <Property Name="Cost_RoomHotel" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="pnType_RoomHotel" Type="Int32" Nullable="false" />
           <Property Name="pnBusy_RoomHotel" Type="Int32" Nullable="false" />
-          <Property Name="Discount_RoomHotel" Type="Int32" Nullable="false" />
+          <Property Name="pnDiscount_RoomHotel" Type="Int32" Nullable="false" />
           <Property Name="pnClassRoomHottel_RoomHotel" Type="Int32" Nullable="false" />
           <Property Name="FloorHottel_RoomsHotel" Type="Int32" Nullable="false" />
           <Property Name="NumberRoom_RoomsHottel" Type="Int32" Nullable="false" />
@@ -640,7 +640,7 @@
               <PropertyRef Name="PersonalNumber_Discount" />
             </Principal>
             <Dependent Role="RoomsHotelTable">
-              <PropertyRef Name="Discount_RoomHotel" />
+              <PropertyRef Name="pnDiscount_RoomHotel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -842,7 +842,7 @@
                 <ScalarProperty Name="NumberRoom_RoomsHottel" ColumnName="NumberRoom_RoomsHottel" />
                 <ScalarProperty Name="FloorHottel_RoomsHotel" ColumnName="FloorHottel_RoomsHotel" />
                 <ScalarProperty Name="pnClassRoomHottel_RoomHotel" ColumnName="pnClassRoomHottel_RoomHotel" />
-                <ScalarProperty Name="Discount_RoomHotel" ColumnName="Discount_RoomHotel" />
+                <ScalarProperty Name="pnDiscount_RoomHotel" ColumnName="pnDiscount_RoomHotel" />
                 <ScalarProperty Name="pnBusy_RoomHotel" ColumnName="pnBusy_RoomHotel" />
                 <ScalarProperty Name="pnType_RoomHotel" ColumnName="pnType_RoomHotel" />
                 <ScalarProperty Name="Cost_RoomHotel" ColumnName="Cost_RoomHotel" />

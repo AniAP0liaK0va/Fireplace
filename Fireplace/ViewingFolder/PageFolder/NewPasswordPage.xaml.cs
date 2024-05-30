@@ -35,7 +35,7 @@ namespace Fireplace.ViewingFolder.PageFolder
                 AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(newPasswordUser);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
 
-                MessageBoxClass.FailureMessageBox_MBC(textMessage:"Пароль успешно изменён, возвращайтесь на страницу авторизации и произведите вход");
+                MessageBoxClass.GoodMessageBox_MBC(textMessage:"Пароль успешно изменён, возвращайтесь на страницу авторизации и произведите вход");
                 AppConnectClass.userWithChangeablePassword_ACC = null;
                 FrameNavigationClass.mainFarme_FNC.Navigate(new AuthorizationPage());
             }

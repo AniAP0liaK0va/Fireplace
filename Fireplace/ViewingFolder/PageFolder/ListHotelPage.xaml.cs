@@ -56,7 +56,8 @@ namespace Fireplace.ViewingFolder.PageFolder
 
         private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
         {
-
+            SearchHotelTextBox.Text = null;
+            CityHotelComboBox.Text = null;
         }
         #endregion
         #region _SelectionChanged
