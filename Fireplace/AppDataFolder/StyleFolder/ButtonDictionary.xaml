@@ -215,7 +215,8 @@
         <Setter Property="FontFamily" Value="\AppDataFolder\ContentFolder\FontFolder\#Material-Design-Iconic-Font"/>
     </Style>
 
-    <Style x:Key="SearchButtonStyle" TargetType="Button" BasedOn="{StaticResource IconButtonThoStyle}">
+    <Style x:Key="SearchButtonStyle" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+        <Setter Property="FontFamily" Value="\AppDataFolder\ContentFolder\FontFolder\#Material-Design-Iconic-Font"/>
         <Setter Property="Content" Value="&#xf1c3;"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Width" Value="50"/>

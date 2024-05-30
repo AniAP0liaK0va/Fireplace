@@ -47,9 +47,9 @@ namespace Fireplace.ViewingFolder.PageFolder
         }
         private void ClearSearchButton_Click(object sender = null, RoutedEventArgs e = null)
         {
-            SearchUserTextBox.Clear();
-            PaulUserComboBox.Items.Clear();
-            RoleUserComboBox.Items.Clear();
+            SearchUserTextBox.Text = null;
+            PaulUserComboBox.Text = null;
+            RoleUserComboBox.Text = null;
 
             ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
         }
@@ -57,18 +57,18 @@ namespace Fireplace.ViewingFolder.PageFolder
         {
             try
             {
-                if (SearchUserTextBox.Text == "") // Если SearchUserTextBox пустой
+                if (string.IsNullOrWhiteSpace(SearchUserTextBox.Text)) // Если SearchUserTextBox пустой
                 {
                     ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
                 }
-                else // Если же в SearchTextBox есть что-то то:
+                else // Если же в SearchTextBox есть что-то, то:
                 {
                     var objects = AppConnectClass.connectDataBase_ACC.UserTable.Include(userPasportData => userPasportData.PasspordDataUserTable).ToList();
 
                     var SearchResults = objects.Where(userdata =>
-                        userdata.PasspordDataUserTable.Surname_PasspordDataUser.ToString().Contains(SearchUserTextBox.Text.ToString()) ||
-                        userdata.PasspordDataUserTable.Name_PasspordDataUser.ToString().Contains(SearchUserTextBox.Text.ToString()) ||
-                        userdata.PasspordDataUserTable.Middlename_PasspordDataUser.ToString().Contains(SearchUserTextBox.Text.ToString()));
+                        userdata.PasspordDataUserTable.Surname_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        userdata.PasspordDataUserTable.Name_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        userdata.PasspordDataUserTable.Middlename_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
 
                     ListUserListView.ItemsSource = SearchResults.ToList();
                 }
@@ -100,6 +100,8 @@ namespace Fireplace.ViewingFolder.PageFolder
             ListUserListView.ItemsSource =
                 AppConnectClass.connectDataBase_ACC.UserTable.Where(paulUser =>
                 paulUser.PasspordDataUserTable.pnPaul_PasspordDataUser == (int)PaulUserComboBox.SelectedValue).ToList();
+
+            //TODO: Почему-то при очистке ComboBox, он выдаёт ошибку, с TextBox такого нет
         }
         #endregion
 
