@@ -11,10 +11,14 @@
         VerticalAlignment="Center"
         HorizontalAlignment="Center">
         <Button
+            x:Name="HottelButton"
+            Click="HottelButton_Click"
             Margin="5 0 5 0"
             Style="{DynamicResource MenuButton}"
-            Content="Отели"/>
+            Content="Гостиницы"/>
         <Button
+            x:Name="RoomsButton"
+            Click="RoomsButton_Click"
             Margin="5 0 5 0"
             Style="{DynamicResource MenuButton}"
             Content="Номера"/>

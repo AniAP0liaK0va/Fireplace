@@ -10,7 +10,7 @@ namespace Fireplace.ViewingFolder.PageFolder
         {
             InitializeComponent();
         }
-
+        #region _Click
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
             FrameNavigationClass.bodyFrame_FNC.Navigate(new ListUserPage());
@@ -20,5 +20,16 @@ namespace Fireplace.ViewingFolder.PageFolder
         {
             FrameNavigationClass.bodyFrame_FNC.Navigate(new UniversalPage());
         }
+
+        private void RoomsButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new ListRoomPage());
+        }
+
+        private void HottelButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new ListHotelPage());
+        }
+        #endregion
     }
 }

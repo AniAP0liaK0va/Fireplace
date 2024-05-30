@@ -1,0 +1,77 @@
+﻿<UserControl 
+    x:Class="Fireplace.AppDataFolder.UserControlFolder.HotelUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    Width="350"
+    Height="200">
+    <StackPanel 
+        Orientation="Vertical" 
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left">
+        <TextBlock
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Margin="0 0 0 5"
+            Style="{DynamicResource OverTextBoxTextBlockStyle}"
+            Text="{Binding Name_Hotel}"/>
+        <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="0 5 0 5">
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="Город:"/>
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="{Binding CityTable.Name_City}"/>
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="0 5 0 5">
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="Улица:"/>
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="{Binding StreetLocal_Hotel}"/>
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="0 5 0 5">
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="Номер дома:"/>
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="{Binding HomeLocal_Hotel}"/>
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="0 5 0 5">
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="Количество этажей:"/>
+            <TextBlock
+                Margin="0 0 2 0"
+                Style="{DynamicResource OverTextBoxTextBlockStyle}"
+                Text="{Binding NumberFloors_Hotel}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

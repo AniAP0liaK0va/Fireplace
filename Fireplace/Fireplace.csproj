@@ -134,6 +134,12 @@
     <Compile Include="AppDataFolder\ModelFolder\UserTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDataFolder\UserControlFolder\HotelUserControl.xaml.cs">
+      <DependentUpon>HotelUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppDataFolder\UserControlFolder\RoomUserControl.xaml.cs">
+      <DependentUpon>RoomUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppDataFolder\UserControlFolder\UserUserControl.xaml.cs">
       <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
@@ -142,6 +148,12 @@
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\PageFolder\ListHotelPage.xaml.cs">
+      <DependentUpon>ListHotelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\PageFolder\ListRoomPage.xaml.cs">
+      <DependentUpon>ListRoomPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\ListUserPage.xaml.cs">
       <DependentUpon>ListUserPage.xaml</DependentUpon>
@@ -264,6 +276,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppDataFolder\UserControlFolder\HotelUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppDataFolder\UserControlFolder\RoomUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppDataFolder\UserControlFolder\UserUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,6 +293,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\ListHotelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\ListRoomPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

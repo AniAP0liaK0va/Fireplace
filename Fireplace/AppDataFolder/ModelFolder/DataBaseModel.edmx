@@ -277,7 +277,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UserTable_PasspordDataUserTable1">
-          <End Role="PasspordDataUserTable" Type="Self.PasspordDataUserTable" Multiplicity="1" />
+          <End Role="PasspordDataUserTable" Type="Self.PasspordDataUserTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PasspordDataUserTable">
@@ -679,7 +681,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UserTable_PasspordDataUserTable1">
-          <End Type="FireplaceModel.PasspordDataUserTable" Role="PasspordDataUserTable" Multiplicity="1" />
+          <End Type="FireplaceModel.PasspordDataUserTable" Role="PasspordDataUserTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="FireplaceModel.UserTable" Role="UserTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PasspordDataUserTable">

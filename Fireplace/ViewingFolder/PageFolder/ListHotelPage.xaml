@@ -1,0 +1,155 @@
+﻿<Page 
+    x:Class="Fireplace.ViewingFolder.PageFolder.ListHotelPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:UserControl ="clr-namespace:Fireplace.AppDataFolder.UserControlFolder"
+    mc:Ignorable="d" 
+    Style="{StaticResource BodyPageStyle}"
+    Title="Список гостиниц">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel
+             Orientation="Vertical"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"
+             Margin="0 0 0 0"
+             Grid.Row="0">
+            <StackPanel
+                 Margin="0 0 0 5"
+                 Orientation="Horizontal"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock
+                         Style="{StaticResource OverTextBoxTextBlockStyle}"
+                         Text="Найти"/>
+                    <TextBox
+                         KeyDown="SearchHotelTextBox_KeyDown"
+                         ToolTip="Поиск"
+                         Margin="0 0 5 0"
+                         Width="770"
+                         x:Name="SearchHotelTextBox"/>
+                </StackPanel>
+                <Button
+                    VerticalAlignment="Bottom"
+                    Click="SearchHotelButton_Click"
+                    ToolTip="Найти"
+                    x:Name="SearchHotelButton"
+                    Style="{DynamicResource SearchButtonStyle}"
+                    Margin="5 0 40 0"/>
+                <StackPanel 
+                    Margin="40 0 0 0"
+                    Orientation="Vertical" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center">
+                    <TextBlock
+                        Style="{StaticResource OverTextBoxTextBlockStyle}"
+                        Text="Фильтр по городу"/>
+                    <ComboBox
+                        SelectionChanged="ClassHotelComboBox_SelectionChanged_1"
+                        DisplayMemberPath="Name_City"
+                        SelectedValuePath="PersonalNumber_City"
+                        ToolTip="Фильтр по классу"
+                        Width="400"
+                        x:Name="ClassHotelComboBox"/>
+                </StackPanel>
+            </StackPanel>
+            <Button
+                 VerticalAlignment="Bottom"
+                 ToolTip="Очищает как фильтры, так и поиск"
+                 x:Name="ClearSearchButton"
+                 Content="Очистить всё"
+                 Click="ClearSearchButton_Click"
+                 Style="{DynamicResource MenuButton}"
+                 Margin="0 5 0 0"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="440"/>
+            </Grid.ColumnDefinitions>
+            <ListView
+                 SelectionChanged="ListHotelListView_SelectionChanged"
+                 Background="Transparent"
+                 x:Name="ListHotelListView"
+                 Margin="0 10 0 10"
+                 ItemContainerStyle="{StaticResource ListViewItemSelected}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel
+                             IsItemsHost="True" 
+                             VerticalAlignment="Top"
+                             HorizontalAlignment="Left" 
+                             Background="Transparent"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <UserControl:HotelUserControl Margin="10"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Frame
+                     x:Name="MiniInformationHotelFrame"
+                     Grid.Row="1"/>
+                <StackPanel
+                     Grid.Row="0"
+                     Orientation="Horizontal"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center">
+                    <Button
+                         Width="210"
+                         x:Name="AddHotelButton"
+                         Click="AddHotelButton_Click"
+                         Style="{DynamicResource MenuButton}"
+                         Margin="0 10 5 0"
+                         ToolTip="Добавить новую гостиницу">
+                        <TextBlock 
+                             HorizontalAlignment="Center"
+                             TextAlignment="Center"
+                             Text="Добавить новую гостиницу"
+                             TextWrapping="Wrap"/>
+                    </Button>
+                    <Button
+                         Width="210"
+                         x:Name="DeliteHotelButton"
+                         Style="{DynamicResource MenuButton}"
+                         Margin="5 10 0 0"
+                         ToolTip="Удалить выбранную гостиницу">
+                        <TextBlock 
+                             HorizontalAlignment="Center"
+                             TextAlignment="Center"
+                             Text="Удалить выбранную гостиницу"
+                             TextWrapping="Wrap"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel
+                     Margin="10 0 10 0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Orientation="Horizontal"
+                     Grid.Row="2">
+                    <TextBlock 
+                         Text="ВСЕГО:"
+                         Margin="0 0 5 0"
+                         Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                    <TextBlock 
+                         x:Name="TotalHotelTextBlock"
+                         Margin="5 0 0 0"
+                         Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
