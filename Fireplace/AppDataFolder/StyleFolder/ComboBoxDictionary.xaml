@@ -67,14 +67,16 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left" />
                         <TextBox 
+                            Foreground="#3158ce"
                             x:Name="PART_EditableTextBox"
                             Style="{x:Null}" 
                             Template="{StaticResource ComboBoxTextBox}" 
                             HorizontalAlignment="Left" 
-                            VerticalAlignment="Center" 
-                            Margin="10,3,23,3"
+                            VerticalAlignment="Center"
                             Focusable="True" 
-                            Background="#f5f5f5"
+                            Margin="5 0 0 0" 
+                            CaretBrush="#3158ce"
+                            Background="Transparent"
                             Visibility="Hidden"
                             IsReadOnly="{TemplateBinding IsReadOnly}"/>
                         <Popup 

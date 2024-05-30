@@ -55,29 +55,20 @@ namespace Fireplace.ViewingFolder.PageFolder
         }
         private void SearchUserButton_Click(object sender = null, RoutedEventArgs e = null)
         {
-            try
+            if (string.IsNullOrWhiteSpace(SearchUserTextBox.Text)) // Если SearchUserTextBox пустой
             {
-                if (string.IsNullOrWhiteSpace(SearchUserTextBox.Text)) // Если SearchUserTextBox пустой
-                {
-                    ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
-                }
-                else // Если же в SearchTextBox есть что-то, то:
-                {
-                    var objects = AppConnectClass.connectDataBase_ACC.UserTable.Include(userPasportData => userPasportData.PasspordDataUserTable).ToList();
-
-                    var SearchResults = objects.Where(userdata =>
-                        userdata.PasspordDataUserTable.Surname_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                        userdata.PasspordDataUserTable.Name_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                        userdata.PasspordDataUserTable.Middlename_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-
-                    ListUserListView.ItemsSource = SearchResults.ToList();
-                }
+                ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
             }
-            catch (Exception exSearchUserButton_Click)
+            else // Если же в SearchTextBox есть что-то, то:
             {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие SearchSearchUserButton_Click в ListUserPage:\n\n " +
-                        $"{exSearchUserButton_Click.Message}");
+                var objects = AppConnectClass.connectDataBase_ACC.UserTable.Include(userPasportData => userPasportData.PasspordDataUserTable).ToList();
+
+                var SearchResults = objects.Where(userdata =>
+                    userdata.PasspordDataUserTable.Surname_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    userdata.PasspordDataUserTable.Name_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    userdata.PasspordDataUserTable.Middlename_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
+                ListUserListView.ItemsSource = SearchResults.ToList();
             }
         }
         #endregion
@@ -90,18 +81,30 @@ namespace Fireplace.ViewingFolder.PageFolder
 
         private void RoleUserComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListUserListView.ItemsSource = 
-                AppConnectClass.connectDataBase_ACC.UserTable.Where(roleUser =>
-                roleUser.pnRole_User == (int)RoleUserComboBox.SelectedValue).ToList();
+            if (RoleUserComboBox.SelectedItem == null)
+            {
+                ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
+            }
+            else
+            {
+                ListUserListView.ItemsSource =
+                    AppConnectClass.connectDataBase_ACC.UserTable.Where(roleUser =>
+                    roleUser.pnRole_User == (int)RoleUserComboBox.SelectedValue).ToList();
+            }
         }
 
         private void PaulUserComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListUserListView.ItemsSource =
-                AppConnectClass.connectDataBase_ACC.UserTable.Where(paulUser =>
-                paulUser.PasspordDataUserTable.pnPaul_PasspordDataUser == (int)PaulUserComboBox.SelectedValue).ToList();
-
-            //TODO: Почему-то при очистке ComboBox, он выдаёт ошибку, с TextBox такого нет
+            if (PaulUserComboBox.SelectedItem == null)
+            {
+                ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
+            }
+            else
+            {
+                ListUserListView.ItemsSource =
+                    AppConnectClass.connectDataBase_ACC.UserTable.Where(paulUser =>
+                    paulUser.PasspordDataUserTable.pnPaul_PasspordDataUser == (int)PaulUserComboBox.SelectedValue).ToList();
+            }
         }
         #endregion
 

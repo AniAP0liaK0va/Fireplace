@@ -51,12 +51,13 @@
                         Style="{StaticResource OverTextBoxTextBlockStyle}"
                         Text="Фильтр по городу"/>
                     <ComboBox
-                        SelectionChanged="ClassHotelComboBox_SelectionChanged_1"
+                        IsEditable="True"
+                        SelectionChanged="CityHotelComboBox_SelectionChanged"
                         DisplayMemberPath="Name_City"
                         SelectedValuePath="PersonalNumber_City"
                         ToolTip="Фильтр по классу"
                         Width="400"
-                        x:Name="ClassHotelComboBox"/>
+                        x:Name="CityHotelComboBox"/>
                 </StackPanel>
             </StackPanel>
             <Button
