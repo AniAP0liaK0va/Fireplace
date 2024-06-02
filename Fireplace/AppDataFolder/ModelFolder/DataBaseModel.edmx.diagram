@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2878221a9c584ad2bb4f7fdf8f3c25b1" Name="Diagram1">
+      <Diagram DiagramId="2878221a9c584ad2bb4f7fdf8f3c25b1" Name="Diagram1" ZoomLevel="132">
         <EntityTypeShape EntityType="FireplaceModel.BusyRoomTable" Width="1.5" PointX="7.5" PointY="7.875" />
         <EntityTypeShape EntityType="FireplaceModel.CityTable" Width="1.5" PointX="5.25" PointY="7.375" />
         <EntityTypeShape EntityType="FireplaceModel.ClassRoomHotelTable" Width="1.5" PointX="7.5" PointY="10.25" />

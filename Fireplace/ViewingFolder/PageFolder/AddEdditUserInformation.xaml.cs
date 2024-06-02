@@ -13,6 +13,7 @@ namespace Fireplace.ViewingFolder.PageFolder
     public partial class AddEdditUserInformationPage : Page
     {
         string pathImage;
+        string validationStringDate;
 
         public AddEdditUserInformationPage(UserTable userTable)
         {
@@ -22,6 +23,11 @@ namespace Fireplace.ViewingFolder.PageFolder
             if (userTable != null)
             {
                 DataContext = userTable;
+                AddEditUserDataButton.Content = "Сохранить изменения";
+            }
+            else
+            {
+                AddEditUserDataButton.Content = "Добавить пользователя";
             }
         }
         #region _Click
@@ -63,9 +69,32 @@ namespace Fireplace.ViewingFolder.PageFolder
             addUppdatePasspordDataUserTable.PassportHasBeenIssued_PasspordDataUser = PassportHasBeenIssuedTextBox.Text;
             addUppdatePasspordDataUserTable.DateIssue_PasspordDataUser = Convert.ToDateTime(DateIssueTextBox.Text);
             addUppdatePasspordDataUserTable.UnitCode_PasspordDataUser = UnitCodeTextBox.Text;
-            //addUppdatePasspordDataUserTable.pnPaul_PasspordDataUser = PaulComboBox.Text;
+            addUppdatePasspordDataUserTable.pnPaul_PasspordDataUser = (PaulComboBox.SelectedItem as PaulTable).PersonalNumber_Paul;
             addUppdatePasspordDataUserTable.DateBirth_PasspordDataUser = Convert.ToDateTime(DateBirthTextBox.Text);
             addUppdatePasspordDataUserTable.PlaceBirth_PasspordDataUser = PlaceBirthTextBox.Text;
+
+            //addUppdateUserTable.PersonalNumber_User
+            addUppdateUserTable.pnPassportSeries_User = addUppdatePasspordDataUserTable.PassportSeries_PasspordDataUser;
+            addUppdateUserTable.pnPassportNumber_User = addUppdatePasspordDataUserTable.PassportNumber_PasspordDataUser;
+            addUppdateUserTable.DateRegistration_User = DateTime.Today;
+            addUppdateUserTable.Email_User = EmailTextBox.Text;
+            //addUppdateUserTable.PasspordDataUserTable =
+            addUppdateUserTable.pnImage_User = addUppdateImageTable.PersonalNumber_Inage;
+            addUppdateUserTable.pnRole_User = (RoleComboBox.SelectedItem as RoleUserTable).PersonalNumber_Role;
+        }
+
+        private void Event_ValidationData()
+        {
+            if (string.IsNullOrWhiteSpace(SeriesPasspordUserTextBox.Text)) validationStringDate += "Вы не указали 'Серию' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(NumberPasspordUserTextBox.Text)) validationStringDate += "Вы не указали 'Номер' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(SurnameUserTextBox.Text)) validationStringDate += "Вы не указали 'Фамилию' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(NameUserTextBox.Text)) validationStringDate += "Вы не указали 'Имя' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(PassportHasBeenIssuedTextBox.Text)) validationStringDate += "Вы не указали 'Кем выдан' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DateIssueTextBox.Text)) validationStringDate += "Вы не указали 'Дату выдачи' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(UnitCodeTextBox.Text)) validationStringDate += "Вы не указали 'Номер подрзделения' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(PaulComboBox.Text)) validationStringDate += "Вы не указали 'Пол' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DateBirthTextBox.Text)) validationStringDate += "Вы не указали 'Дату рождения' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(PlaceBirthTextBox.Text)) validationStringDate += "Вы не указали 'Место рождения' в 'Паспорт'\n";
         }
         #endregion
         #region ValidData
