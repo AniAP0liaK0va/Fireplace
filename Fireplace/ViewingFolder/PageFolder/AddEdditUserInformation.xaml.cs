@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Migrations;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,9 @@ namespace Fireplace.ViewingFolder.PageFolder
             InitializeComponent();
             AppConnectClass.connectDataBase_ACC = new FireplaceEntities();
 
+            RoleComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.RoleUserTable.ToList();
+            PaulComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.PaulTable.ToList();
+
             if (userTable != null)
             {
                 DataContext = userTable;
@@ -38,7 +42,7 @@ namespace Fireplace.ViewingFolder.PageFolder
         #region _Click
         private void AddEditUserDataButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Event_AddUppdateInformationUser();
         }
 
         private void OpenNewImageButton_Click(object sender, RoutedEventArgs e)
@@ -71,60 +75,65 @@ namespace Fireplace.ViewingFolder.PageFolder
             }
             else
             {
-                UserTable addUppdateUserTable = new UserTable();
-                PasspordDataUserTable addUppdatePasspordDataUserTable = new PasspordDataUserTable();
-                ImageTable addUppdateImageTable = new ImageTable();
+                // Создаем объекты таблиц
+                UserTable addOrUpdateUserTable = new UserTable();
+                PasspordDataUserTable addOrUpdatePassportDataUserTable = new PasspordDataUserTable();
+                ImageTable addOrUpdateImageTable = new ImageTable();
 
-                addUppdatePasspordDataUserTable.PassportSeries_PasspordDataUser = SeriesPasspordUserTextBox.Text;
-                addUppdatePasspordDataUserTable.PassportNumber_PasspordDataUser = NumberPasspordUserTextBox.Text;
-                addUppdatePasspordDataUserTable.Surname_PasspordDataUser = SurnameUserTextBox.Text;
-                addUppdatePasspordDataUserTable.Name_PasspordDataUser = NameUserTextBox.Text;
-                addUppdatePasspordDataUserTable.Middlename_PasspordDataUser = MiddlenameUserTextBox.Text;
-                addUppdatePasspordDataUserTable.PassportHasBeenIssued_PasspordDataUser = PassportHasBeenIssuedTextBox.Text;
-                addUppdatePasspordDataUserTable.DateIssue_PasspordDataUser = Convert.ToDateTime(DateIssueTextBox.Text);
-                addUppdatePasspordDataUserTable.UnitCode_PasspordDataUser = UnitCodeTextBox.Text;
-                addUppdatePasspordDataUserTable.pnPaul_PasspordDataUser = (PaulComboBox.SelectedItem as PaulTable).PersonalNumber_Paul;
-                addUppdatePasspordDataUserTable.DateBirth_PasspordDataUser = Convert.ToDateTime(DateBirthTextBox.Text);
-                addUppdatePasspordDataUserTable.PlaceBirth_PasspordDataUser = PlaceBirthTextBox.Text;
+                // Заполняем данные для таблицы паспорта
+                addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser = SeriesPasspordUserTextBox.Text;
+                addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser = NumberPasspordUserTextBox.Text;
+                addOrUpdatePassportDataUserTable.Surname_PasspordDataUser = SurnameUserTextBox.Text;
+                addOrUpdatePassportDataUserTable.Name_PasspordDataUser = NameUserTextBox.Text;
+                addOrUpdatePassportDataUserTable.Middlename_PasspordDataUser = MiddlenameUserTextBox.Text;
+                addOrUpdatePassportDataUserTable.PassportHasBeenIssued_PasspordDataUser = PassportHasBeenIssuedTextBox.Text;
+                addOrUpdatePassportDataUserTable.DateIssue_PasspordDataUser = Convert.ToDateTime(DateIssueTextBox.Text);
+                addOrUpdatePassportDataUserTable.UnitCode_PasspordDataUser = UnitCodeTextBox.Text;
+                addOrUpdatePassportDataUserTable.pnPaul_PasspordDataUser = (PaulComboBox.SelectedItem as PaulTable).PersonalNumber_Paul;
+                addOrUpdatePassportDataUserTable.DateBirth_PasspordDataUser = Convert.ToDateTime(DateBirthTextBox.Text);
+                addOrUpdatePassportDataUserTable.PlaceBirth_PasspordDataUser = PlaceBirthTextBox.Text;
 
-                addUppdateUserTable.pnPassportSeries_User = addUppdatePasspordDataUserTable.PassportSeries_PasspordDataUser;
-                addUppdateUserTable.pnPassportNumber_User = addUppdatePasspordDataUserTable.PassportNumber_PasspordDataUser;
-                addUppdateUserTable.DateRegistration_User = DateTime.Today;
-                addUppdateUserTable.Email_User = EmailTextBox.Text;
-                addUppdateUserTable.pnImage_User = addUppdateImageTable.PersonalNumber_Inage;
-                addUppdateUserTable.pnRole_User = (RoleComboBox.SelectedItem as RoleUserTable).PersonalNumber_Role;
+                // Заполняем данные для таблицы пользователя
+                addOrUpdateUserTable.pnPassportSeries_User = addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
+                addOrUpdateUserTable.pnPassportNumber_User = addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
+                addOrUpdateUserTable.DateRegistration_User = DateTime.Today;
+                addOrUpdateUserTable.Email_User = EmailTextBox.Text;
+                addOrUpdateUserTable.pnRole_User = (RoleComboBox.SelectedItem as RoleUserTable).PersonalNumber_Role;
 
                 // Если пользователь новый
                 if (dataUserTable == null)
                 {
-                    addUppdateUserTable.PersonalNumber_User = 
-                        addUppdatePasspordDataUserTable.PassportSeries_PasspordDataUser + addUppdatePasspordDataUserTable.PassportNumber_PasspordDataUser;
+                    addOrUpdateUserTable.PersonalNumber_User = 
+                        addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
                 }
 
-                // Сравниваем пароь, и есл он не такой же, (поменяли пароль или новый пользователь), то сохраняем новый пароль
-                if (HashClass.GetHash(PasswordTextBox.Text) != addUppdateUserTable.Password_User) 
+                // Сравниваем пароль, и если он не такой же, то сохраняем новый пароль
+                if (HashClass.GetHash(PasswordTextBox.Text) != addOrUpdateUserTable.Password_User)
                 {
-                    addUppdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
+                    addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
                 }
 
-                // Если фото было, но его убрали (удалили) то сохраняем пустую картинку и удаляем фото из базы
-                if (UserPhotoImage.Source == null || addUppdateUserTable.pnImage_User != null)
+                // Если фото было, но его убрали, то сохраняем пустую картинку и удаляем фото из базы
+                if (UserPhotoImage.Source == null || addOrUpdateUserTable.pnImage_User != null)
                 {
-                    addUppdateUserTable.pnImage_User = "0";
+                    if (dataUserTable != null && dataUserTable.pnImage_User != null)
+                    {
+                        AppConnectClass.connectDataBase_ACC.ImageTable.Remove(
+                            AppConnectClass.connectDataBase_ACC.ImageTable.Find(dataUserTable.pnImage_User));
+                    }
 
-                    AppConnectClass.connectDataBase_ACC.ImageTable.Remove(
-                        AppConnectClass.connectDataBase_ACC.ImageTable.Find(dataUserTable.pnImage_User));
+                    addOrUpdateUserTable.pnImage_User = "0";
                 }
                 else
                 {
                     if (dataUserTable == null || pathImage != "")
                     {
-                        addUppdateImageTable.PersonalNumber_Inage =
-                            addUppdatePasspordDataUserTable.PassportNumber_PasspordDataUser + addUppdatePasspordDataUserTable.PassportSeries_PasspordDataUser;
+                        addOrUpdateImageTable.PersonalNumber_Inage = 
+                            addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
                     }
                     else
                     {
-                        addUppdateUserTable.pnImage_User = "0";
+                        addOrUpdateUserTable.pnImage_User = "0";
                     }
 
                     if (pathImage != "")
@@ -137,16 +146,20 @@ namespace Fireplace.ViewingFolder.PageFolder
                             imageData = new byte[fs.Length];
                             fs.Read(imageData, 0, imageData.Length);
                         }
-                        addUppdateImageTable.BinaryCode_Image = imageData;
+                        addOrUpdateImageTable.BinaryCode_Image = imageData;
                     }
-                    
                 }
-                AppConnectClass.connectDataBase_ACC.ImageTable.AddOrUpdate(addUppdateImageTable);
-                AppConnectClass.connectDataBase_ACC.PasspordDataUserTable.AddOrUpdate(addUppdatePasspordDataUserTable);
-                AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(addUppdateUserTable);
+
+                // Добавляем или обновляем данные в базе данных
+                AppConnectClass.connectDataBase_ACC.ImageTable.AddOrUpdate(addOrUpdateImageTable);
+                AppConnectClass.connectDataBase_ACC.PasspordDataUserTable.AddOrUpdate(addOrUpdatePassportDataUserTable);
+                AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(addOrUpdateUserTable);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
-                MessageBoxClass.GoodMessageBox_MBC(textMessage: 
-                    $"Пользователь {addUppdatePasspordDataUserTable.Surname_PasspordDataUser} {addUppdatePasspordDataUserTable.Name_PasspordDataUser} усешно добавлен");
+
+                // Сообщаем об успешном добавлении пользователя
+                MessageBoxClass.GoodMessageBox_MBC(textMessage:
+                    $"Пользователь {addOrUpdatePassportDataUserTable.Surname_PasspordDataUser} {addOrUpdatePassportDataUserTable.Name_PasspordDataUser} успешно добавлен");
+
             }
         }
 

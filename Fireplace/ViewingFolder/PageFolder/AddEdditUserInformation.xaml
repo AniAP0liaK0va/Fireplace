@@ -190,8 +190,8 @@
                         Margin="10 0 2 0"
                         Text="Пол по паспорту:"/>
                     <ComboBox
-                        DisplayMemberPath="Name_Role"
-                        SelectedValuePath="PersonalNumber_Role"
+                        DisplayMemberPath="Title_Paul"
+                        SelectedValuePath="PersonalNumber_Paul"
                         x:Name="PaulComboBox"
                         Height="50"
                         Width="660"
@@ -271,8 +271,8 @@
                         Margin="10 0 2 0"
                         Text="Пользовательский доступ:"/>
                     <ComboBox
-                        SelectionChanged="RoleUserComboBox_SelectionChanged"
                         DisplayMemberPath="Name_Role"
+                        SelectedValuePath="PersonalNumber_Role"
                         x:Name="RoleComboBox"
                         Height="50"
                         Width="660"
