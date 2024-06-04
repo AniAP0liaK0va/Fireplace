@@ -114,5 +114,10 @@ namespace Fireplace.ViewingFolder.PageFolder
             if (e.Key == Key.Enter) { SearchUserButton_Click(); }
         }
         #endregion
+
+        private void ListUserListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new AddEdditUserInformationPage((UserTable)ListUserListView.SelectedItem));
+        }
     }
 }

@@ -20,8 +20,8 @@ namespace Fireplace.AppDataFolder.ModelFolder
             this.UserTable = new HashSet<UserTable>();
         }
     
-        public string PassportNumber_PasspordDataUser { get; set; }
         public string PassportSeries_PasspordDataUser { get; set; }
+        public string PassportNumber_PasspordDataUser { get; set; }
         public string Surname_PasspordDataUser { get; set; }
         public string Name_PasspordDataUser { get; set; }
         public string Middlename_PasspordDataUser { get; set; }

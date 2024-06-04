@@ -92,29 +92,10 @@ namespace Fireplace.ViewingFolder.PageFolder
                 addOrUpdatePassportDataUserTable.pnPaul_PasspordDataUser = (PaulComboBox.SelectedItem as PaulTable).PersonalNumber_Paul;
                 addOrUpdatePassportDataUserTable.DateBirth_PasspordDataUser = Convert.ToDateTime(DateBirthTextBox.Text);
                 addOrUpdatePassportDataUserTable.PlaceBirth_PasspordDataUser = PlaceBirthTextBox.Text;
+                AppConnectClass.connectDataBase_ACC.PasspordDataUserTable.AddOrUpdate(addOrUpdatePassportDataUserTable);
 
-                // Заполняем данные для таблицы пользователя
-                addOrUpdateUserTable.pnPassportSeries_User = addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
-                addOrUpdateUserTable.pnPassportNumber_User = addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
-                addOrUpdateUserTable.DateRegistration_User = DateTime.Today;
-                addOrUpdateUserTable.Email_User = EmailTextBox.Text;
-                addOrUpdateUserTable.pnRole_User = (RoleComboBox.SelectedItem as RoleUserTable).PersonalNumber_Role;
-
-                // Если пользователь новый
-                if (dataUserTable == null)
-                {
-                    addOrUpdateUserTable.PersonalNumber_User = 
-                        addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
-                }
-
-                // Сравниваем пароль, и если он не такой же, то сохраняем новый пароль
-                if (HashClass.GetHash(PasswordTextBox.Text) != addOrUpdateUserTable.Password_User)
-                {
-                    addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
-                }
-
-                // Если фото было, но его убрали, то сохраняем пустую картинку и удаляем фото из базы
-                if (UserPhotoImage.Source == null || addOrUpdateUserTable.pnImage_User != null)
+                // Проверка наличия фотографии
+                if (string.IsNullOrEmpty(pathImage))
                 {
                     if (dataUserTable != null && dataUserTable.pnImage_User != null)
                     {
@@ -122,13 +103,15 @@ namespace Fireplace.ViewingFolder.PageFolder
                             AppConnectClass.connectDataBase_ACC.ImageTable.Find(dataUserTable.pnImage_User));
                     }
 
-                    addOrUpdateUserTable.pnImage_User = "0";
+                    addOrUpdateUserTable.pnImage_User = "0"; // По умолчанию, если фото не выбрано
                 }
                 else
                 {
+                    // Обновление фотографии, если выбран новый файл
                     if (dataUserTable == null || pathImage != "")
                     {
-                        addOrUpdateImageTable.PersonalNumber_Inage = 
+                        // Создаем новый ID фотографии
+                        addOrUpdateImageTable.PersonalNumber_Inage =
                             addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
                     }
                     else
@@ -136,23 +119,46 @@ namespace Fireplace.ViewingFolder.PageFolder
                         addOrUpdateUserTable.pnImage_User = "0";
                     }
 
-                    if (pathImage != "")
-                    {
-                        byte[] imageData;
+                    byte[] imageData;
 
-                        // Конвертация изображения в байты
-                        using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
-                        {
-                            imageData = new byte[fs.Length];
-                            fs.Read(imageData, 0, imageData.Length);
-                        }
-                        addOrUpdateImageTable.BinaryCode_Image = imageData;
+                    // Конвертация изображения в байты
+                    using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
+                    {
+                        imageData = new byte[fs.Length];
+                        fs.Read(imageData, 0, imageData.Length);
                     }
+                    addOrUpdateImageTable.BinaryCode_Image = imageData;
+                }
+
+                // Обновление данных для таблицы пользователя
+                addOrUpdateUserTable.pnPassportSeries_User = addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
+                addOrUpdateUserTable.pnPassportNumber_User = addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
+                addOrUpdateUserTable.Email_User = EmailTextBox.Text;
+                addOrUpdateUserTable.pnRole_User = (RoleComboBox.SelectedItem as RoleUserTable).PersonalNumber_Role;
+
+                // Обновление ID фотографии при изменении данных паспорта
+                if (dataUserTable != null &&
+                    (dataUserTable.pnPassportSeries_User != addOrUpdateUserTable.pnPassportSeries_User ||
+                    dataUserTable.pnPassportNumber_User != addOrUpdateUserTable.pnPassportNumber_User))
+                {
+                    addOrUpdateUserTable.pnImage_User = addOrUpdateImageTable.PersonalNumber_Inage;
+                }
+
+                // Если пользователь новый
+                if (dataUserTable == null)
+                {
+                    addOrUpdateUserTable.PersonalNumber_User =
+                        addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
+                    addOrUpdateUserTable.DateRegistration_User = DateTime.Today;
+                }
+
+                // Сравниваем пароль и сохраняем новый, если он изменился
+                if (HashClass.GetHash(PasswordTextBox.Text) != addOrUpdateUserTable.Password_User)
+                {
+                    addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
                 }
 
                 // Добавляем или обновляем данные в базе данных
-                AppConnectClass.connectDataBase_ACC.ImageTable.AddOrUpdate(addOrUpdateImageTable);
-                AppConnectClass.connectDataBase_ACC.PasspordDataUserTable.AddOrUpdate(addOrUpdatePassportDataUserTable);
                 AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(addOrUpdateUserTable);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
 

@@ -21,8 +21,8 @@ namespace Fireplace.AppDataFolder.ModelFolder
         }
     
         public string PersonalNumber_User { get; set; }
-        public string pnPassportNumber_User { get; set; }
         public string pnPassportSeries_User { get; set; }
+        public string pnPassportNumber_User { get; set; }
         public System.DateTime DateRegistration_User { get; set; }
         public string Email_User { get; set; }
         public string Password_User { get; set; }

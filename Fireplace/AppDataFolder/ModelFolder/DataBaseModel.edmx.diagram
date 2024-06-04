@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2878221a9c584ad2bb4f7fdf8f3c25b1" Name="Diagram1" ZoomLevel="132">
-        <EntityTypeShape EntityType="FireplaceModel.BusyRoomTable" Width="1.5" PointX="7.5" PointY="12.625" />
+        <EntityTypeShape EntityType="FireplaceModel.BusyRoomTable" Width="1.5" PointX="7.5" PointY="14.875" />
         <EntityTypeShape EntityType="FireplaceModel.CityTable" Width="1.5" PointX="5.25" PointY="7.375" />
-        <EntityTypeShape EntityType="FireplaceModel.ClassRoomHotelTable" Width="1.5" PointX="7.5" PointY="14.875" />
+        <EntityTypeShape EntityType="FireplaceModel.ClassRoomHotelTable" Width="1.5" PointX="7.5" PointY="12.625" />
         <EntityTypeShape EntityType="FireplaceModel.DiscountRoomTable" Width="1.5" PointX="7.5" PointY="10.25" />
         <EntityTypeShape EntityType="FireplaceModel.HotelTable" Width="1.5" PointX="7.5" PointY="1.75" />
         <EntityTypeShape EntityType="FireplaceModel.ImageTable" Width="1.5" PointX="3" PointY="6.25" />

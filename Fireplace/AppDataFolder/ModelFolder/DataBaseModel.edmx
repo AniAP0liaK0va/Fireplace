@@ -62,11 +62,11 @@
         </EntityType>
         <EntityType Name="PasspordDataUserTable">
           <Key>
-            <PropertyRef Name="PassportNumber_PasspordDataUser" />
             <PropertyRef Name="PassportSeries_PasspordDataUser" />
+            <PropertyRef Name="PassportNumber_PasspordDataUser" />
           </Key>
-          <Property Name="PassportNumber_PasspordDataUser" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="PassportSeries_PasspordDataUser" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="PassportSeries_PasspordDataUser" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="PassportNumber_PasspordDataUser" Type="char" MaxLength="6" Nullable="false" />
           <Property Name="Surname_PasspordDataUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name_PasspordDataUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Middlename_PasspordDataUser" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -136,8 +136,8 @@
             <PropertyRef Name="PersonalNumber_User" />
           </Key>
           <Property Name="PersonalNumber_User" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="pnPassportNumber_User" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="pnPassportSeries_User" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="pnPassportSeries_User" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="pnPassportNumber_User" Type="char" MaxLength="6" Nullable="false" />
           <Property Name="DateRegistration_User" Type="date" Nullable="false" />
           <Property Name="Email_User" Type="nvarchar" MaxLength="222" Nullable="false" />
           <Property Name="Password_User" Type="nvarchar" MaxLength="130" Nullable="false" />
@@ -283,12 +283,12 @@
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PasspordDataUserTable">
-              <PropertyRef Name="PassportNumber_PasspordDataUser" />
               <PropertyRef Name="PassportSeries_PasspordDataUser" />
+              <PropertyRef Name="PassportNumber_PasspordDataUser" />
             </Principal>
             <Dependent Role="UserTable">
-              <PropertyRef Name="pnPassportNumber_User" />
               <PropertyRef Name="pnPassportSeries_User" />
+              <PropertyRef Name="pnPassportNumber_User" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -498,11 +498,11 @@
         </EntityType>
         <EntityType Name="PasspordDataUserTable">
           <Key>
-            <PropertyRef Name="PassportNumber_PasspordDataUser" />
             <PropertyRef Name="PassportSeries_PasspordDataUser" />
+            <PropertyRef Name="PassportNumber_PasspordDataUser" />
           </Key>
-          <Property Name="PassportNumber_PasspordDataUser" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="PassportSeries_PasspordDataUser" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="PassportSeries_PasspordDataUser" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="PassportNumber_PasspordDataUser" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
           <Property Name="Surname_PasspordDataUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name_PasspordDataUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Middlename_PasspordDataUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -584,8 +584,8 @@
             <PropertyRef Name="PersonalNumber_User" />
           </Key>
           <Property Name="PersonalNumber_User" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="pnPassportNumber_User" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="pnPassportSeries_User" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="pnPassportSeries_User" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="pnPassportNumber_User" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
           <Property Name="DateRegistration_User" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Email_User" Type="String" Nullable="false" MaxLength="222" FixedLength="false" Unicode="true" />
           <Property Name="Password_User" Type="String" Nullable="false" MaxLength="130" FixedLength="false" Unicode="true" />
@@ -687,12 +687,12 @@
           <End Type="FireplaceModel.UserTable" Role="UserTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PasspordDataUserTable">
-              <PropertyRef Name="PassportNumber_PasspordDataUser" />
               <PropertyRef Name="PassportSeries_PasspordDataUser" />
+              <PropertyRef Name="PassportNumber_PasspordDataUser" />
             </Principal>
             <Dependent Role="UserTable">
-              <PropertyRef Name="pnPassportNumber_User" />
               <PropertyRef Name="pnPassportSeries_User" />
+              <PropertyRef Name="pnPassportNumber_User" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -807,8 +807,8 @@
                 <ScalarProperty Name="Middlename_PasspordDataUser" ColumnName="Middlename_PasspordDataUser" />
                 <ScalarProperty Name="Name_PasspordDataUser" ColumnName="Name_PasspordDataUser" />
                 <ScalarProperty Name="Surname_PasspordDataUser" ColumnName="Surname_PasspordDataUser" />
-                <ScalarProperty Name="PassportSeries_PasspordDataUser" ColumnName="PassportSeries_PasspordDataUser" />
                 <ScalarProperty Name="PassportNumber_PasspordDataUser" ColumnName="PassportNumber_PasspordDataUser" />
+                <ScalarProperty Name="PassportSeries_PasspordDataUser" ColumnName="PassportSeries_PasspordDataUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -880,8 +880,8 @@
                 <ScalarProperty Name="Password_User" ColumnName="Password_User" />
                 <ScalarProperty Name="Email_User" ColumnName="Email_User" />
                 <ScalarProperty Name="DateRegistration_User" ColumnName="DateRegistration_User" />
-                <ScalarProperty Name="pnPassportSeries_User" ColumnName="pnPassportSeries_User" />
                 <ScalarProperty Name="pnPassportNumber_User" ColumnName="pnPassportNumber_User" />
+                <ScalarProperty Name="pnPassportSeries_User" ColumnName="pnPassportSeries_User" />
                 <ScalarProperty Name="PersonalNumber_User" ColumnName="PersonalNumber_User" />
               </MappingFragment>
             </EntityTypeMapping>

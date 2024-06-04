@@ -90,6 +90,7 @@
                 <ColumnDefinition Width="440"/>
             </Grid.ColumnDefinitions>
             <ListView
+                MouseDoubleClick="ListUserListView_MouseDoubleClick"
                 SelectionChanged="ListUserListView_SelectionChanged"
                 Background="Transparent"
                 x:Name="ListUserListView"
