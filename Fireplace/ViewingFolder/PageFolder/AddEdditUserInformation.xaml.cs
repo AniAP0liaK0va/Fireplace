@@ -32,11 +32,12 @@ namespace Fireplace.ViewingFolder.PageFolder
             {
                 DataContext = userTable;
                 dataUserTable = userTable;
-                AddEditUserDataButton.Content = "Сохранить изменения";
+                TextAddEditUserDataButtonTextBlock.Text = "Сохранить изменения";
+                PasswordStackPanel.Visibility = Visibility.Collapsed;
             }
             else
             {
-                AddEditUserDataButton.Content = "Добавить пользователя";
+                TextAddEditUserDataButtonTextBlock.Text = "Добавить пользователя";
             }
         }
         #region _Click
@@ -131,6 +132,8 @@ namespace Fireplace.ViewingFolder.PageFolder
                 }
 
                 // Обновление данных для таблицы пользователя
+                addOrUpdateUserTable.PersonalNumber_User = 
+                    $"{addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser}{addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser}";
                 addOrUpdateUserTable.pnPassportSeries_User = addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
                 addOrUpdateUserTable.pnPassportNumber_User = addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
                 addOrUpdateUserTable.Email_User = EmailTextBox.Text;
@@ -152,11 +155,11 @@ namespace Fireplace.ViewingFolder.PageFolder
                     addOrUpdateUserTable.DateRegistration_User = DateTime.Today;
                 }
 
-                // Сравниваем пароль и сохраняем новый, если он изменился
-                if (HashClass.GetHash(PasswordTextBox.Text) != addOrUpdateUserTable.Password_User)
-                {
-                    addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
-                }
+                ////Сравниваем пароль и сохраняем новый, если он изменился
+                //if (HashClass.GetHash(PasswordTextBox.Text) != addOrUpdateUserTable.Password_User)
+                //{
+                //    addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
+                //}
 
                 // Добавляем или обновляем данные в базе данных
                 AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(addOrUpdateUserTable);

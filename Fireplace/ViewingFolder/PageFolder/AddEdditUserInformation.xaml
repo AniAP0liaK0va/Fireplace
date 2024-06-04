@@ -161,7 +161,7 @@
                         Width="660"
                         PreviewTextInput="DateValidationTextBox"
                         Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.DateIssue_PasspordDataUser, StringFormat='{}{0:dd⁙MM⁙yyyy}'}"/>
+                        Text="{Binding PasspordDataUserTable.DateIssue_PasspordDataUser, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                 </StackPanel>
                 <StackPanel
                     Orientation="Vertical"
@@ -196,7 +196,7 @@
                         Height="50"
                         Width="660"
                         Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.pnPaul_PasspordDataUser}"/>
+                        Text="{Binding PasspordDataUserTable.PaulTable.Title_Paul}"/>
                 </StackPanel>
                 <StackPanel
                      Orientation="Vertical"
@@ -213,7 +213,7 @@
                         Width="660"
                         PreviewTextInput="DateValidationTextBox"
                         Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd⁙MM⁙yyyy}'}"/>
+                        Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                 </StackPanel>
                 <StackPanel
                     Orientation="Vertical"
@@ -248,6 +248,7 @@
                          Text="{Binding Email_User}"/>
                 </StackPanel>
                 <StackPanel
+                    x:Name="PasswordStackPanel"
                     Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
@@ -255,8 +256,9 @@
                     <TextBlock 
                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
                         Margin="10 0 2 0"
-                        Text="Придумайте пароль:"/>
+                        Text="Проль пользователя:"/>
                     <TextBox
+                        Text=""
                         x:Name="PasswordTextBox"
                         Width="660"
                         Margin="0 2 0 0"/>
@@ -277,15 +279,22 @@
                         Height="50"
                         Width="660"
                         Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.pnPaul_PasspordDataUser}"/>
+                        Text="{Binding RoleUserTable.Name_Role}"/>
                 </StackPanel>
                 <Button
                     Margin="0 20 0 0"
                     Style="{DynamicResource MenuButton}"
-                    VerticalAlignment="Center" HorizontalAlignment="Center"
-                    Width="220"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center"
+                    Width="440"
                     x:Name="AddEditUserDataButton"
-                    Click="AddEditUserDataButton_Click"/>
+                    Click="AddEditUserDataButton_Click">
+                    <TextBlock 
+                        x:Name="TextAddEditUserDataButtonTextBlock"
+                        HorizontalAlignment="Center"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"/>
+                </Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>

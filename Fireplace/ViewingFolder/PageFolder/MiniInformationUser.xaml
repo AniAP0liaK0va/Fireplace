@@ -74,7 +74,7 @@
             <TextBlock 
                 Style="{DynamicResource OverTextBoxTextBlockStyle}"
                 Margin="4 0 0 0"
-                Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd⁙MM⁙yyyy}'}"/>
+                Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd/MM/yyyy}'}"/>
         </StackPanel>
         <StackPanel
             Orientation="Horizontal"
