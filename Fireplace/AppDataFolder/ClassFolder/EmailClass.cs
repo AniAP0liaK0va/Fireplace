@@ -62,7 +62,7 @@ namespace Fireplace.AppDataFolder.ClassFolder
                         "<p style=\"color: #e1e3e6; font-size: 40px; padding-top: 15px; padding-left: 50px; font-weight:bold; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);\">Код для сброса пароля: <span style=\"color: #3158ce;\">" + ressetCode_ERCE + "</span></p>\r\n" +
                     "</div>\r\n" +
                     " <p style=\"color: #e1e3e6; font-size: 14px; padding-top: -5px; padding-left: 2px; padding-right: 10px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);\">Наши горячие контакты:</p>\r\n" +
-                    "<p style=\"color: #e1e3e6; font-size: 14px; padding-top: -5px; padding-left: 2px; padding-right: 10px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);\">+8 (916) 389 23 65 </p>\r\n" +
+                    "<p style=\"color: #e1e3e6; font-size: 14px; padding-top: -5px; padding-left: 2px; padding-right: 10px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);\">+7 968 627 33 95</p>\r\n" +
                     "<p style=\"color: #e1e3e6; font-size: 14px; padding-top: -5px; padding-left: 2px; padding-right: 10px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);\">https://t.me/FireplaceProHelp</p>\r\n" +
                     "</div>\r\n" +
                 "</div>";
