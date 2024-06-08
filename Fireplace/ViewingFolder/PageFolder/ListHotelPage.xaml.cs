@@ -1,7 +1,6 @@
 ﻿using Fireplace.AppDataFolder.ClassFolder;
 using Fireplace.AppDataFolder.ModelFolder;
 using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -60,7 +59,12 @@ namespace Fireplace.ViewingFolder.PageFolder
             CityHotelComboBox.Text = null;
         }
         #endregion
-        #region _SelectionChanged
+        #region _SelectionChanged _MouseDoubleClick
+        private void ListHotelListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new InformationHotelPage((HotelTable)ListHotelListView.SelectedItem));
+        }
+
         private void ListHotelListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

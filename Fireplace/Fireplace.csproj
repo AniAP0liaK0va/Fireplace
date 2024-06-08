@@ -134,6 +134,9 @@
     <Compile Include="AppDataFolder\ModelFolder\UserTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDataFolder\UserControlFolder\AvailableRoomsUserControl.xaml.cs">
+      <DependentUpon>AvailableRoomsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppDataFolder\UserControlFolder\HotelUserControl.xaml.cs">
       <DependentUpon>HotelUserControl.xaml</DependentUpon>
     </Compile>
@@ -276,6 +279,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AppDataFolder\StyleFolder\WindowDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppDataFolder\UserControlFolder\AvailableRoomsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

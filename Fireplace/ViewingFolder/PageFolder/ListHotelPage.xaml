@@ -81,6 +81,7 @@
 					Width="440" />
 			</Grid.ColumnDefinitions>
 			<ListView
+				MouseDoubleClick="ListHotelListView_MouseDoubleClick"
 				SelectionChanged="ListHotelListView_SelectionChanged"
 				Background="Transparent"
 				x:Name="ListHotelListView"
