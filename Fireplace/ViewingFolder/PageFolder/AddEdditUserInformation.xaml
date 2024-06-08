@@ -1,301 +1,301 @@
-﻿<Page 
-    x:Class="Fireplace.ViewingFolder.PageFolder.AddEdditUserInformationPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    mc:Ignorable="d" 
-    Style="{StaticResource BodyPageStyle}"
-    Title="Добавление нового пользователя / редактирование информации">
-    <Grid>
-        <ScrollViewer>
-            <StackPanel 
-                Orientation="Vertical"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Margin="20 10 20 120">
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Margin="0 0 0 5">
-                    <Image 
-                        Margin="0 0 0 5"
-                        Height="240"
-                        Width="240"
-                        Stretch="UniformToFill"
-                        Opacity="1"
-                        x:Name="UserPhotoImage" 
-                        Source="{Binding ImageTable.BinaryCode_Image}"/>
-                    <StackPanel
-                        Margin="0 5 0 0"
-                        Orientation="Horizontal"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                        <Button
-                            Click="OpenNewImageButton_Click"
-                            x:Name="OpenNewImageButton"
-                            Style="{DynamicResource MenuButton}"
-                            Width="220"
-                            Content="Открыть"
-                            Margin="0 0 5 0"/>
-                        <Button
-                            Click="DeliteImageButton_Click"
-                            x:Name="DeliteImageButton"
-                            Style="{DynamicResource MenuButton}"
-                            Width="220"
-                            Content="Удалить фото"
-                            Margin="5 0 0 0"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel
-                     Orientation="Vertical"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="0 5 0 5">
-                    <TextBlock 
-                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                         Margin="10 0 2 0"
-                         Text="Серия паспорта:"/>
-                    <TextBox
-                         MaxLength="4"
-                         PreviewTextInput="NumberValidationTextBox"
-                         x:Name="SeriesPasspordUserTextBox"
-                         Width="660"
-                         Margin="0 2 0 0"
-                         Text="{Binding PasspordDataUserTable.PassportSeries_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                     Orientation="Vertical"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="0 5 0 5">
-                    <TextBlock 
-                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                         Margin="10 0 2 0"
-                         Text="Номер паспорта:"/>
-                    <TextBox
-                         PreviewTextInput="NumberValidationTextBox"
-                         MaxLength="6"
-                         x:Name="NumberPasspordUserTextBox"
-                         Width="660"
-                         Margin="0 2 0 0"
-                         Text="{Binding PasspordDataUserTable.PassportNumber_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Фамилия:"/>
-                    <TextBox
-                        MaxLength="50"
-                        x:Name="SurnameUserTextBox"
-                        Width="660"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.Surname_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Имя:"/>
-                    <TextBox
-                        MaxLength="50"
-                        x:Name="NameUserTextBox"
-                        Width="660"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.Name_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Отчество:"/>
-                    <TextBox
-                        MaxLength="50"
-                        x:Name="MiddlenameUserTextBox"
-                        Width="660"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.Middlename_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Паспорт выдан:"/>
-                    <TextBox
-                        MaxLength="100"
-                        x:Name="PassportHasBeenIssuedTextBox"
-                        Width="660"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.PassportHasBeenIssued_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Дата выдачи паспорта:"/>
-                    <TextBox
-                        MaxLength="10"
-                        x:Name="DateIssueTextBox"
-                        Width="660"
-                        PreviewTextInput="DateValidationTextBox"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.DateIssue_PasspordDataUser, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Код подразделения:"/>
-                    <TextBox
-                        MaxLength="7"
-                        x:Name="UnitCodeTextBox"
-                        PreviewTextInput = "DivisionCodeValidationTextBox"
-                        Width="660"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.UnitCode_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Пол по паспорту:"/>
-                    <ComboBox
-                        DisplayMemberPath="Title_Paul"
-                        SelectedValuePath="PersonalNumber_Paul"
-                        x:Name="PaulComboBox"
-                        Height="50"
-                        Width="660"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.PaulTable.Title_Paul}"/>
-                </StackPanel>
-                <StackPanel
-                     Orientation="Vertical"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Дата рождения:"/>
-                    <TextBox
-                        MaxLength="10"
-                        x:Name="DateBirthTextBox"
-                        Width="660"
-                        PreviewTextInput="DateValidationTextBox"
-                        Margin="0 2 0 0"
-                        Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                         Margin="10 0 2 0"
-                         Text="Место рождения:"/>
-                    <TextBox
-                         MaxLength="50"
-                         x:Name="PlaceBirthTextBox"
-                         Width="660"
-                         Margin="0 2 0 0"
-                         Text="{Binding PasspordDataUserTable.PlaceBirth_PasspordDataUser}"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                         Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                         Margin="10 0 2 0"
-                         Text="Email пользователя:"/>
-                    <TextBox
-                         MaxLength="222"
-                         x:Name="EmailTextBox"
-                         Width="660"
-                         Margin="0 2 0 0"
-                         Text="{Binding Email_User}"/>
-                </StackPanel>
-                <StackPanel
-                    x:Name="PasswordStackPanel"
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 5">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Проль пользователя:"/>
-                    <TextBox
-                        Text=""
-                        x:Name="PasswordTextBox"
-                        Width="660"
-                        Margin="0 2 0 0"/>
-                </StackPanel>
-                <StackPanel
-                    Orientation="Vertical"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 5 0 20">
-                    <TextBlock 
-                        Style="{DynamicResource OverTextBoxTextBlockStyle}"
-                        Margin="10 0 2 0"
-                        Text="Пользовательский доступ:"/>
-                    <ComboBox
-                        DisplayMemberPath="Name_Role"
-                        SelectedValuePath="PersonalNumber_Role"
-                        x:Name="RoleComboBox"
-                        Height="50"
-                        Width="660"
-                        Margin="0 2 0 0"
-                        Text="{Binding RoleUserTable.Name_Role}"/>
-                </StackPanel>
-                <Button
-                    Margin="0 20 0 0"
-                    Style="{DynamicResource MenuButton}"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center"
-                    Width="440"
-                    x:Name="AddEditUserDataButton"
-                    Click="AddEditUserDataButton_Click">
-                    <TextBlock 
-                        x:Name="TextAddEditUserDataButtonTextBlock"
-                        HorizontalAlignment="Center"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap"/>
-                </Button>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+﻿<Page
+	x:Class="Fireplace.ViewingFolder.PageFolder.AddEdditUserInformationPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d"
+	Style="{StaticResource BodyPageStyle}"
+	Title="Добавление нового пользователя / редактирование информации">
+	<Grid>
+		<ScrollViewer>
+			<StackPanel
+				Orientation="Vertical"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Margin="20 10 20 120">
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Margin="0 0 0 5">
+					<Image
+						Margin="0 0 0 5"
+						Height="240"
+						Width="240"
+						Stretch="UniformToFill"
+						Opacity="1"
+						x:Name="UserPhotoImage"
+						Source="{Binding ImageTable.BinaryCode_Image}" />
+					<StackPanel
+						Margin="0 5 0 0"
+						Orientation="Horizontal"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center">
+						<Button
+							Click="OpenNewImageButton_Click"
+							x:Name="OpenNewImageButton"
+							Style="{DynamicResource MenuButton}"
+							Width="220"
+							Content="Открыть"
+							Margin="0 0 5 0" />
+						<Button
+							Click="DeliteImageButton_Click"
+							x:Name="DeliteImageButton"
+							Style="{DynamicResource MenuButton}"
+							Width="220"
+							Content="Удалить фото"
+							Margin="5 0 0 0" />
+					</StackPanel>
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Серия паспорта:" />
+					<TextBox
+						MaxLength="4"
+						PreviewTextInput="NumberValidationTextBox"
+						x:Name="SeriesPasspordUserTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.PassportSeries_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Номер паспорта:" />
+					<TextBox
+						PreviewTextInput="NumberValidationTextBox"
+						MaxLength="6"
+						x:Name="NumberPasspordUserTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.PassportNumber_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Фамилия:" />
+					<TextBox
+						MaxLength="50"
+						x:Name="SurnameUserTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.Surname_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Имя:" />
+					<TextBox
+						MaxLength="50"
+						x:Name="NameUserTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.Name_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Отчество:" />
+					<TextBox
+						MaxLength="50"
+						x:Name="MiddlenameUserTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.Middlename_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Паспорт выдан:" />
+					<TextBox
+						MaxLength="100"
+						x:Name="PassportHasBeenIssuedTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.PassportHasBeenIssued_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Дата выдачи паспорта:" />
+					<TextBox
+						MaxLength="10"
+						x:Name="DateIssueTextBox"
+						Width="660"
+						PreviewTextInput="DateValidationTextBox"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.DateIssue_PasspordDataUser, StringFormat='{}{0:dd/MM/yyyy}'}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Код подразделения:" />
+					<TextBox
+						MaxLength="7"
+						x:Name="UnitCodeTextBox"
+						PreviewTextInput="DivisionCodeValidationTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.UnitCode_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Пол по паспорту:" />
+					<ComboBox
+						DisplayMemberPath="Title_Paul"
+						SelectedValuePath="PersonalNumber_Paul"
+						x:Name="PaulComboBox"
+						Height="50"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.PaulTable.Title_Paul}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Дата рождения:" />
+					<TextBox
+						MaxLength="10"
+						x:Name="DateBirthTextBox"
+						Width="660"
+						PreviewTextInput="DateValidationTextBox"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.DateBirth_PasspordDataUser, StringFormat='{}{0:dd/MM/yyyy}'}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Место рождения:" />
+					<TextBox
+						MaxLength="50"
+						x:Name="PlaceBirthTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding PasspordDataUserTable.PlaceBirth_PasspordDataUser}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Email пользователя:" />
+					<TextBox
+						MaxLength="222"
+						x:Name="EmailTextBox"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding Email_User}" />
+				</StackPanel>
+				<StackPanel
+					x:Name="PasswordStackPanel"
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Проль пользователя:" />
+					<TextBox
+						Text=""
+						x:Name="PasswordTextBox"
+						Width="660"
+						Margin="0 2 0 0" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 20">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Пользовательский доступ:" />
+					<ComboBox
+						DisplayMemberPath="Name_Role"
+						SelectedValuePath="PersonalNumber_Role"
+						x:Name="RoleComboBox"
+						Height="50"
+						Width="660"
+						Margin="0 2 0 0"
+						Text="{Binding RoleUserTable.Name_Role}" />
+				</StackPanel>
+				<Button
+					Margin="0 20 0 0"
+					Style="{DynamicResource MenuButton}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Width="440"
+					x:Name="AddEditUserDataButton"
+					Click="AddEditUserDataButton_Click">
+					<TextBlock
+						x:Name="TextAddEditUserDataButtonTextBlock"
+						HorizontalAlignment="Center"
+						TextAlignment="Center"
+						TextWrapping="Wrap" />
+				</Button>
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
 </Page>

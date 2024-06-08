@@ -1,209 +1,220 @@
-﻿<Page 
-    x:Class="Fireplace.ViewingFolder.PageFolder.ListRoomPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    xmlns:UserControl ="clr-namespace:Fireplace.AppDataFolder.UserControlFolder"
-    mc:Ignorable="d" 
-    Style="{DynamicResource BodyPageStyle}"
-    Title="Список комнат">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="220"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel
-             Orientation="Vertical"
-             VerticalAlignment="Center"
-             HorizontalAlignment="Center"
-             Margin="0 0 0 0"
-             Grid.Row="0">
-            <StackPanel
-                 Margin="0 0 0 5"
-                 Orientation="Vertical"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Center">
-                <TextBlock
-                     Style="{StaticResource OverTextBoxTextBlockStyle}"
-                     Text="Найти"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBox
-                         KeyDown="SearchRoomTextBox_KeyDown"
-                         ToolTip="Поиск"
-                         Margin="0 0 5 0"
-                         Width="770"
-                         x:Name="SearchRoomTextBox"/>
-                    <Button
-                         Click="SearchRoomButton_Click"
-                         ToolTip="Найти"
-                         x:Name="SearchRoomButton"
-                         Style="{DynamicResource SearchButtonStyle}"
-                         Margin="5 0 0 0"/>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel 
-                Margin="0 5 0 5"
-                Orientation="Horizontal" 
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Center">
-                <StackPanel
-                     Margin="0 0 30 0"
-                     Orientation="Vertical"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Center">
-                    <TextBlock
-                         Style="{StaticResource OverTextBoxTextBlockStyle}"
-                         Text="Фильтр по санузлу"/>
-                    <ComboBox
-                         SelectionChanged ="BathroomComboBox_SelectionChanged"
-                         DisplayMemberPath="Title_PresenceBathroomRoom"
-                         SelectedValuePath="PersonalNumber_PresenceBathroomRoom"
-                         ToolTip="Фильтр по санузлу"
-                         Width="300"
-                         Margin="0 0 0 0"
-                         x:Name="BathroomComboBox"/>
-                </StackPanel>
-                <StackPanel
-                     Margin="30 0 30 0"
-                     Orientation="Vertical"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Center">
-                    <TextBlock
-                         Style="{StaticResource OverTextBoxTextBlockStyle}"
-                         Text="Фильтр по классу"/>
-                    <ComboBox
-                         SelectionChanged="ClassRoomComboBox_SelectionChanged"
-                         DisplayMemberPath="Title_ClassRoomHotel"
-                         SelectedValuePath="PersonalNumber_ClassRoomHotel"
-                         ToolTip="Фильтр по классу"
-                         Width="300"
-                         x:Name="ClassRoomComboBox"/>
-                </StackPanel>
-                <StackPanel
-                     Margin="30 0 30 0"
-                     Orientation="Vertical"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Center">
-                    <TextBlock
-                         Style="{StaticResource OverTextBoxTextBlockStyle}"
-                         Text="Фильтр по занятости"/>
-                    <ComboBox
-                         SelectionChanged="BusyRoomComboBox_SelectionChanged"
-                         DisplayMemberPath="Title_Busy"
-                         SelectedValuePath="PersonalNumber_Busy"
-                         ToolTip="Фильтр по занятости"
-                         Width="300"
-                         x:Name="BusyRoomComboBox"/>
-                </StackPanel>
-                <StackPanel
-                     Margin="30 0 0 0"
-                     Orientation="Vertical"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Center">
-                    <TextBlock
-                         Style="{StaticResource OverTextBoxTextBlockStyle}"
-                         Text="Фильтр по скидке"/>
-                    <ComboBox
-                         SelectionChanged="DiscountRoomComboBox_SelectionChanged"
-                         DisplayMemberPath="Title_Discount"
-                         SelectedValuePath="PersonalNumber_Discount"
-                         ToolTip="Фильтр по скидке"
-                         Width="300"
-                         x:Name="DiscountRoomComboBox"/>
-                </StackPanel>
-            </StackPanel>
-            <Button
-                 VerticalAlignment="Bottom"
-                 ToolTip="Очищает как фильтры, так и поиск"
-                 x:Name="ClearSearchButton"
-                 Content="Очистить всё"
-                 Click="ClearSearchButton_Click"
-                 Style="{DynamicResource MenuButton}"
-                 Margin="0 5 0 0"/>
-        </StackPanel>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="440"/>
-            </Grid.ColumnDefinitions>
-            <ListView
-                 SelectionChanged="ListRoomListView_SelectionChanged"
-                 Background="Transparent"
-                 x:Name="ListRoomListView"
-                 Margin="0 10 0 10"
-                 ItemContainerStyle="{StaticResource ListViewItemSelected}">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel
-                             IsItemsHost="True" 
-                             VerticalAlignment="Top"
-                             HorizontalAlignment="Left" 
-                             Background="Transparent"/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <UserControl:RoomUserControl Margin="10"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="80"/>
-                </Grid.RowDefinitions>
-                <Frame
-                     x:Name="MiniInformationRoomFrame"
-                     Grid.Row="1"/>
-                <StackPanel
-                     Grid.Row="0"
-                     Orientation="Horizontal"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Center">
-                    <Button
-                         Width="210"
-                         x:Name="AddRoomButton"
-                         Click="AddRoomButton_Click"
-                         Style="{DynamicResource MenuButton}"
-                         Margin="0 10 5 0"
-                         ToolTip="Добавить новую комнату">
-                        <TextBlock 
-                             HorizontalAlignment="Center"
-                             TextAlignment="Center"
-                             Text="Добавить новую комнату"
-                             TextWrapping="Wrap"/>
-                    </Button>
-                    <Button
-                         Width="210"
-                         x:Name="DeliteRoomButton"
-                         Style="{DynamicResource MenuButton}"
-                         Margin="5 10 0 0"
-                         ToolTip="Удалить выбранную комнату">
-                        <TextBlock 
-                             HorizontalAlignment="Center"
-                             TextAlignment="Center"
-                             Text="Удалить выбранную комнату"
-                             TextWrapping="Wrap"/>
-                    </Button>
-                </StackPanel>
-                <StackPanel
-                     Margin="10 0 10 0"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Center"
-                     Orientation="Horizontal"
-                     Grid.Row="2">
-                    <TextBlock 
-                         Text="ВСЕГО:"
-                         Margin="0 0 5 0"
-                         Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
-                    <TextBlock 
-                         x:Name="TotalRoomTextBlock"
-                         Margin="5 0 0 0"
-                         Style="{DynamicResource UnimportantInformationTextBlockStyle}"/>
-                </StackPanel>
-            </Grid>
-        </Grid>
-    </Grid>
+﻿<Page
+	x:Class="Fireplace.ViewingFolder.PageFolder.ListRoomPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:UserControl="clr-namespace:Fireplace.AppDataFolder.UserControlFolder"
+	mc:Ignorable="d"
+	Style="{DynamicResource BodyPageStyle}"
+	Title="Список комнат">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="220" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Orientation="Vertical"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			Margin="0 0 0 0"
+			Grid.Row="0">
+			<StackPanel
+				Margin="0 0 0 5"
+				Orientation="Vertical"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center">
+				<TextBlock
+					Style="{StaticResource OverTextBoxTextBlockStyle}"
+					Text="Найти" />
+				<StackPanel
+					Orientation="Horizontal">
+					<TextBox
+						KeyDown="SearchRoomTextBox_KeyDown"
+						ToolTip="Поиск"
+						Margin="0 0 5 0"
+						Width="770"
+						x:Name="SearchRoomTextBox" />
+					<Button
+						Click="SearchRoomButton_Click"
+						ToolTip="Найти"
+						x:Name="SearchRoomButton"
+						Style="{DynamicResource SearchButtonStyle}"
+						Margin="5 0 0 0" />
+				</StackPanel>
+			</StackPanel>
+			<StackPanel
+				Margin="0 5 0 5"
+				Orientation="Horizontal"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center">
+				<StackPanel
+					Margin="0 0 30 0"
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+					<TextBlock
+						Style="{StaticResource OverTextBoxTextBlockStyle}"
+						Text="Фильтр по санузлу" />
+					<ComboBox
+						SelectionChanged="BathroomComboBox_SelectionChanged"
+						DisplayMemberPath="Title_PresenceBathroomRoom"
+						SelectedValuePath="PersonalNumber_PresenceBathroomRoom"
+						ToolTip="Фильтр по санузлу"
+						Width="300"
+						Margin="0 0 0 0"
+						x:Name="BathroomComboBox" />
+				</StackPanel>
+				<StackPanel
+					Margin="30 0 30 0"
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+					<TextBlock
+						Style="{StaticResource OverTextBoxTextBlockStyle}"
+						Text="Фильтр по классу" />
+					<ComboBox
+						SelectionChanged="ClassRoomComboBox_SelectionChanged"
+						DisplayMemberPath="Title_ClassRoomHotel"
+						SelectedValuePath="PersonalNumber_ClassRoomHotel"
+						ToolTip="Фильтр по классу"
+						Width="300"
+						x:Name="ClassRoomComboBox" />
+				</StackPanel>
+				<StackPanel
+					Margin="30 0 30 0"
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+					<TextBlock
+						Style="{StaticResource OverTextBoxTextBlockStyle}"
+						Text="Фильтр по занятости" />
+					<ComboBox
+						SelectionChanged="BusyRoomComboBox_SelectionChanged"
+						DisplayMemberPath="Title_Busy"
+						SelectedValuePath="PersonalNumber_Busy"
+						ToolTip="Фильтр по занятости"
+						Width="300"
+						x:Name="BusyRoomComboBox" />
+				</StackPanel>
+				<StackPanel
+					Margin="30 0 0 0"
+					Orientation="Vertical"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+					<TextBlock
+						Style="{StaticResource OverTextBoxTextBlockStyle}"
+						Text="Фильтр по скидке" />
+					<ComboBox
+						SelectionChanged="DiscountRoomComboBox_SelectionChanged"
+						DisplayMemberPath="Title_Discount"
+						SelectedValuePath="PersonalNumber_Discount"
+						ToolTip="Фильтр по скидке"
+						Width="300"
+						x:Name="DiscountRoomComboBox" />
+				</StackPanel>
+			</StackPanel>
+			<Button
+				VerticalAlignment="Bottom"
+				ToolTip="Очищает как фильтры, так и поиск"
+				x:Name="ClearSearchButton"
+				Content="Очистить всё"
+				Click="ClearSearchButton_Click"
+				Style="{DynamicResource MenuButton}"
+				Margin="0 5 0 0" />
+		</StackPanel>
+		<Grid
+			Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="440" />
+			</Grid.ColumnDefinitions>
+			<ListView
+				SelectionChanged="ListRoomListView_SelectionChanged"
+				Background="Transparent"
+				x:Name="ListRoomListView"
+				Margin="0 10 0 10"
+				ItemContainerStyle="{StaticResource ListViewItemSelected}">
+				<ListView.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel
+							IsItemsHost="True"
+							VerticalAlignment="Top"
+							HorizontalAlignment="Left"
+							Background="Transparent" />
+					</ItemsPanelTemplate>
+				</ListView.ItemsPanel>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<UserControl:RoomUserControl
+							Margin="10" />
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<Grid
+				Grid.Column="1">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="80" />
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="80" />
+				</Grid.RowDefinitions>
+				<Frame
+					x:Name="MiniInformationRoomFrame"
+					Grid.Row="1" />
+				<StackPanel
+					Grid.Row="0"
+					Orientation="Horizontal"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+					<Button
+						Width="210"
+						x:Name="AddRoomButton"
+						Click="AddRoomButton_Click"
+						Style="{DynamicResource MenuButton}"
+						Margin="0 10 5 0"
+						ToolTip="Добавить новую комнату">
+						<TextBlock
+							HorizontalAlignment="Center"
+							TextAlignment="Center"
+							Text="Добавить новую комнату"
+							TextWrapping="Wrap" />
+					</Button>
+					<Button
+						Width="210"
+						x:Name="DeliteRoomButton"
+						Style="{DynamicResource MenuButton}"
+						Margin="5 10 0 0"
+						ToolTip="Удалить выбранную комнату">
+						<TextBlock
+							HorizontalAlignment="Center"
+							TextAlignment="Center"
+							Text="Удалить выбранную комнату"
+							TextWrapping="Wrap" />
+					</Button>
+				</StackPanel>
+				<StackPanel
+					Margin="10 0 10 0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Orientation="Horizontal"
+					Grid.Row="2">
+					<TextBlock
+						Text="ВСЕГО:"
+						Margin="0 0 5 0"
+						Style="{DynamicResource UnimportantInformationTextBlockStyle}" />
+					<TextBlock
+						x:Name="TotalRoomTextBlock"
+						Margin="5 0 0 0"
+						Style="{DynamicResource UnimportantInformationTextBlockStyle}" />
+				</StackPanel>
+			</Grid>
+		</Grid>
+	</Grid>
 </Page>

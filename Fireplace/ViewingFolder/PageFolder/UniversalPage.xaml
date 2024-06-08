@@ -1,152 +1,152 @@
-﻿<Page 
-    x:Class="Fireplace.ViewingFolder.PageFolder.UniversalPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    mc:Ignorable="d" 
-    Style="{StaticResource BodyPageStyle}"
-    Title="Универсальный">
-    <Grid>
-        <StackPanel 
-            Orientation="Vertical"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center">
-            <StackPanel
-                Margin="0 0 0 10"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center">
-                <GroupBox 
-                    ToolTip="Обновления"
-                    VerticalAlignment="Top"
-                    Margin="10" 
-                    Header="Обновления">
-                    <StackPanel 
-                        Margin="10"
-                        Orientation="Vertical"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                        <TextBlock 
-                            x:Name="hsfdgkfjs"
-                            Margin="0 5 0 5"
-                            Text="У вас стоит последняя версия обновления V123.333"
-                            Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                        <ProgressBar
-                            Value="0"
-                            x:Name="CheckUppdateProgressBar"
-                            Margin="0 5 0 5"/>
-                        <Button
-                            Click="CheckUppdateButton_Click"
-                            ToolTip="Нажмите, чтоб проверить наличае обновлений"
-                            Style="{DynamicResource MenuButton}"
-                            Content="Проверить наличае обновления"
-                            x:Name="CheckUppdateButton"
-                            Margin="0 5 0 0"/>
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox 
-                    VerticalAlignment="Top"
-                    Margin="10"
-                    Header="Разработчики">
-                    <StackPanel 
-                        Margin="10"
-                        Orientation="Vertical"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                        <StackPanel 
-                            Margin="0 0 0 5" 
-                            Orientation="Horizontal">
-                            <TextBlock 
-                                Margin="0 0 5 0"
-                                Text="Компания разработки:"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                            <TextBlock 
-                                Margin="5 0 0 0"
-                                Text="FireplaceCompany©"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                        </StackPanel>
-                        <StackPanel
-                            Margin="0 5 0 5" 
-                            Orientation="Horizontal">
-                            <TextBlock 
-                                Margin="0 0 5 0"
-                                Text="Ответственный:"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                            <TextBlock 
-                                Margin="5 0 0 0"
-                                Text="Полякова Анна Андреевна"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                        </StackPanel>
-                        <StackPanel 
-                            Margin="0 5 0 5" 
-                            Orientation="Horizontal">
-                            <TextBlock 
-                                Margin="0 0 5 0"
-                                Text="Горячая гиния тех. поддержки:"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                            <TextBlock 
-                                Margin="5 0 0 0"
-                                Text="+79686273395"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                        </StackPanel>
-                        <StackPanel 
-                            Margin="0 5 0 5" 
-                            Orientation="Horizontal">
-                            <TextBlock 
-                                Margin="0 0 5 0"
-                                Text="ИНН:"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                            <TextBlock 
-                                Margin="5 0 0 0"
-                                Text="643829123974"
-                                Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                        </StackPanel>
-                        <TextBlock 
-                            HorizontalAlignment="Center"
-                            Margin="0 10 0 0"
-                            Text="Москва 2024"
-                            Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-                    </StackPanel>
-                </GroupBox>
-            </StackPanel>
-            <GroupBox 
-                ToolTip="Описание"
-                HorizontalAlignment="Center"
-                Margin="10"
-                Header="Описание">
-                <TextBlock 
-                    Width="967"
-                    TextWrapping="Wrap"
-                    HorizontalAlignment="Center"
-                    Margin="10"
-                    Text="Автоматизированная информационная система, разработанная компанией FireplaceCompany©, активно используется для эффективного управления сотрудниками, отелями и номерами в отелях. Система обеспечивает автоматизацию многих процессов, включая бронирование, регистрацию гостей и управление персоналом. Одним из ключевых преимуществ системы является наличие горячей линии поддержки — специального отдела, отвечающего за бесперебойную работу и своевременное решение возникающих вопросов. Горячая линия доступна круглосуточно, что гарантирует оперативную помощь пользователям в любое время. Система также включает интуитивно понятный интерфейс, что позволяет администраторам быстро освоить работу с программой и эффективно использовать её функции. Эта система разработана специально для администраторов, что позволяет им сосредоточиться на улучшении качества обслуживания и повышении удовлетворенности клиентов, минимизируя затраты времени на рутинные задачи. Благодаря гибкости и масштабируемости, система может адаптироваться под нужды различных отелей, от небольших семейных гостиниц до крупных сетевых отелей. Автоматизированная информационная система имеет открытый исходный код (GitHub)"
-                    Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-            </GroupBox>
-            <GroupBox 
-                ToolTip="Поддержка активна, если она изменится, эта информация лтлбразится тут"
-                HorizontalAlignment="Center"
-                Margin="0">
-                <TextBlock 
-                    TextWrapping="Wrap"
-                    HorizontalAlignment="Center"
-                    Margin="0 0 0 0"
-                    Text="Поддержка активна"
-                    Style="{DynamicResource OverTextBoxTextBlockStyle}"/>
-            </GroupBox>
-            <GroupBox 
-                ToolTip="Перейти к открытому исходному коду"
-                HorizontalAlignment="Center"
-                Margin="0 0 0 0">
-                <Button
-                    FontSize="40"
-                    Height="60"
-                    Width="60"
-                    Click="TransitionGitHubButton_Click"
-                    Style="{DynamicResource IconButtonThoStyle}"
-                    Content="&#xf3f6;"
-                    x:Name="TransitionGitHubButton"/>
-            </GroupBox>
-        </StackPanel>
-    </Grid>
+﻿<Page
+	x:Class="Fireplace.ViewingFolder.PageFolder.UniversalPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d"
+	Style="{StaticResource BodyPageStyle}"
+	Title="Универсальный">
+	<Grid>
+		<StackPanel
+			Orientation="Vertical"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center">
+			<StackPanel
+				Margin="0 0 0 10"
+				Orientation="Horizontal"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center">
+				<GroupBox
+					ToolTip="Обновления"
+					VerticalAlignment="Top"
+					Margin="10"
+					Header="Обновления">
+					<StackPanel
+						Margin="10"
+						Orientation="Vertical"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center">
+						<TextBlock
+							x:Name="hsfdgkfjs"
+							Margin="0 5 0 5"
+							Text="У вас стоит последняя версия обновления V123.333"
+							Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+						<ProgressBar
+							Value="0"
+							x:Name="CheckUppdateProgressBar"
+							Margin="0 5 0 5" />
+						<Button
+							Click="CheckUppdateButton_Click"
+							ToolTip="Нажмите, чтоб проверить наличае обновлений"
+							Style="{DynamicResource MenuButton}"
+							Content="Проверить наличае обновления"
+							x:Name="CheckUppdateButton"
+							Margin="0 5 0 0" />
+					</StackPanel>
+				</GroupBox>
+				<GroupBox
+					VerticalAlignment="Top"
+					Margin="10"
+					Header="Разработчики">
+					<StackPanel
+						Margin="10"
+						Orientation="Vertical"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center">
+						<StackPanel
+							Margin="0 0 0 5"
+							Orientation="Horizontal">
+							<TextBlock
+								Margin="0 0 5 0"
+								Text="Компания разработки:"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<TextBlock
+								Margin="5 0 0 0"
+								Text="FireplaceCompany©"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 5 0 5"
+							Orientation="Horizontal">
+							<TextBlock
+								Margin="0 0 5 0"
+								Text="Ответственный:"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<TextBlock
+								Margin="5 0 0 0"
+								Text="Полякова Анна Андреевна"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 5 0 5"
+							Orientation="Horizontal">
+							<TextBlock
+								Margin="0 0 5 0"
+								Text="Горячая гиния тех. поддержки:"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<TextBlock
+								Margin="5 0 0 0"
+								Text="+79686273395"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 5 0 5"
+							Orientation="Horizontal">
+							<TextBlock
+								Margin="0 0 5 0"
+								Text="ИНН:"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<TextBlock
+								Margin="5 0 0 0"
+								Text="643829123974"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+						</StackPanel>
+						<TextBlock
+							HorizontalAlignment="Center"
+							Margin="0 10 0 0"
+							Text="Москва 2024"
+							Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>
+			<GroupBox
+				ToolTip="Описание"
+				HorizontalAlignment="Center"
+				Margin="10"
+				Header="Описание">
+				<TextBlock
+					Width="967"
+					TextWrapping="Wrap"
+					HorizontalAlignment="Center"
+					Margin="10"
+					Text="Автоматизированная информационная система, разработанная компанией FireplaceCompany©, активно используется для эффективного управления сотрудниками, отелями и номерами в отелях. Система обеспечивает автоматизацию многих процессов, включая бронирование, регистрацию гостей и управление персоналом. Одним из ключевых преимуществ системы является наличие горячей линии поддержки — специального отдела, отвечающего за бесперебойную работу и своевременное решение возникающих вопросов. Горячая линия доступна круглосуточно, что гарантирует оперативную помощь пользователям в любое время. Система также включает интуитивно понятный интерфейс, что позволяет администраторам быстро освоить работу с программой и эффективно использовать её функции. Эта система разработана специально для администраторов, что позволяет им сосредоточиться на улучшении качества обслуживания и повышении удовлетворенности клиентов, минимизируя затраты времени на рутинные задачи. Благодаря гибкости и масштабируемости, система может адаптироваться под нужды различных отелей, от небольших семейных гостиниц до крупных сетевых отелей. Автоматизированная информационная система имеет открытый исходный код (GitHub)"
+					Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+			</GroupBox>
+			<GroupBox
+				ToolTip="Поддержка активна, если она изменится, эта информация лтлбразится тут"
+				HorizontalAlignment="Center"
+				Margin="0">
+				<TextBlock
+					TextWrapping="Wrap"
+					HorizontalAlignment="Center"
+					Margin="0 0 0 0"
+					Text="Поддержка активна"
+					Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+			</GroupBox>
+			<GroupBox
+				ToolTip="Перейти к открытому исходному коду"
+				HorizontalAlignment="Center"
+				Margin="0 0 0 0">
+				<Button
+					FontSize="40"
+					Height="60"
+					Width="60"
+					Click="TransitionGitHubButton_Click"
+					Style="{DynamicResource IconButtonThoStyle}"
+					Content="&#xf3f6;"
+					x:Name="TransitionGitHubButton" />
+			</GroupBox>
+		</StackPanel>
+	</Grid>
 </Page>
