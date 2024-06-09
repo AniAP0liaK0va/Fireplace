@@ -1,6 +1,7 @@
 ﻿using Fireplace.AppDataFolder.ClassFolder;
 using Fireplace.AppDataFolder.ModelFolder;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
@@ -21,12 +22,47 @@ namespace Fireplace.ViewingFolder.PageFolder
             Event_SmallCodeUpgrade();
         }
         #region Event_
+        private void Event_FilterUsers()
+        {
+            var filteredUser = AppConnectClass.connectDataBase_ACC.UserTable.AsQueryable();
+            var selectedRoleUser = RoleUserComboBox.SelectedItem as RoleUserTable;
+            var selectedPaulUser = PaulUserComboBox.SelectedItem as PaulTable;
+            var searchText = SearchUserTextBox.Text.ToLower();
+
+            if (RoleUserComboBox.SelectedIndex > 0 && selectedRoleUser != null)
+            {
+                filteredUser = filteredUser.Where(roleUser => 
+                roleUser.RoleUserTable.PersonalNumber_Role == selectedRoleUser.PersonalNumber_Role);
+            }
+
+            if (PaulUserComboBox.SelectedIndex > 0 && selectedPaulUser != null)
+            {
+                filteredUser = filteredUser.Where(paulUser => 
+                paulUser.PasspordDataUserTable.PaulTable.PersonalNumber_Paul == selectedPaulUser.PersonalNumber_Paul);
+            }
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                filteredUser = filteredUser.Where(dataUser =>
+                    dataUser.PasspordDataUserTable.Surname_PasspordDataUser.ToString().ToLower().Contains(searchText) ||
+                    dataUser.PasspordDataUserTable.Name_PasspordDataUser.ToString().ToLower().Contains(searchText) ||
+                    dataUser.PasspordDataUserTable.Middlename_PasspordDataUser.ToString().ToLower().Contains(searchText));
+            }
+
+            ListUserListView.ItemsSource = filteredUser.ToList();
+        }
         private void Event_SmallCodeUpgrade()
         {
             var userInformation = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
 
-            RoleUserComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.RoleUserTable.ToList();
-            PaulUserComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.PaulTable.ToList();
+            var roleUserItems = new List<RoleUserTable> { new RoleUserTable { PersonalNumber_Role = AppConnectClass.PersonalNumberTitleNullDataComboBox, Name_Role = AppConnectClass.TitleNullDataComboBox } };
+            var paulUserItems = new List<PaulTable> { new PaulTable { PersonalNumber_Paul = AppConnectClass.PersonalNumberTitleNullDataComboBox, Title_Paul = AppConnectClass.TitleNullDataComboBox } };
+
+            roleUserItems.AddRange(AppConnectClass.connectDataBase_ACC.RoleUserTable.ToList());
+            paulUserItems.AddRange(AppConnectClass.connectDataBase_ACC.PaulTable.ToList());
+
+            RoleUserComboBox.ItemsSource = roleUserItems;
+            PaulUserComboBox.ItemsSource = paulUserItems;
 
             ListUserListView.ItemsSource = userInformation;
             TotalUserTextBlock.Text = userInformation.Count().ToString();
@@ -48,76 +84,29 @@ namespace Fireplace.ViewingFolder.PageFolder
         private void ClearSearchButton_Click(object sender = null, RoutedEventArgs e = null)
         {
             SearchUserTextBox.Text = null;
-            PaulUserComboBox.Text = null;
-            RoleUserComboBox.Text = null;
+            PaulUserComboBox.SelectedIndex = 0;
+            RoleUserComboBox.SelectedIndex = 0;
 
             ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
         }
-        private void SearchUserButton_Click(object sender = null, RoutedEventArgs e = null)
-        {
-            if (string.IsNullOrWhiteSpace(SearchUserTextBox.Text)) // Если SearchUserTextBox пустой
-            {
-                ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
-            }
-            else // Если же в SearchTextBox есть что-то, то:
-            {
-                var objects = AppConnectClass.connectDataBase_ACC.UserTable.Include(userPasportData => userPasportData.PasspordDataUserTable).ToList();
-
-                var SearchResults = objects.Where(userdata =>
-                    userdata.PasspordDataUserTable.Surname_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                    userdata.PasspordDataUserTable.Name_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                    userdata.PasspordDataUserTable.Middlename_PasspordDataUser.IndexOf(SearchUserTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-
-                ListUserListView.ItemsSource = SearchResults.ToList();
-            }
-        }
         #endregion
-        #region _SelectionChanged
+        #region _SelectionChanged _MouseDoubleClick
         private void ListUserListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dataContextUser = (UserTable)ListUserListView.SelectedItem;
             FrameNavigationClass.miniInformationUserFrame_FNC.Navigate(new MiniInformationUserPage(dataContextUser));
         }
 
-        private void RoleUserComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (RoleUserComboBox.SelectedItem == null)
-            {
-                ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
-            }
-            else
-            {
-                ListUserListView.ItemsSource =
-                    AppConnectClass.connectDataBase_ACC.UserTable.Where(roleUser =>
-                    roleUser.pnRole_User == (int)RoleUserComboBox.SelectedValue).ToList();
-            }
-        }
+        private void RoleUserComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) { Event_FilterUsers(); }
 
-        private void PaulUserComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (PaulUserComboBox.SelectedItem == null)
-            {
-                ListUserListView.ItemsSource = AppConnectClass.connectDataBase_ACC.UserTable.ToList();
-            }
-            else
-            {
-                ListUserListView.ItemsSource =
-                    AppConnectClass.connectDataBase_ACC.UserTable.Where(paulUser =>
-                    paulUser.PasspordDataUserTable.pnPaul_PasspordDataUser == (int)PaulUserComboBox.SelectedValue).ToList();
-            }
-        }
-        #endregion
+        private void PaulUserComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) { Event_FilterUsers(); }
 
-        #region _KeyDown
-        private void SearchUserTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter) { SearchUserButton_Click(); }
-        }
-        #endregion
+        private void SearchUserTextBox_SelectionChanged(object sender, RoutedEventArgs e) { Event_FilterUsers(); }
 
         private void ListUserListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             FrameNavigationClass.bodyFrame_FNC.Navigate(new AddEdditUserInformationPage((UserTable)ListUserListView.SelectedItem));
         }
+        #endregion
     }
 }

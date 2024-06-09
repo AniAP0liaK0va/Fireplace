@@ -1,6 +1,7 @@
 ﻿using Fireplace.AppDataFolder.ClassFolder;
 using Fireplace.AppDataFolder.ModelFolder;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,38 +17,13 @@ namespace Fireplace.ViewingFolder.PageFolder
 
             AppConnectClass.connectDataBase_ACC = new FireplaceEntities();
             ListHotelListView.ItemsSource = AppConnectClass.connectDataBase_ACC.HotelTable.ToList();
-            CityHotelComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.CityTable.ToList();
-            TotalHotelTextBlock.Text = AppConnectClass.connectDataBase_ACC.HotelTable.ToList().Count().ToString();
+            TotalHotelTextBlock.Text = AppConnectClass.connectDataBase_ACC.HotelTable.Count().ToString();
 
+            var cityHotelItems = new List<CityTable> { new CityTable { PersonalNumber_City = AppConnectClass.PersonalNumberTitleNullDataComboBox, Name_City = AppConnectClass.TitleNullDataComboBox } };
+            cityHotelItems.AddRange(AppConnectClass.connectDataBase_ACC.CityTable.ToList());
+            CityHotelComboBox.ItemsSource = cityHotelItems;
         }
-        #region _KeyDown
-        private void SearchHotelTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter) { SearchHotelButton_Click(); }
-        }
-        #endregion
         #region _Click
-        private void SearchHotelButton_Click(object sender = null, RoutedEventArgs e = null)
-        {
-            if (string.IsNullOrWhiteSpace(SearchHotelTextBox.Text))
-            {
-                ListHotelListView.ItemsSource = AppConnectClass.connectDataBase_ACC.HotelTable.ToList();
-            }
-            else
-            {
-                var objects = AppConnectClass.connectDataBase_ACC.HotelTable.ToList();
-
-                var SearchResults = objects.Where(hotelData =>
-                    hotelData.Name_Hotel.IndexOf(SearchHotelTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                    hotelData.StreetLocal_Hotel.IndexOf(SearchHotelTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                    hotelData.HomeLocal_Hotel.ToString().IndexOf(SearchHotelTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                    hotelData.NumberFloors_Hotel.ToString().IndexOf(SearchHotelTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-
-
-                ListHotelListView.ItemsSource = SearchResults.ToList();
-            }
-        }
-
         private void AddHotelButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -70,19 +46,34 @@ namespace Fireplace.ViewingFolder.PageFolder
 
         }
 
-        private void CityHotelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (CityHotelComboBox.SelectedItem == null)
-            {
-                ListHotelListView.ItemsSource = AppConnectClass.connectDataBase_ACC.HotelTable.ToList();
-            }
-            else
-            {
-                ListHotelListView.ItemsSource =
-                    AppConnectClass.connectDataBase_ACC.HotelTable.Where(cityHotelData =>
-                    cityHotelData.CityTable.PersonalNumber_City == (int)CityHotelComboBox.SelectedValue).ToList();
-            }
-        }
+        private void SearchHotelTextBox_SelectionChanged(object sender, RoutedEventArgs e) { FilterHotels(); }
+
+        private void CityHotelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) { FilterHotels(); }
         #endregion
+        private void FilterHotels()
+        {
+            var filteredHotels = AppConnectClass.connectDataBase_ACC.HotelTable.AsQueryable();
+
+            if (CityHotelComboBox.SelectedIndex > 0)
+            {
+                var selectedCityHotel = CityHotelComboBox.SelectedItem as CityTable;
+                if (selectedCityHotel != null)
+                {
+                    filteredHotels = filteredHotels.Where(hotel => hotel.CityTable.PersonalNumber_City == selectedCityHotel.PersonalNumber_City);
+                }
+            }
+
+            var searchText = SearchHotelTextBox.Text.ToLower();
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                filteredHotels = filteredHotels.Where(hotel =>
+                    hotel.Name_Hotel.ToLower().Contains(searchText) ||
+                    hotel.StreetLocal_Hotel.ToLower().Contains(searchText) ||
+                    hotel.HomeLocal_Hotel.ToString().ToLower().Contains(searchText) ||
+                    hotel.NumberFloors_Hotel.ToString().ToLower().Contains(searchText));
+            }
+
+            ListHotelListView.ItemsSource = filteredHotels.ToList();
+        }
     }
 }

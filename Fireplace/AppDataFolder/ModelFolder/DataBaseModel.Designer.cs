@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "D:\PROGRAMMING\ProjectsVisualStudio\RepositoryProjects\Fireplace\Fireplace\AppDataFolder\ModelFolder\DataBaseModel.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\MirDiVich\Source\Repos\AniAP0liaK0va\Fireplace\Fireplace\AppDataFolder\ModelFolder\DataBaseModel.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

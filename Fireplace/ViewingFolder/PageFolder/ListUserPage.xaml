@@ -29,21 +29,12 @@
 				<TextBlock
 					Style="{StaticResource OverTextBoxTextBlockStyle}"
 					Text="Найти" />
-				<StackPanel
-					Orientation="Horizontal">
-					<TextBox
-						KeyDown="SearchUserTextBox_KeyDown"
-						ToolTip="Поиск"
-						Margin="0 0 5 0"
-						Width="440"
-						x:Name="SearchUserTextBox" />
-					<Button
-						Click="SearchUserButton_Click"
-						ToolTip="Найти"
-						x:Name="SearchUserButton"
-						Style="{DynamicResource SearchButtonStyle}"
-						Margin="5 0 0 0" />
-				</StackPanel>
+				<TextBox
+					SelectionChanged="SearchUserTextBox_SelectionChanged"
+					ToolTip="Поиск"
+					Margin="0 0 5 0"
+					Width="440"
+					x:Name="SearchUserTextBox" />
 			</StackPanel>
 			<StackPanel
 				Margin="30 0 30 0"

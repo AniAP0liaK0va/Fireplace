@@ -32,19 +32,12 @@
 						Style="{StaticResource OverTextBoxTextBlockStyle}"
 						Text="Найти" />
 					<TextBox
-						KeyDown="SearchHotelTextBox_KeyDown"
+						SelectionChanged="SearchHotelTextBox_SelectionChanged"
 						ToolTip="Поиск"
 						Margin="0 0 5 0"
 						Width="770"
 						x:Name="SearchHotelTextBox" />
 				</StackPanel>
-				<Button
-					VerticalAlignment="Bottom"
-					Click="SearchHotelButton_Click"
-					ToolTip="Найти"
-					x:Name="SearchHotelButton"
-					Style="{DynamicResource SearchButtonStyle}"
-					Margin="5 0 40 0" />
 				<StackPanel
 					Margin="40 0 0 0"
 					Orientation="Vertical"
@@ -54,7 +47,6 @@
 						Style="{StaticResource OverTextBoxTextBlockStyle}"
 						Text="Фильтр по городу" />
 					<ComboBox
-						IsEditable="True"
 						SelectionChanged="CityHotelComboBox_SelectionChanged"
 						DisplayMemberPath="Name_City"
 						SelectedValuePath="PersonalNumber_City"

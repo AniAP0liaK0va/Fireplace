@@ -137,7 +137,6 @@
 				SelectionChanged="ListRoomListView_SelectionChanged"
 				Background="Transparent"
 				x:Name="ListRoomListView"
-				Margin="0 10 0 10"
 				ItemContainerStyle="{StaticResource ListViewItemSelected}">
 				<ListView.ItemsPanel>
 					<ItemsPanelTemplate>

@@ -13,9 +13,10 @@
 			<ColumnDefinition
 				Width="*" />
 			<ColumnDefinition
-				Width="600" />
+				Width="755" />
 		</Grid.ColumnDefinitions>
 		<GroupBox
+			Margin="0 10 0 10"
 			Header="Список доступных комнат"
 			Grid.Column="1">
 			<ListView
@@ -34,10 +35,173 @@
 				</ListView.ItemsPanel>
 				<ListView.ItemTemplate>
 					<DataTemplate>
-						<UserControl:AvailableRoomsUserControl/>
+						<UserControl:AvailableRoomsUserControl />
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>
 		</GroupBox>
+		<Grid
+			Grid.Column="0">
+			<StackPanel
+				Margin="10"
+				Orientation="Vertical"
+				VerticalAlignment="Stretch"
+				HorizontalAlignment="Left">
+				<GroupBox
+					Width="800"
+					Header="Информация про гостиницу">
+					<StackPanel
+						Orientation="Vertical"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Left"
+						Margin="10">
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<Run
+								Text="Персональный номер:" />
+							<Run
+								Text="{Binding PersonalNumber_Hotel}" /></TextBlock>
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<Run
+								Text="Название:" />
+							<Run
+								Text="{Binding Name_Hotel}" /></TextBlock>
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<Run
+								Text="Кто добавил:" />
+							<Run
+								Text="{Binding UserTable.PasspordDataUserTable.Surname_PasspordDataUser}" />
+							<Run
+								Text="{Binding UserTable.PasspordDataUserTable.Name_PasspordDataUser}" />
+							<Run
+								Text="{Binding UserTable.PasspordDataUserTable.Middlename_PasspordDataUser}" /></TextBlock>
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<Run
+								Text="Город нахождения:" />
+							<Run
+								Text="{Binding CityTable.Name_City}" /></TextBlock>
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<Run
+								Text="Расположен на улице:" />
+							<Run
+								Text="{Binding StreetLocal_Hotel}" /></TextBlock>
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<Run
+								Text="Номер дома:" />
+							<Run
+								Text="{Binding HomeLocal_Hotel}" /></TextBlock>
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<Run
+								Text="Этажность здания:" />
+							<Run
+								Text="{Binding NumberFloors_Hotel}" /></TextBlock>
+						<TextBlock
+							Margin="10 10 0 0"
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<TextBlock
+								Text="Занято комнат:" />
+							<TextBlock
+								x:Name="NumberOfOccupiedRoomsTextBlock" /></TextBlock>
+						<TextBlock
+							Style="{DynamicResource OverTextBoxTextBlockStyle}">
+							<TextBlock
+								Text="Свободно комнат:" />
+							<TextBlock
+								x:Name="NumberOfAvailableRoomsTextBlock" /></TextBlock>
+					</StackPanel>
+				</GroupBox>
+				<GroupBox
+					Header="Фильтр комнат">
+					<StackPanel>
+						<StackPanel
+							ToolTip="Фильр по классу"
+							Margin="0 0 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Text="Фильр по классу"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<ComboBox
+								SelectionChanged="FilterComboBox_SelectionChanged"
+								x:Name="ClassRoomFilterComboBox"
+								DisplayMemberPath="Title_ClassRoomHotel"
+								SelectedValuePath="PersonalNumber_ClassRoomHotel"
+								Width="700" />
+						</StackPanel>
+						<StackPanel
+							ToolTip="Фильр по занятости"
+							Margin="0 0 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Text="Фильр по занятости"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<ComboBox
+								SelectionChanged="FilterComboBox_SelectionChanged"
+								x:Name="BusyRoomFilterComboBox"
+								DisplayMemberPath="Title_Busy"
+								SelectedValuePath="PersonalNumber_Busy"
+								Width="700" />
+						</StackPanel>
+						<StackPanel
+							ToolTip="Фильр по вместимости"
+							Margin="0 0 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Text="Фильр по вместимости"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<ComboBox
+								SelectionChanged="FilterComboBox_SelectionChanged"
+								x:Name="TypeRoomFilterComboBox"
+								DisplayMemberPath="Title_TypeRoom"
+								SelectedValuePath="PersonalNumber_TypeRoom"
+								Width="700" />
+						</StackPanel>
+						<StackPanel
+							ToolTip="Фильр по ванной комнате"
+							Margin="0 0 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Text="Фильр по ванной комнате"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<ComboBox
+								SelectionChanged="FilterComboBox_SelectionChanged"
+								x:Name="PresenceBathroomRoomFilterComboBox"
+								DisplayMemberPath="Title_PresenceBathroomRoom"
+								SelectedValuePath="PersonalNumber_PresenceBathroomRoom"
+								Width="700" />
+						</StackPanel>
+						<StackPanel
+							ToolTip="Фильр по скидке"
+							Margin="0 0 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Text="Фильр по скидке"
+								Style="{DynamicResource OverTextBoxTextBlockStyle}" />
+							<ComboBox
+								SelectionChanged="FilterComboBox_SelectionChanged"
+								x:Name="DiscountFilterComboBox"
+								DisplayMemberPath="Title_Discount"
+								SelectedValuePath="PersonalNumber_Discount"
+								Width="700" />
+						</StackPanel>
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>
+		</Grid>
 	</Grid>
 </Page>

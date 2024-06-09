@@ -5,12 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="ListView">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel"/>
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+      <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel"/>
+      <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="BorderBrush" Value="Transparent"/>
+      <Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
+		<Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling"/>
     </Style>
 
     <Style x:Key="NoSelected" TargetType="ListViewItem">
@@ -49,13 +51,13 @@
                         BorderBrush="Transparent">
                         <Grid>
                             <Border
-                                BorderBrush="#3158ce"
+											BorderBrush="#8ba1e3"
                                 Visibility="Collapsed"
                                 Style="{DynamicResource NeonBorder}"
                                 x:Name="NeonBorder">
                                 <Border.Effect>
-                                    <DropShadowEffect 
-                                        Color="#3158ce" 
+                                    <DropShadowEffect
+													Color="#8ba1e3" 
                                         ShadowDepth="0" 
                                         Direction="0"   
                                         BlurRadius="25"/>
