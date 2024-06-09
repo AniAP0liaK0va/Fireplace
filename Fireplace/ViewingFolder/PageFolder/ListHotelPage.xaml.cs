@@ -59,7 +59,8 @@ namespace Fireplace.ViewingFolder.PageFolder
                 var selectedCityHotel = CityHotelComboBox.SelectedItem as CityTable;
                 if (selectedCityHotel != null)
                 {
-                    filteredHotels = filteredHotels.Where(hotel => hotel.CityTable.PersonalNumber_City == selectedCityHotel.PersonalNumber_City);
+                    filteredHotels = filteredHotels.Where(hotel => 
+                    hotel.pnCityLocal_Hotel == selectedCityHotel.PersonalNumber_City);
                 }
             }
 

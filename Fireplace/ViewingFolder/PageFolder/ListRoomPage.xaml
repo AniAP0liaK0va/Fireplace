@@ -29,21 +29,12 @@
 				<TextBlock
 					Style="{StaticResource OverTextBoxTextBlockStyle}"
 					Text="Найти" />
-				<StackPanel
-					Orientation="Horizontal">
-					<TextBox
-						KeyDown="SearchRoomTextBox_KeyDown"
-						ToolTip="Поиск"
-						Margin="0 0 5 0"
-						Width="770"
-						x:Name="SearchRoomTextBox" />
-					<Button
-						Click="SearchRoomButton_Click"
-						ToolTip="Найти"
-						x:Name="SearchRoomButton"
-						Style="{DynamicResource SearchButtonStyle}"
-						Margin="5 0 0 0" />
-				</StackPanel>
+				<TextBox
+					SelectionChanged="SearchRoomTextBox_SelectionChanged"
+					ToolTip="Поиск"
+					Margin="0 0 5 0"
+					Width="1370"
+					x:Name="SearchRoomTextBox" />
 			</StackPanel>
 			<StackPanel
 				Margin="0 5 0 5"
@@ -59,7 +50,7 @@
 						Style="{StaticResource OverTextBoxTextBlockStyle}"
 						Text="Фильтр по санузлу" />
 					<ComboBox
-						SelectionChanged="BathroomComboBox_SelectionChanged"
+						SelectionChanged="FilterComboBox_SelectionChanged"
 						DisplayMemberPath="Title_PresenceBathroomRoom"
 						SelectedValuePath="PersonalNumber_PresenceBathroomRoom"
 						ToolTip="Фильтр по санузлу"
@@ -76,7 +67,7 @@
 						Style="{StaticResource OverTextBoxTextBlockStyle}"
 						Text="Фильтр по классу" />
 					<ComboBox
-						SelectionChanged="ClassRoomComboBox_SelectionChanged"
+						SelectionChanged="FilterComboBox_SelectionChanged"
 						DisplayMemberPath="Title_ClassRoomHotel"
 						SelectedValuePath="PersonalNumber_ClassRoomHotel"
 						ToolTip="Фильтр по классу"
@@ -92,7 +83,7 @@
 						Style="{StaticResource OverTextBoxTextBlockStyle}"
 						Text="Фильтр по занятости" />
 					<ComboBox
-						SelectionChanged="BusyRoomComboBox_SelectionChanged"
+						SelectionChanged="FilterComboBox_SelectionChanged"
 						DisplayMemberPath="Title_Busy"
 						SelectedValuePath="PersonalNumber_Busy"
 						ToolTip="Фильтр по занятости"
@@ -108,7 +99,7 @@
 						Style="{StaticResource OverTextBoxTextBlockStyle}"
 						Text="Фильтр по скидке" />
 					<ComboBox
-						SelectionChanged="DiscountRoomComboBox_SelectionChanged"
+						SelectionChanged="FilterComboBox_SelectionChanged"
 						DisplayMemberPath="Title_Discount"
 						SelectedValuePath="PersonalNumber_Discount"
 						ToolTip="Фильтр по скидке"
