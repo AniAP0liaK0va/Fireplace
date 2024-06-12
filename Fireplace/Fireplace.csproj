@@ -146,6 +146,9 @@
     <Compile Include="AppDataFolder\UserControlFolder\UserUserControl.xaml.cs">
       <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\AddEdditRoomPage.xaml.cs">
+      <DependentUpon>AddEdditRoomPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\AddEdditUserInformation.xaml.cs">
       <DependentUpon>AddEdditUserInformation.xaml</DependentUpon>
     </Compile>
@@ -295,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AppDataFolder\UserControlFolder\UserUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\AddEdditRoomPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
