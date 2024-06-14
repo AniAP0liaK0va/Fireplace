@@ -7,217 +7,219 @@
 	xmlns:UserControl="clr-namespace:Fireplace.AppDataFolder.UserControlFolder"
 	mc:Ignorable="d"
 	Style="{StaticResource BodyPageStyle}">
-	<Grid>
-		<StackPanel
-			Orientation="Vertical"
-			VerticalAlignment="Top"
-			HorizontalAlignment="Center"
-			Margin="0 50 0 0">
+	<ScrollViewer>
+		<Grid>
 			<StackPanel
-				Orientation="Horizontal"
-				VerticalAlignment="Center"
+				Orientation="Vertical"
+				VerticalAlignment="Top"
 				HorizontalAlignment="Center"
-				Margin="0 0 20 0">
+				Margin="0 50 0 0">
 				<StackPanel
-					Margin="0 0 25 0"
+					Orientation="Horizontal"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Margin="0 0 20 0">
+					<StackPanel
+						Margin="0 0 25 0"
+						Orientation="Vertical"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Left">
+						<StackPanel
+							Margin="0 0 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Номер комнаты:" />
+							<TextBox
+								MaxLength="4"
+								Width="600"
+								x:Name="NumberRoomsTextBox"
+								Text="{Binding NumberRooms_RoomHotel}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Общая площадь:" />
+							<TextBox
+								MaxLength="5"
+								Width="600"
+								x:Name="TotalAreaTextBox"
+								Text="{Binding TotalArea_RoomHotel}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Стоимость:" />
+							<TextBox
+								MaxLength="7"
+								Width="600"
+								x:Name="CostTextBox"
+								Text="{Binding Cost_RoomHotel}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Наличае туалетной комнаты:" />
+							<ComboBox
+								DisplayMemberPath="Title_PresenceBathroomRoom"
+								SelectedValuePath="PersonalNumber_PresenceBathroomRoom"
+								x:Name="PresenceBathroomComboBox"
+								Height="50"
+								Width="600"
+								Text="{Binding PresenceBathroomRoomTable.Title_PresenceBathroomRoom}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Тип комнаты:" />
+							<ComboBox
+								DisplayMemberPath="Title_TypeRoom"
+								SelectedValuePath="PersonalNumber_TypeRoom"
+								x:Name="TypeRoomComboBox"
+								Height="50"
+								Width="600"
+								Text="{Binding TypeRoomTable.Title_TypeRoom}" />
+						</StackPanel>
+					</StackPanel>
+					<StackPanel
+						Margin="25 0 0 0"
+						Orientation="Vertical"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Right">
+						<StackPanel
+							Margin="0 0 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="На каком этаже находится комната:" />
+							<TextBox
+								MaxLength="3"
+								Width="600"
+								x:Name="FloorHottelTextBox"
+								Text="{Binding FloorHottel_RoomsHotel}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Количество помещений в комнате:" />
+							<TextBox
+								MaxLength="2"
+								Width="600"
+								x:Name="NumberRoomTextBox"
+								Text="{Binding NumberRoom_RoomsHottel}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Скидка:" />
+							<ComboBox
+								DisplayMemberPath="Title_Discount"
+								SelectedValuePath="PersonalNumber_Discount"
+								x:Name="DiscountComboBox"
+								Height="50"
+								Width="600"
+								Text="{Binding DiscountRoomTable.Title_Discount}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Класс комнаты:" />
+							<ComboBox
+								DisplayMemberPath="Title_ClassRoomHotel"
+								SelectedValuePath="PersonalNumber_ClassRoomHotel"
+								x:Name="ClassRoomComboBox"
+								Height="50"
+								Width="600"
+								Text="{Binding ClassRoomHotelTable.Title_ClassRoomHotel}" />
+						</StackPanel>
+						<StackPanel
+							Margin="0 10 0 10"
+							Orientation="Vertical"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Style="{DynamicResource OverTextBoxTextBlockStyle}"
+								Text="Комната занята:" />
+							<ComboBox
+								DisplayMemberPath="Title_ClassRoomHotel"
+								SelectedValuePath="PersonalNumber_ClassRoomHotel"
+								x:Name="BusyRoomComboBox"
+								Height="50"
+								Width="600"
+								Text="{Binding BusyRoomTable.Title_Busy}" />
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel
+					Margin="0 10 0 10"
 					Orientation="Vertical"
 					VerticalAlignment="Center"
 					HorizontalAlignment="Left">
-					<StackPanel
-						Margin="0 0 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Номер комнаты:" />
-						<TextBox
-							MaxLength="4"
-							Width="600"
-							x:Name="NumberRoomsTextBox"
-							Text="{Binding NumberRooms_RoomHotel}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Общая площадь:" />
-						<TextBox
-							MaxLength="5"
-							Width="600"
-							x:Name="TotalAreaTextBox"
-							Text="{Binding TotalArea_RoomHotel}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Стоимость:" />
-						<TextBox
-							MaxLength="7"
-							Width="600"
-							x:Name="CostTextBox"
-							Text="{Binding Cost_RoomHotel}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Наличае туалетной комнаты:" />
-						<ComboBox
-							DisplayMemberPath="Title_PresenceBathroomRoom"
-							SelectedValuePath="PersonalNumber_PresenceBathroomRoom"
-							x:Name="PresenceBathroomComboBox"
-							Height="50"
-							Width="600"
-							Text="{Binding PresenceBathroomRoomTable.Title_PresenceBathroomRoom}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Тип комнаты:" />
-						<ComboBox
-							DisplayMemberPath="Title_TypeRoom"
-							SelectedValuePath="PersonalNumber_TypeRoom"
-							x:Name="TypeRoomComboBox"
-							Height="50"
-							Width="600"
-							Text="{Binding TypeRoomTable.Title_TypeRoom}" />
-					</StackPanel>
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Text="В какой гостиннеце распологается:" />
+					<ListView
+						Height="400"
+						Width="1250"
+						SelectionChanged="ListHotelListView_SelectionChanged"
+						Background="Transparent"
+						x:Name="ListHotelListView"
+						ItemContainerStyle="{StaticResource ListViewItemSelected}">
+						<ListView.ItemsPanel>
+							<ItemsPanelTemplate>
+								<WrapPanel
+									IsItemsHost="True"
+									VerticalAlignment="Top"
+									HorizontalAlignment="Left"
+									Background="Transparent" />
+							</ItemsPanelTemplate>
+						</ListView.ItemsPanel>
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<UserControl:HotelUserControl
+									Margin="10" />
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
 				</StackPanel>
-				<StackPanel
-					Margin="25 0 0 0"
-					Orientation="Vertical"
-					VerticalAlignment="Center"
-					HorizontalAlignment="Right">
-					<StackPanel
-						Margin="0 0 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="На каком этаже находится комната:" />
-						<TextBox
-							MaxLength="3"
-							Width="600"
-							x:Name="FloorHottelTextBox"
-							Text="{Binding FloorHottel_RoomsHotel}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Количество помещений в комнате:" />
-						<TextBox
-							MaxLength="2"
-							Width="600"
-							x:Name="NumberRoomTextBox"
-							Text="{Binding NumberRoom_RoomsHottel}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Скидка:" />
-						<ComboBox
-							DisplayMemberPath="Title_Discount"
-							SelectedValuePath="PersonalNumber_Discount"
-							x:Name="DiscountComboBox"
-							Height="50"
-							Width="600"
-							Text="{Binding DiscountRoomTable.Title_Discount}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Класс комнаты:" />
-						<ComboBox
-							DisplayMemberPath="Title_ClassRoomHotel"
-							SelectedValuePath="PersonalNumber_ClassRoomHotel"
-							x:Name="ClassRoomComboBox"
-							Height="50"
-							Width="600"
-							Text="{Binding ClassRoomHotelTable.Title_ClassRoomHotel}" />
-					</StackPanel>
-					<StackPanel
-						Margin="0 10 0 10"
-						Orientation="Vertical"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Left">
-						<TextBlock
-							Style="{DynamicResource OverTextBoxTextBlockStyle}"
-							Text="Комната занята:" />
-						<ComboBox
-							DisplayMemberPath="Title_ClassRoomHotel"
-							SelectedValuePath="PersonalNumber_ClassRoomHotel"
-							x:Name="BusyRoomComboBox"
-							Height="50"
-							Width="600"
-							Text="{Binding BusyRoomTable.Title_Busy}" />
-					</StackPanel>
-				</StackPanel>
+				<Button
+					Width="440"
+					x:Name="SaveButton"
+					Margin="0 10 0 60"
+					Style="{DynamicResource MenuButton}" />
 			</StackPanel>
-			<StackPanel
-				Margin="0 10 0 10"
-				Orientation="Vertical"
-				VerticalAlignment="Center"
-				HorizontalAlignment="Left">
-				<TextBlock
-					Style="{DynamicResource OverTextBoxTextBlockStyle}"
-					Text="В какой гостиннеце распологается:" />
-				<ListView
-					Height="400"
-					Width="1250"
-					SelectionChanged="ListHotelListView_SelectionChanged"
-					Background="Transparent"
-					x:Name="ListHotelListView"
-					ItemContainerStyle="{StaticResource ListViewItemSelected}">
-					<ListView.ItemsPanel>
-						<ItemsPanelTemplate>
-							<WrapPanel
-								IsItemsHost="True"
-								VerticalAlignment="Top"
-								HorizontalAlignment="Left"
-								Background="Transparent" />
-						</ItemsPanelTemplate>
-					</ListView.ItemsPanel>
-					<ListView.ItemTemplate>
-						<DataTemplate>
-							<UserControl:HotelUserControl
-								Margin="10" />
-						</DataTemplate>
-					</ListView.ItemTemplate>
-				</ListView>
-			</StackPanel>
-			<Button
-				Width="440"
-				x:Name="SaveButton"
-				Margin="0 10 0 0"
-				Style="{DynamicResource MenuButton}" />
-		</StackPanel>
-	</Grid>
+		</Grid>
+	</ScrollViewer>
 </Page>

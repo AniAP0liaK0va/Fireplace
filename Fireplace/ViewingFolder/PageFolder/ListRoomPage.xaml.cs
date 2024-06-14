@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace Fireplace.ViewingFolder.PageFolder
 {
     public partial class ListRoomPage : Page
     {
+        public RoomsHotelTable dataContextRoomsHotel;
+
         public ListRoomPage()
         {
             InitializeComponent();
@@ -20,7 +21,12 @@ namespace Fireplace.ViewingFolder.PageFolder
             TotalRoomTextBlock.Text = AppConnectClass.connectDataBase_ACC.RoomsHotelTable.ToList().Count().ToString();
         }
 
-        #region _SelectionChanged
+        #region _SelectionChanged _MouseDoubleClick
+        private void ListRoomListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new AddEdditRoomPage(dataContextRoomsHotel));
+        }
+
         private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Event_FilterUsers();
@@ -33,7 +39,7 @@ namespace Fireplace.ViewingFolder.PageFolder
 
         private void ListRoomListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            dataContextRoomsHotel = (RoomsHotelTable)ListRoomListView.SelectedItem;
         }
         #endregion
         #region _Click
@@ -60,10 +66,7 @@ namespace Fireplace.ViewingFolder.PageFolder
                 ListRoomListView.ItemsSource = SearchResults.ToList();
             }
         }
-        private void BathroomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
         private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
         {
             BathroomComboBox.Text = null;
@@ -75,7 +78,7 @@ namespace Fireplace.ViewingFolder.PageFolder
 
         private void AddRoomButton_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameNavigationClass.bodyFrame_FNC.Navigate(new AddEdditRoomPage(null));
         }
         #endregion
         #region Event_

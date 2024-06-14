@@ -20,7 +20,7 @@ namespace Fireplace.ViewingFolder.PageFolder
             InitializeComponent();
             AppConnectClass.connectDataBase_ACC = new FireplaceEntities();
             Event_SettingComboBox();
-            ListHotelListView.ItemsSource = AppConnectClass.connectDataBase_ACC.HotelTable;
+            ListHotelListView.ItemsSource = AppConnectClass.connectDataBase_ACC.HotelTable.ToList();
 
             if (roomsHotelTable != null)
             {
