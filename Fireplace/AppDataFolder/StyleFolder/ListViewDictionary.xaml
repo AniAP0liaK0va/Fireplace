@@ -13,6 +13,7 @@
       <Setter Property="BorderThickness" Value="0"/>
 		<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
 		<Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling"/>
+		<Setter Property="SelectionMode" Value="Single"/>
     </Style>
 
     <Style x:Key="NoSelected" TargetType="ListViewItem">

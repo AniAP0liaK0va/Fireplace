@@ -2,7 +2,6 @@
 using Fireplace.AppDataFolder.ModelFolder;
 using Microsoft.Win32;
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
@@ -132,7 +131,7 @@ namespace Fireplace.ViewingFolder.PageFolder
                 }
 
                 // Обновление данных для таблицы пользователя
-                addOrUpdateUserTable.PersonalNumber_User = 
+                addOrUpdateUserTable.PersonalNumber_User =
                     $"{addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser}{addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser}";
                 addOrUpdateUserTable.pnPassportSeries_User = addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
                 addOrUpdateUserTable.pnPassportNumber_User = addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser;
@@ -192,7 +191,7 @@ namespace Fireplace.ViewingFolder.PageFolder
             if (PassportHasBeenIssuedTextBox.Text.Length <= 7) validationStringDate += "'Кем выдан' должно быть минимум 10 букв\n";
             if (DateIssueTextBox.Text.Length != 10) validationStringDate += "В 'Дате выдачи' дата должны быть нормально указана (00.00.0000)\n";
             if (UnitCodeTextBox.Text.Length != 7) validationStringDate += "В 'Код подразделения' должно быть 6 цифр и 1 символ '-'\n";
-            if (DateBirthTextBox.Text.Length !=10) validationStringDate += "В 'Дата рождения' дата должны быть нормально указана (00.00.0000)\n";
+            if (DateBirthTextBox.Text.Length != 10) validationStringDate += "В 'Дата рождения' дата должны быть нормально указана (00.00.0000)\n";
             if (PlaceBirthTextBox.Text.Length <= 2) validationStringDate += "'Место рождения' не может быть короче 3 букв\n";
         }
         #endregion
