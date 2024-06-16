@@ -6,6 +6,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:UserControl="clr-namespace:Fireplace.AppDataFolder.UserControlFolder"
 	mc:Ignorable="d"
+	KeyUp="KeyboardShortcuts"
 	Style="{StaticResource BodyPageStyle}"
 	Title="Список гостиниц">
 	<Grid>
@@ -92,9 +93,12 @@
 					<ListBox.ContextMenu>
 						<ContextMenu>
 							<MenuItem
-								InputGestureText="F2"
-								Header="Редактировать" />
+								x:Name="ListHotelListViewMenuViewInformationHotelButton"
+								Click="ListHotelListViewMenuViewInformationHotelButton_Click"
+								InputGestureText="F1"
+								Header="Просмотреть полную информацию" />
 							<MenuItem
+								Click="DeliteHotelButton_Click"
 								InputGestureText="Delete"
 								Header="Удалить" />
 						</ContextMenu>
@@ -148,6 +152,7 @@
 							TextWrapping="Wrap" />
 					</Button>
 					<Button
+						Click="DeliteHotelButton_Click"
 						Width="210"
 						x:Name="DeliteHotelButton"
 						Style="{DynamicResource MenuButton}"

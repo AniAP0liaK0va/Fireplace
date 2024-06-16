@@ -15,6 +15,7 @@ namespace Fireplace.ViewingFolder.PageFolder
 {
     public partial class ListHotelPage : Page
     {
+        HotelTable selectionHotelTable;
         private Timer getTimer;
         private double currentRotationAngle = 0;
 
@@ -26,9 +27,23 @@ namespace Fireplace.ViewingFolder.PageFolder
             Event_LoadData();
         }
         #region _Click
+        private void KeyboardShortcuts(object sender, KeyEventArgs e)
+        {
+            if (ListHotelListView.SelectedItem != null)
+            {
+                if (e.Key == Key.F1) { ListHotelListView_MouseDoubleClick(sender, null); }
+                if (e.Key == Key.Delete) { DeliteHotelButton_Click(sender, null); }
+            }
+        }
+
         private void AddHotelButton_Click(object sender, RoutedEventArgs e)
         {
             //TODO: Сделать страницу добавления отелей
+        }
+
+        private void DeliteHotelButton_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: Сделать удаление отеля
         }
 
         private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
@@ -37,6 +52,11 @@ namespace Fireplace.ViewingFolder.PageFolder
             //***
             // ДА да, переоткрытие страницы - это не правильно, но это единственный вариант, так как нет времяни, и нет желания мучеться
             //***
+        }
+
+        private void ListHotelListViewMenuViewInformationHotelButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListHotelListView_MouseDoubleClick(sender, null);
         }
         #endregion
         #region _SelectionChanged _MouseDoubleClick
