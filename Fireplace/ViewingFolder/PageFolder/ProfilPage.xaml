@@ -14,6 +14,26 @@
 			<ColumnDefinition
 				Width="*" />
 		</Grid.ColumnDefinitions>
+		<StackPanel
+			x:Name="LoadintgStackPanel"
+			Visibility="Collapsed"
+			Grid.Column="0"
+			Grid.ColumnSpan="2"
+			Orientation="Horizontal"
+			VerticalAlignment="Bottom"
+			HorizontalAlignment="Center"
+			Margin="0 0 0 10">
+			<TextBlock
+				Text="Мы загружаем профиль, подаждите пожалуйста чучуть"
+				Style="{DynamicResource OverTextBoxTextBlockStyle}"
+				Margin="0 0 5 0" />
+			<TextBlock
+				Style="{DynamicResource OverTextBoxTextBlockStyle}"
+				x:Name="LoadingSpinnerTextBlock"
+				FontFamily="\AppDataFolder\ContentFolder\FontFolder\#Material-Design-Iconic-Font"
+				Text="&#xf3ec;"
+				Margin="5 0 0 0" />
+		</StackPanel>
 		<Image
 			VerticalAlignment="Top"
 			Margin="0 20 0 0"

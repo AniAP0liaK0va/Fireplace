@@ -72,29 +72,50 @@
 				<ColumnDefinition
 					Width="440" />
 			</Grid.ColumnDefinitions>
-			<ListView
-				MouseDoubleClick="ListHotelListView_MouseDoubleClick"
-				SelectionChanged="ListHotelListView_SelectionChanged"
-				Background="Transparent"
-				x:Name="ListHotelListView"
-				Margin="0 10 0 10"
-				ItemContainerStyle="{StaticResource ListViewItemSelected}">
-				<ListView.ItemsPanel>
-					<ItemsPanelTemplate>
-						<WrapPanel
-							IsItemsHost="True"
-							VerticalAlignment="Top"
-							HorizontalAlignment="Left"
-							Background="Transparent" />
-					</ItemsPanelTemplate>
-				</ListView.ItemsPanel>
-				<ListView.ItemTemplate>
-					<DataTemplate>
-						<UserControl:HotelUserControl
-							Margin="10" />
-					</DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>
+			<Grid
+				Margin="0 10 0 10">
+				<TextBlock
+					Visibility="Collapsed"
+					HorizontalAlignment="Center"
+					FontSize="80"
+					Style="{DynamicResource OverTextBoxTextBlockStyle}"
+					x:Name="LoadingSpinnerTextBlock"
+					FontFamily="\AppDataFolder\ContentFolder\FontFolder\#Material-Design-Iconic-Font"
+					Text="&#xf3ec;"
+					Margin="0 0 0 0" />
+				<ListView
+					MouseDoubleClick="ListHotelListView_MouseDoubleClick"
+					SelectionChanged="ListHotelListView_SelectionChanged"
+					Background="Transparent"
+					x:Name="ListHotelListView"
+					ItemContainerStyle="{StaticResource ListViewItemSelected}">
+					<ListBox.ContextMenu>
+						<ContextMenu>
+							<MenuItem
+								InputGestureText="F2"
+								Header="Редактировать" />
+							<MenuItem
+								InputGestureText="Delete"
+								Header="Удалить" />
+						</ContextMenu>
+					</ListBox.ContextMenu>
+					<ListView.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel
+								IsItemsHost="True"
+								VerticalAlignment="Top"
+								HorizontalAlignment="Left"
+								Background="Transparent" />
+						</ItemsPanelTemplate>
+					</ListView.ItemsPanel>
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<UserControl:HotelUserControl
+								Margin="10" />
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</Grid>
 			<Grid
 				Grid.Column="1">
 				<Grid.RowDefinitions>

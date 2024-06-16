@@ -1,85 +1,128 @@
-﻿<ResourceDictionary 
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style TargetType="TextBox">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Foreground" Value="#565470"/>
-        <Setter Property="Background" Value="#b4c2ed"/>
-        <Setter Property="CaretBrush" Value="#142d52"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="15 0 15 0"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border 
-                        x:Name="border"
-                        CornerRadius="7"
-                        Background="{TemplateBinding Background}">
-                        <ScrollViewer 
-                            x:Name="PART_ContentHost"
-                            Focusable="false"
-                            HorizontalScrollBarVisibility="Hidden"
-                            VerticalScrollBarVisibility="Hidden"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsReadOnly" Value="True">
-                            <Setter Property="Background" Value="#8ba1e3"/>
-                            <Setter Property="Cursor" Value="Arrow"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="#565470" />
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation
-                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
-                                            To="#142d52"
-                                            Duration="0:0:0.2"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="Foreground" Value="#142d52"/>
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation 
-                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" 
-                                            To="#3158ce" 
-                                            Duration="0:0:0.2"/>
-                                        <ColorAnimation 
-                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
-                                            To="#b4b8ed" 
-                                            Duration="0:0:0.2"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation 
-                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
-                                            To="#b4c2ed" 
-                                            Duration="0:0:0.2"/>
-                                        <ColorAnimation 
-                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" 
-                                            To="#565470" 
-                                            Duration="0:0:0.2"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		TargetType="TextBox">
+		<Setter
+			Property="FocusVisualStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="Foreground"
+			Value="#565470" />
+		<Setter
+			Property="Background"
+			Value="#b4c2ed" />
+		<Setter
+			Property="CaretBrush"
+			Value="#142d52" />
+		<Setter
+			Property="BorderBrush"
+			Value="Transparent" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="15 0 15 0" />
+		<Setter
+			Property="FontFamily"
+			Value="Consolas" />
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="Height"
+			Value="50" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TextBox}">
+					<Border
+						x:Name="border"
+						CornerRadius="7"
+						Background="{TemplateBinding Background}">
+						<ScrollViewer
+							x:Name="PART_ContentHost"
+							Focusable="false"
+							HorizontalScrollBarVisibility="Hidden"
+							VerticalScrollBarVisibility="Hidden" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsReadOnly"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="#8ba1e3" />
+							<Setter
+								Property="Cursor"
+								Value="Arrow" />
+						</Trigger>
+						<Trigger
+							Property="IsMouseOver"
+							Value="True">
+							<Setter
+								Property="Foreground"
+								Value="#565470" />
+							<Trigger.EnterActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<ColorAnimation
+											Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+											To="#142d52"
+											Duration="0:0:0.2" />
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.EnterActions>
+						</Trigger>
+						<Trigger
+							Property="IsFocused"
+							Value="True">
+							<Setter
+								Property="Foreground"
+								Value="#142d52" />
+							<Trigger.EnterActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<ColorAnimation
+											Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+											To="#3158ce"
+											Duration="0:0:0.2" />
+										<ColorAnimation
+											Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+											To="#b4b8ed"
+											Duration="0:0:0.2" />
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<ColorAnimation
+											Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+											To="#b4c2ed"
+											Duration="0:0:0.2" />
+										<ColorAnimation
+											Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+											To="#565470"
+											Duration="0:0:0.2" />
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.ExitActions>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 </ResourceDictionary>

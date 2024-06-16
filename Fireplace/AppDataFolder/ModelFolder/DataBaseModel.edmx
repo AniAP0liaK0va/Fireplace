@@ -102,7 +102,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_RoomHotel" />
           </Key>
-          <Property Name="PersonalNumber_RoomHotel" Type="int" Nullable="false" />
+          <Property Name="PersonalNumber_RoomHotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NumberRooms_RoomHotel" Type="int" Nullable="false" />
           <Property Name="pnPresenceBathroom_RoomHotel" Type="int" Nullable="false" />
           <Property Name="TotalArea_RoomHotel" Type="int" Nullable="false" />
@@ -180,7 +180,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MTM_HotelTableRoomsHotelTable_RoomsHotelTable1">
+        <Association Name="FK_MTM_HotelTableRoomsHotelTable_RoomsHotelTable">
           <End Role="RoomsHotelTable" Type="Self.RoomsHotelTable" Multiplicity="1" />
           <End Role="MTM_HotelTableRoomsHotelTable" Type="Self.MTM_HotelTableRoomsHotelTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -332,7 +332,7 @@
             <End Role="HotelTable" EntitySet="HotelTable" />
             <End Role="MTM_HotelTableRoomsHotelTable" EntitySet="MTM_HotelTableRoomsHotelTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_MTM_HotelTableRoomsHotelTable_RoomsHotelTable1" Association="Self.FK_MTM_HotelTableRoomsHotelTable_RoomsHotelTable1">
+          <AssociationSet Name="FK_MTM_HotelTableRoomsHotelTable_RoomsHotelTable" Association="Self.FK_MTM_HotelTableRoomsHotelTable_RoomsHotelTable">
             <End Role="RoomsHotelTable" EntitySet="RoomsHotelTable" />
             <End Role="MTM_HotelTableRoomsHotelTable" EntitySet="MTM_HotelTableRoomsHotelTable" />
           </AssociationSet>
@@ -543,7 +543,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_RoomHotel" />
           </Key>
-          <Property Name="PersonalNumber_RoomHotel" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumber_RoomHotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NumberRooms_RoomHotel" Type="Int32" Nullable="false" />
           <Property Name="pnPresenceBathroom_RoomHotel" Type="Int32" Nullable="false" />
           <Property Name="TotalArea_RoomHotel" Type="Int32" Nullable="false" />

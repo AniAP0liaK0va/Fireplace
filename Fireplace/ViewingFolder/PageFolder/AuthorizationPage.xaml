@@ -97,14 +97,14 @@
 					Orientation="Horizontal"
 					VerticalAlignment="Center"
 					HorizontalAlignment="Center">
-					<TextBlock 
+					<TextBlock
 						x:Name="MainTextButtonEnterTextBlock"
-						Text="ВОЙТИ"/>
+						Text="ВОЙТИ" />
 					<TextBlock
 						Margin="0 0 10 0"
 						x:Name="LoadingTextTextBlock"
 						Visibility="Collapsed"
-						Text="Загрузка"/>
+						Text="Загрузка" />
 					<TextBlock
 						Visibility="Collapsed"
 						x:Name="LoadingSpinnerTextBlock"

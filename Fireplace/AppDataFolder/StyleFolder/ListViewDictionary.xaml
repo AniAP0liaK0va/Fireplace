@@ -1,192 +1,329 @@
 ﻿<!--В данном файле находится код для стиля пользовательского элемента управления ListView-->
-
-<ResourceDictionary 
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <Style TargetType="ListView">
-      <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-      <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel"/>
-      <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-      <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="BorderBrush" Value="Transparent"/>
-      <Setter Property="BorderThickness" Value="0"/>
-		<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
-		<Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling"/>
-		<Setter Property="SelectionMode" Value="Single"/>
-    </Style>
-
-    <Style x:Key="NoSelected" TargetType="ListViewItem">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListViewItem">
-                    <Border 
-                        x:Name="border"
-                        CornerRadius="0"
-                        BorderThickness="0" 
-                        Background="Transparent"
-                        BorderBrush="Transparent">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="ListViewItemSelected" TargetType="ListViewItem">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="3.5"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListViewItem">
-                    <Border 
-                        x:Name="border"
-                        CornerRadius="10"
-                        BorderThickness="1" 
-                        Background="Transparent"
-                        BorderBrush="Transparent">
-                        <Grid>
-                            <Border
-											BorderBrush="#8ba1e3"
-                                Visibility="Collapsed"
-                                Style="{DynamicResource NeonBorder}"
-                                x:Name="NeonBorder">
-                                <Border.Effect>
-                                    <DropShadowEffect
-													Color="#8ba1e3" 
-                                        ShadowDepth="0" 
-                                        Direction="0"   
-                                        BlurRadius="25"/>
-                                </Border.Effect>
-                            </Border>
-                            <ContentPresenter/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#8ba1e3"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="#8ba1e3"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="1"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <RadialGradientBrush SpreadMethod="Reflect" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="Absolute">
-                                        <GradientStop Color="#19462AD8" Offset="1"/>
-                                        <GradientStop Color="#196B55E0"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="NeonBorder" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="ListViewItemSelectedMunuList" TargetType="ListViewItem">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="15 3.5 15 3.5"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListViewItem">
-                    <Border 
-                        x:Name="border"
-                        CornerRadius="10"
-                        BorderThickness="1" 
-                        Background="Transparent"
-                        BorderBrush="Transparent">
-                        <Grid>
-                            <Border
-                                BorderBrush="#3158ce"
-                                Visibility="Collapsed"
-                                Style="{DynamicResource NeonBorder}"
-                                x:Name="NeonBorder">
-                                <Border.Effect>
-                                    <DropShadowEffect 
-                                        Color="#3158ce" 
-                                        ShadowDepth="0" 
-                                        Direction="0" 
-                                        BlurRadius="25"/>
-                                </Border.Effect>
-                            </Border>
-                            <ContentPresenter/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#8ba1e3"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="#8ba1e3"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="1"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <RadialGradientBrush SpreadMethod="Reflect" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="Absolute">
-                                        <GradientStop Color="#19462AD8" Offset="1"/>
-                                        <GradientStop Color="#196B55E0"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="NeonBorder" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="MenuCashItemSelected" TargetType="ListViewItem">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Foreground" Value="#9a9a9a"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
-        <Setter Property="FontSize" Value="40"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListViewItem">
-                    <Grid Margin="10 5 10 5">
-                        <Border
-                            Visibility="Collapsed"
-                            BorderThickness="0"
-                            Style="{DynamicResource NeonBorder}"
-                            x:Name="NeonBorder">
-                            <Border.Effect>
-                                <DropShadowEffect 
-                                    Color="#3158ce" 
-                                    ShadowDepth="0" 
-                                    Direction="0" 
-                                    BlurRadius="25"/>
-                            </Border.Effect>
-                        </Border>
-                        <ContentPresenter Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#8ba1e3"/>
-                            <Setter Property="Foreground" Value="#a4a4a4"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="NeonBorder" Property="Background" Value="#3158ce"/>
-                            <Setter TargetName="NeonBorder" Property="Visibility" Value="Visible"/>
-                            <Setter Property="Foreground" Value="#f5f5f5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="ListMenuCashItemSelected" TargetType="ListViewItem" BasedOn="{StaticResource NoSelected}">
-        <Setter Property="Margin" Value="10"/>
-    </Style>
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		TargetType="ListView">
+		<Setter
+			Property="FocusVisualStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="VirtualizingPanel.ScrollUnit"
+			Value="Pixel" />
+		<Setter
+			Property="ScrollViewer.HorizontalScrollBarVisibility"
+			Value="Disabled" />
+		<Setter
+			Property="Background"
+			Value="Transparent" />
+		<Setter
+			Property="BorderBrush"
+			Value="Transparent" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="VirtualizingStackPanel.IsVirtualizing"
+			Value="True" />
+		<Setter
+			Property="VirtualizingStackPanel.VirtualizationMode"
+			Value="Recycling" />
+		<Setter
+			Property="SelectionMode"
+			Value="Single" />
+	</Style>
+	<Style
+		x:Key="NoSelected"
+		TargetType="ListViewItem">
+		<Setter
+			Property="FocusVisualStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="Margin"
+			Value="10" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Left" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="ListViewItem">
+					<Border
+						x:Name="border"
+						CornerRadius="0"
+						BorderThickness="0"
+						Background="Transparent"
+						BorderBrush="Transparent">
+						<ContentPresenter
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ListViewItemSelected"
+		TargetType="ListViewItem">
+		<Setter
+			Property="FocusVisualStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="Margin"
+			Value="3.5" />
+		<Setter
+			Property="Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="ListViewItem">
+					<Border
+						x:Name="border"
+						CornerRadius="10"
+						BorderThickness="1"
+						Background="Transparent"
+						BorderBrush="Transparent">
+						<Grid>
+							<Border
+								BorderBrush="#8ba1e3"
+								Visibility="Collapsed"
+								Style="{DynamicResource NeonBorder}"
+								x:Name="NeonBorder">
+								<Border.Effect>
+									<DropShadowEffect
+										Color="#8ba1e3"
+										ShadowDepth="0"
+										Direction="0"
+										BlurRadius="25" />
+								</Border.Effect>
+							</Border>
+							<ContentPresenter />
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="#8ba1e3" />
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="#8ba1e3" />
+							<Setter
+								TargetName="border"
+								Property="BorderThickness"
+								Value="1" />
+						</Trigger>
+						<Trigger
+							Property="IsSelected"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="Background">
+								<Setter.Value>
+									<RadialGradientBrush
+										SpreadMethod="Reflect"
+										ColorInterpolationMode="SRgbLinearInterpolation"
+										MappingMode="Absolute">
+										<GradientStop
+											Color="#19462AD8"
+											Offset="1" />
+										<GradientStop
+											Color="#196B55E0" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="NeonBorder"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ListViewItemSelectedMunuList"
+		TargetType="ListViewItem">
+		<Setter
+			Property="FocusVisualStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="Margin"
+			Value="15 3.5 15 3.5" />
+		<Setter
+			Property="Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="ListViewItem">
+					<Border
+						x:Name="border"
+						CornerRadius="10"
+						BorderThickness="1"
+						Background="Transparent"
+						BorderBrush="Transparent">
+						<Grid>
+							<Border
+								BorderBrush="#8ba1e3"
+								Visibility="Collapsed"
+								Style="{DynamicResource NeonBorder}"
+								x:Name="NeonBorder">
+								<Border.Effect>
+									<DropShadowEffect
+										Color="#8ba1e3"
+										ShadowDepth="0"
+										Direction="0"
+										BlurRadius="25" />
+								</Border.Effect>
+							</Border>
+							<ContentPresenter />
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="#8ba1e3" />
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="#8ba1e3" />
+							<Setter
+								TargetName="border"
+								Property="BorderThickness"
+								Value="1" />
+						</Trigger>
+						<Trigger
+							Property="IsSelected"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="Background">
+								<Setter.Value>
+									<RadialGradientBrush
+										SpreadMethod="Reflect"
+										ColorInterpolationMode="SRgbLinearInterpolation"
+										MappingMode="Absolute">
+										<GradientStop
+											Color="#19462AD8"
+											Offset="1" />
+										<GradientStop
+											Color="#196B55E0" />
+									</RadialGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="NeonBorder"
+								Property="Visibility"
+								Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="MenuCashItemSelected"
+		TargetType="ListViewItem">
+		<Setter
+			Property="FocusVisualStyle"
+			Value="{x:Null}" />
+		<Setter
+			Property="Cursor"
+			Value="Hand" />
+		<Setter
+			Property="Foreground"
+			Value="#9a9a9a" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="FontFamily"
+			Value="\ContentFolder\FontFolder\#Jura" />
+		<Setter
+			Property="FontSize"
+			Value="40" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="ListViewItem">
+					<Grid
+						Margin="10 5 10 5">
+						<Border
+							Visibility="Collapsed"
+							BorderThickness="0"
+							Style="{DynamicResource NeonBorder}"
+							x:Name="NeonBorder">
+							<Border.Effect>
+								<DropShadowEffect
+									Color="#3158ce"
+									ShadowDepth="0"
+									Direction="0"
+									BlurRadius="25" />
+							</Border.Effect>
+						</Border>
+						<ContentPresenter
+							Margin="10"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsMouseOver"
+							Value="True">
+							<Setter
+								Property="Background"
+								Value="#8ba1e3" />
+							<Setter
+								Property="Foreground"
+								Value="#a4a4a4" />
+						</Trigger>
+						<Trigger
+							Property="IsSelected"
+							Value="True">
+							<Setter
+								TargetName="NeonBorder"
+								Property="Background"
+								Value="#3158ce" />
+							<Setter
+								TargetName="NeonBorder"
+								Property="Visibility"
+								Value="Visible" />
+							<Setter
+								Property="Foreground"
+								Value="#f5f5f5" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ListMenuCashItemSelected"
+		TargetType="ListViewItem"
+		BasedOn="{StaticResource NoSelected}">
+		<Setter
+			Property="Margin"
+			Value="10" />
+	</Style>
 </ResourceDictionary>

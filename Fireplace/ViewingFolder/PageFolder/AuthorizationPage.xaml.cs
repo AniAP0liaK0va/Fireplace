@@ -22,10 +22,10 @@ namespace Fireplace.ViewingFolder.PageFolder
         {
             InitializeComponent();
             AppConnectClass.connectDataBase_ACC = new FireplaceEntities();
-            getTimer = new Timer(UpdateAnimation, null, Timeout.Infinite, 100);
+            getTimer = new Timer(Event_UpdateAnimation, null, Timeout.Infinite, 100);
         }
         #region Event_
-        private void UpdateAnimation(object state)
+        private void Event_UpdateAnimation(object state)
         {
             currentRotationAngle += 10;
 
