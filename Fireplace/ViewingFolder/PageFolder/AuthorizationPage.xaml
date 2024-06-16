@@ -88,11 +88,31 @@
 					Style="{DynamicResource TransparentTextButtonStyle}" />
 			</StackPanel>
 			<Button
-				Click="Event_EnterUser"
+				x:Name="EnterUserButton"
+				Click="Event_StartEnterUser"
 				ToolTip="Нажмите, чтоб авторизоваться в АИС"
 				Margin="0 10 0 0"
-				Content="Войти"
-				Style="{DynamicResource TransparentTextButtonStyle}" />
+				Style="{DynamicResource TransparentTextButtonStyle}">
+				<StackPanel
+					Orientation="Horizontal"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+					<TextBlock 
+						x:Name="MainTextButtonEnterTextBlock"
+						Text="ВОЙТИ"/>
+					<TextBlock
+						Margin="0 0 10 0"
+						x:Name="LoadingTextTextBlock"
+						Visibility="Collapsed"
+						Text="Загрузка"/>
+					<TextBlock
+						Visibility="Collapsed"
+						x:Name="LoadingSpinnerTextBlock"
+						FontFamily="\AppDataFolder\ContentFolder\FontFolder\#Material-Design-Iconic-Font"
+						Text="&#xf3ec;"
+						Margin="5 0 0 0" />
+				</StackPanel>
+			</Button>
 		</StackPanel>
 	</Grid>
 </Page>
