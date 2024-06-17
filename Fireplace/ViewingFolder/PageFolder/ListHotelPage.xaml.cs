@@ -15,7 +15,6 @@ namespace Fireplace.ViewingFolder.PageFolder
 {
     public partial class ListHotelPage : Page
     {
-        HotelTable selectionHotelTable;
         private Timer getTimer;
         private double currentRotationAngle = 0;
 

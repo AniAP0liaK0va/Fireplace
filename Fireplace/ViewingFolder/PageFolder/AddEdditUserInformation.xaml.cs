@@ -37,9 +37,21 @@ namespace Fireplace.ViewingFolder.PageFolder
             else
             {
                 TextAddEditUserDataButtonTextBlock.Text = "Добавить пользователя";
+                VisibilityPasswordStackPanel.Visibility = Visibility.Collapsed;
             }
         }
         #region _Click
+        private void VisibilityPasswordToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (VisibilityPasswordToggleButton.IsChecked == true)
+            {
+                PasswordStackPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PasswordStackPanel.Visibility = Visibility.Collapsed;
+            }
+        }
         private void AddEditUserDataButton_Click(object sender, RoutedEventArgs e)
         {
             Event_AddUppdateInformationUser();
@@ -154,11 +166,12 @@ namespace Fireplace.ViewingFolder.PageFolder
                     addOrUpdateUserTable.DateRegistration_User = DateTime.Today;
                 }
 
-                ////Сравниваем пароль и сохраняем новый, если он изменился
-                //if (HashClass.GetHash(PasswordTextBox.Text) != addOrUpdateUserTable.Password_User)
-                //{
-                //    addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
-                //}
+                //Сравниваем пароль и сохраняем новый, если он изменился
+
+                if (dataUserTable == null || VisibilityPasswordToggleButton.IsChecked == true)
+                {
+                    addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
+                }
 
                 // Добавляем или обновляем данные в базе данных
                 AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(addOrUpdateUserTable);

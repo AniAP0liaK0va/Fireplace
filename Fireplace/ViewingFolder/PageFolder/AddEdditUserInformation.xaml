@@ -264,6 +264,21 @@
 						Margin="0 2 0 0" />
 				</StackPanel>
 				<StackPanel
+					x:Name="VisibilityPasswordStackPanel"
+					Orientation="Horizontal"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Margin="0 5 0 5">
+					<TextBlock
+						Style="{DynamicResource OverTextBoxTextBlockStyle}"
+						Margin="10 0 2 0"
+						Text="Изменить пароль:" />
+					<ToggleButton
+						Click="VisibilityPasswordToggleButton_Click"
+						Style="{DynamicResource LeverToggleButtonStyle}"
+						x:Name="VisibilityPasswordToggleButton" />
+				</StackPanel>
+				<StackPanel
 					Orientation="Vertical"
 					VerticalAlignment="Center"
 					HorizontalAlignment="Left"
