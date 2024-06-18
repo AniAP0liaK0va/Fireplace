@@ -374,6 +374,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <SplashScreen Include="AppDataFolder\ContentFolder\ImageFolder\2000.png" />
     <Content Include="AppDataFolder\ModelFolder\DataBaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
