@@ -258,7 +258,6 @@
 						Margin="10 0 2 0"
 						Text="Проль пользователя:" />
 					<TextBox
-						Text=""
 						x:Name="PasswordTextBox"
 						Width="660"
 						Margin="0 2 0 0" />

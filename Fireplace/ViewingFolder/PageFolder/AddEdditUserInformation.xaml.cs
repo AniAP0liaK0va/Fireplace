@@ -88,9 +88,9 @@ namespace Fireplace.ViewingFolder.PageFolder
             else
             {
                 // Создаем объекты таблиц
-                UserTable addOrUpdateUserTable = new UserTable();
-                PasspordDataUserTable addOrUpdatePassportDataUserTable = new PasspordDataUserTable();
-                ImageTable addOrUpdateImageTable = new ImageTable();
+                var addOrUpdateUserTable = new UserTable();
+                var addOrUpdatePassportDataUserTable = new PasspordDataUserTable();
+                var addOrUpdateImageTable = new ImageTable();
 
                 // Заполняем данные для таблицы паспорта
                 addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser = SeriesPasspordUserTextBox.Text;
@@ -106,31 +106,25 @@ namespace Fireplace.ViewingFolder.PageFolder
                 addOrUpdatePassportDataUserTable.PlaceBirth_PasspordDataUser = PlaceBirthTextBox.Text;
                 AppConnectClass.connectDataBase_ACC.PasspordDataUserTable.AddOrUpdate(addOrUpdatePassportDataUserTable);
 
-                // Проверка наличия фотографии
-                if (string.IsNullOrEmpty(pathImage))
-                {
-                    if (dataUserTable != null && dataUserTable.pnImage_User != null)
-                    {
-                        AppConnectClass.connectDataBase_ACC.ImageTable.Remove(
-                            AppConnectClass.connectDataBase_ACC.ImageTable.Find(dataUserTable.pnImage_User));
-                    }
 
-                    addOrUpdateUserTable.pnImage_User = "0"; // По умолчанию, если фото не выбрано
+                if (dataUserTable == null && pathImage != null)
+                {
+                    addOrUpdateImageTable.PersonalNumber_Inage =
+                        addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
+                    addOrUpdateUserTable.pnImage_User = addOrUpdateImageTable.PersonalNumber_Inage;
                 }
-                else
+                if (dataUserTable == null && pathImage == null)
                 {
-                    // Обновление фотографии, если выбран новый файл
-                    if (dataUserTable == null || pathImage != "")
-                    {
-                        // Создаем новый ID фотографии
-                        addOrUpdateImageTable.PersonalNumber_Inage =
-                            addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
-                    }
-                    else
-                    {
-                        addOrUpdateUserTable.pnImage_User = "0";
-                    }
-
+                    addOrUpdateUserTable.pnImage_User = "0         ";
+                }
+                if (pathImage == null && dataUserTable != null && addOrUpdateUserTable.pnImage_User != "0         ")
+                {
+                    AppConnectClass.connectDataBase_ACC.ImageTable.Remove(
+                            AppConnectClass.connectDataBase_ACC.ImageTable.Find(dataUserTable.pnImage_User));
+                    addOrUpdateUserTable.pnImage_User = "0         ";
+                }
+                if (pathImage != null)
+                {
                     byte[] imageData;
 
                     // Конвертация изображения в байты
@@ -142,6 +136,7 @@ namespace Fireplace.ViewingFolder.PageFolder
                     addOrUpdateImageTable.BinaryCode_Image = imageData;
                 }
 
+
                 // Обновление данных для таблицы пользователя
                 addOrUpdateUserTable.PersonalNumber_User =
                     $"{addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser}{addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser}";
@@ -150,15 +145,15 @@ namespace Fireplace.ViewingFolder.PageFolder
                 addOrUpdateUserTable.Email_User = EmailTextBox.Text;
                 addOrUpdateUserTable.pnRole_User = (RoleComboBox.SelectedItem as RoleUserTable).PersonalNumber_Role;
 
-                // Обновление ID фотографии при изменении данных паспорта
                 if (dataUserTable != null &&
                     (dataUserTable.pnPassportSeries_User != addOrUpdateUserTable.pnPassportSeries_User ||
                     dataUserTable.pnPassportNumber_User != addOrUpdateUserTable.pnPassportNumber_User))
                 {
+                    addOrUpdateImageTable.PersonalNumber_Inage =
+                        addOrUpdatePassportDataUserTable.PassportNumber_PasspordDataUser + addOrUpdatePassportDataUserTable.PassportSeries_PasspordDataUser;
                     addOrUpdateUserTable.pnImage_User = addOrUpdateImageTable.PersonalNumber_Inage;
                 }
 
-                // Если пользователь новый
                 if (dataUserTable == null)
                 {
                     addOrUpdateUserTable.PersonalNumber_User =
@@ -166,18 +161,14 @@ namespace Fireplace.ViewingFolder.PageFolder
                     addOrUpdateUserTable.DateRegistration_User = DateTime.Today;
                 }
 
-                //Сравниваем пароль и сохраняем новый, если он изменился
-
                 if (dataUserTable == null || VisibilityPasswordToggleButton.IsChecked == true)
                 {
                     addOrUpdateUserTable.Password_User = HashClass.GetHash(PasswordTextBox.Text);
                 }
 
-                // Добавляем или обновляем данные в базе данных
                 AppConnectClass.connectDataBase_ACC.UserTable.AddOrUpdate(addOrUpdateUserTable);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
 
-                // Сообщаем об успешном добавлении пользователя
                 MessageBoxClass.GoodMessageBox_MBC(textMessage:
                     $"Пользователь {addOrUpdatePassportDataUserTable.Surname_PasspordDataUser} {addOrUpdatePassportDataUserTable.Name_PasspordDataUser} успешно добавлен");
 
