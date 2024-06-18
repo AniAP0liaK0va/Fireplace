@@ -171,6 +171,7 @@ namespace Fireplace.ViewingFolder.PageFolder
 
                 MessageBoxClass.GoodMessageBox_MBC(textMessage:
                     $"Пользователь {addOrUpdatePassportDataUserTable.Surname_PasspordDataUser} {addOrUpdatePassportDataUserTable.Name_PasspordDataUser} успешно добавлен");
+                FrameNavigationClass.bodyFrame_FNC.Navigate(new ListUserPage());
 
             }
         }
